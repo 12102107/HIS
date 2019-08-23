@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/sm/!svn/ver/194/His_Sm/config/spring/sys
+END
+sysContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/sm/!svn/ver/194/His_Sm/config/spring/sys/sysContext.xml
+END
+redisContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/150/His_Sm/config/spring/sys/redisContext.xml
+END

@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+.anesthesiaMain{
+
+	width:1540px;
+	margin-left:0px;
+	margin-top:5px;
+	margin-right:10px;
+	border:1px solid #dde8f2;
+}
+.anesthesiaFdiv{
+	margin-left:0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+h1{
+
+font-family: "寰蒋闆呴粦";
+color: #178eb9;
+}
+
+.anesthesiaMain hr{
+	display: block;
+height: 0px;
+border: 0;
+border-top: 1px solid #dde8f2;
+
+margin-top:10px;
+margin-bottom:10px;
+padding: 0;
+}
+
+
+.top-left-time{
+	margin-left:0px;
+	width:1538px;
+	border:1px solid #dde8f2;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+}
+
+/* .top-right-region{
+	position: absolute;
+	height: 30px;
+	width: 540px;
+	border: 1px solid #dde8f2;
+	left:1000px;
+	top:75px;
+	line-height: 30px;
+	text-align: center;
+} */
+
+.patient-information{
+	margin:10px;
+}
+
+.center-record{
+	position: absolute;
+	width:1540px;
+	heigth:850px;
+	top:1500px;
+	margin-left:0px;
+	margin-top:5px;
+	margin-right:10px;
+	border:1px solid red;
+}
+
+    .right-button{
+        width: 66px;
+        position: fixed;
+        bottom: 200px;
+        left: 1400px;
+        top: 100px
+    }
+    .right-buttons{
+        width: 80px;
+        height: 35px;
+        line-height: 20px;
+        text-align: center;
+        margin: 20px;
+        border-radius: 10px;
+    }
+   .right-buttons {
+        background-color: #1CAAD1;
+    }
+   .right-buttons:hover {
+        background-color: #3498db;
+    }

@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+
+.container .bigsa{ text-align:left; margin-top:0px;}
+.container .bingrenliebiao{ margin-top:0px;}
+.ys{ border-top:1px solid #eeeeee; color:#178eb9; text-align:center;}
+.bk{ border-bottom:1px solid #eeeeee; text-align:center;}

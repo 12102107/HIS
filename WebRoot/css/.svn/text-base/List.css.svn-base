@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+.small{ width:80px}
+.responsive-table {
+  position: relative;
+  overflow: hidden; }
+.responsive-table .scrollable-area {
+	padding-left:10px;
+    overflow-y: hidden;}
+.responsive-table table td {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden; }
+/*table开始*/
+.table{font-family:"微软雅黑";}
+.icon_modify{ margin-left:5%;}
+.bj_special{ background:#4ddab8}
+
+/*table结束*/
+
+.bj{background:#1caad1; color:#FFFFFF; font-size:14px}
+
+.button_blue_74_33{ background:url(../images/button/button_blue_74_33.png) no-repeat; width:74px; height:33px; text-align:center; line-height:33px; color:#FFFFFF;}/*蓝色 首要 按钮代码*/
+.form-group .button_blue_88_33{ background:url(../images/button/button_blue_88_33.png) no-repeat; width:88px; height:33px; text-align:center; line-height:33px; color:#FFFFFF; display:inline-block; margin-left:8px;}/*蓝色 首要 按钮代码*/
+
+.table_input .form-group input{ border:1px solid #1caad1; height:24px; width:250px; margin-left:12px}
+.table_input .form-group button{ border:none; margin-left:10px}
+
+
+
+
+/*分页*/
+#pageGro{ height:25px; padding-top:30px; margin-bottom:2%; float:right; margin-right:20px;}
+#pageGro div,#pageGro div ul li{ font-size:12px; color:#999; line-height:40px; float:left;}
+#pageGro div ul li{ width:45px; text-align:center; border:1px solid #e0e8eb; cursor:pointer; background:#fafafa;}
+#pageGro div ul li.on{ color:#fff; background:#13a0c8; border:1px solid #3c90d9;}
+#pageGro .pageUp,#pageGro .pageDown{ width:40px; border:1px solid #e0e8eb; cursor:pointer;}
+#pageGro .pageUp{ text-indent:13px; background:url(../images/images/pageUp.png)5px 7px no-repeat;}
+#pageGro .pageDown{ text-indent:15px; background:url(../images/images/pageDown.png)46px 6px no-repeat;}
+
+.header-spcing{ margin-top:30px;}
+.page-header-fixed .page-container{margin-top:32px !important;}
+.page-container .Bread_crumbs{ margin-bottom: 18px !important}
+.No td{ line-height:30px;}
+
+
+/* 分页样式*/
+.pagination{display:inline-block;padding-left:0;margin:20px 0;border-radius:4px}
+.pagination>li{display:inline}
+.pagination>li>a,.pagination>li>span{position:relative;float:left;padding:6px 12px;line-height:1.42857143;text-decoration:none;color:#428bca;background-color:#fff;border:1px solid #ddd;margin-left:-1px}
+.pagination>li:first-child>a,.pagination>li:first-child>span{margin-left:0;border-bottom-left-radius:4px;border-top-left-radius:4px}
+.pagination>li:last-child>a,.pagination>li:last-child>span{border-bottom-right-radius:4px;border-top-right-radius:4px}
+.pagination>li>a:hover,.pagination>li>span:hover,.pagination>li>a:focus,.pagination>li>span:focus{color:#2a6496;background-color:#eee;border-color:#ddd}
+.pagination>.active>a,.pagination>.active>span,.pagination>.active>a:hover,.pagination>.active>span:hover,.pagination>.active>a:focus,.pagination>.active>span:focus{z-index:2;color:#fff;background-color:#1caad1;border-color:#428bca;cursor:default}
+.pagination>.disabled>span,.pagination>.disabled>span:hover,.pagination>.disabled>span:focus,.pagination>.disabled>a,.pagination>.disabled>a:hover,.pagination>.disabled>a:focus{color:#999;background-color:#fff;border-color:#ddd;cursor:not-allowed}
+.pagination-lg>li>a,.pagination-lg>li>span{padding:10px 16px;font-size:18px}
+.pagination-lg>li:first-child>a,.pagination-lg>li:first-child>span{border-bottom-left-radius:6px;border-top-left-radius:6px}
+.pagination-lg>li:last-child>a,.pagination-lg>li:last-child>span{border-bottom-right-radius:6px;border-top-right-radius:6px}
+.pagination-sm>li>a,.pagination-sm>li>span{padding:5px 10px;font-size:12px}
+.pagination-sm>li:first-child>a,.pagination-sm>li:first-child>span{border-bottom-left-radius:3px;border-top-left-radius:3px}
+.pagination-sm>li:last-child>a,.pagination-sm>li:last-child>span{border-bottom-right-radius:3px;border-top-right-radius:3px}
+
+
+.white {
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#ededed) );
+	background: -moz-linear-gradient(top, #fff, #ededed);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+		endColorstr='#ededed' );
+}
+
+.but {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: ;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	padding: .5em .8em .55em;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}

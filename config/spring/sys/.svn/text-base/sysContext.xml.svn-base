@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	     http://www.springframework.org/schema/beans
+	      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+           
+	<!-- 用户Dao -->
+	<bean scope="singleton" class="com.znyy.sys.user.dao.impl.UserDaoImpl" id="userDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 用户Service -->
+	<bean scope="singleton" class="com.znyy.sys.user.service.impl.UserServiceImpl" id="userService">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	<!-- 用户Action -->
+	<bean scope="prototype" class="com.znyy.sys.user.action.UserAction" id="userAction">
+		<property name="functionService" ref="functionService"/>
+		<property name="redisUtil" ref="redisUtil" />
+		<property name="systemService" ref="systemService" />
+	</bean>
+	
+	<!-- 功能模块设置Dao -->
+	<bean scope="singleton" class="com.znyy.sys.function.dao.impl.FunctionDaoImpl" id="functionDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 功能模块Service -->
+	<bean scope="singleton" class="com.znyy.sys.function.service.impl.FunctionServiceImpl" id="functionService">
+		<property name="functionDao" ref="functionDao" />
+		<property name="roleService" ref="roleService" />
+		<property name="redisUtil" ref="redisUtil"/>
+	</bean>
+	
+	<!-- 角色Dao -->
+	<bean scope="singleton" class="com.znyy.sys.role.dao.impl.RoleDaoImpl" id="roleDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 角色Service -->
+	<bean scope="singleton" class="com.znyy.sys.role.service.impl.RoleServiceImpl" id="roleService">
+		<property name="roleDao" ref="roleDao" />
+	</bean>
+	
+    <!-- 权限Dao -->
+	<bean scope="singleton" class="com.znyy.sys.user.dao.impl.PermissionDaoImpl" id="permissionDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 权限Service -->
+	<bean scope="singleton" class="com.znyy.sys.user.service.impl.PermissionServiceImpl" id="permissionService">
+		<property name="permissionDao" ref="permissionDao" />
+		<property name="roleDao" ref="roleDao" />
+	</bean>
+	
+	<!-- 科室Dao -->
+	<bean scope="singleton" class="com.znyy.sys.unit.dao.impl.UnitDaoImpl" id="unitDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 科室Service -->
+	<bean scope="singleton" class="com.znyy.sys.unit.service.impl.UnitServiceImpl"
+		id="unitService">
+		<property name="unitDao" ref="unitDao" />
+	</bean>
+	<!-- 科室Action -->
+	<bean scope="prototype" class="com.znyy.sys.unit.action.UnitAction" id="unitAction">
+		<property name="unitService" ref="unitService" />
+	</bean>
+	
+	<!-- 医院Dao -->
+	<bean scope="singleton" class="com.znyy.sys.hospital.dao.impl.HospitalDaoImpl" id="hospitalDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 医院Service -->
+	<bean scope="singleton" class="com.znyy.sys.hospital.service.impl.HospitalServiceImpl" id="hospitalService">
+		<property name="hospitalDao" ref="hospitalDao" />
+	</bean>
+	
+	<!-- 医院Action -->
+	<bean scope="prototype" class="com.znyy.sys.hospital.action.HospitalAction" id="hospitalAction">
+		<property name="hospitalService" ref="hospitalService" />
+	</bean>
+	
+	<!-- 系统Dao -->
+	<bean scope="singleton" class="com.znyy.sys.system.dao.impl.SystemDaoImpl" id="systemDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 系统Service -->
+	<bean scope="singleton" class="com.znyy.sys.system.service.impl.SystemServiceImpl" id="systemService">
+		<property name="systemDao" ref="systemDao" />
+	</bean>
+	
+	<!-- 系统Action -->
+	<bean scope="prototype" class="com.znyy.sys.system.action.SystemAction" id="systemAction">
+		<property name="systemService" ref="systemService" />
+		<property name="userService" ref="userService" />
+		<property name="redisUtil" ref="redisUtil"></property>
+		<property name="roleService" ref="roleService" />
+	</bean>
+	
+</beans> 

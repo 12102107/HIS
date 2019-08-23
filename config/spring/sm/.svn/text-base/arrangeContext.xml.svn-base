@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	     http://www.springframework.org/schema/beans
+	      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 手术查询Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.ArrangeDaoImpl" id="arrangeDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术查询Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.ArrangeServiceImpl" id="arrangeService">
+		<property name="arrangeDao" ref="arrangeDao" />
+	</bean>
+
+	<!-- 手术查询Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.ArrangeAction" id="arrangeAction">
+		<property name="arrangeService" ref="arrangeService" />
+		<property name="permissionService" ref="permissionService" />
+	</bean>
+	
+	<!-- 术前访视Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.PreVisitDaoImpl" id="preVisitDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 术前访视Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.PreVisitServiceImpl" id="preVisitService">
+		<property name="preVisitDao" ref="preVisitDao" />
+		<property name="queryDao" ref="queryDao" />
+		<property name="writstateDao" ref="writstateDao" />
+	</bean>
+
+	<!-- 术前访视Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.PreVisitAction" id="preVisitAction">
+		<property name="preVisitService" ref="preVisitService" />
+	</bean>
+	
+	<!-- 手术护理Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.OptNurseDaoImpl" id="optNurseDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术护理Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.OptNurseServiceImpl" id="optNurseService">
+		<property name="optNurseDao" ref="optNurseDao" />
+		<property name="queryDao" ref="queryDao" />
+		<property name="writstateDao" ref="writstateDao" />
+	</bean>
+
+	<!-- 手术护理Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.OptNurseAction" id="optNurseAction">
+		<property name="optNurseService" ref="optNurseService" />
+	</bean>
+
+	<!-- 文书状态Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.WritstateDaoImpl" id="writstateDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 手术统计Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.StatisticsDaoImpl" id="statisticsDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术统计Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.StatisticsServiceImpl" id="statisticsService">
+		<property name="statisticsDao" ref="statisticsDao" />
+	</bean>
+
+	<!-- 手术统计Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.StatisticsAction" id="statisticsAction">
+		<property name="statisticsService" ref="statisticsService" />
+	</bean>
+	
+</beans>

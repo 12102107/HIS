@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/sm/!svn/ver/313/His_Sm/src/com/znyy/sm/dao
+END
+AnaesMethodDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/AnaesMethodDao.java
+END
+DeptDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/sm/!svn/ver/284/His_Sm/src/com/znyy/sm/dao/DeptDao.java
+END
+AnesthesiaRecordDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/325/His_Sm/src/com/znyy/sm/dao/AnesthesiaRecordDao.java
+END
+DiagnosedefDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/279/His_Sm/src/com/znyy/sm/dao/DiagnosedefDao.java
+END
+QueryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/QueryDao.java
+END
+WritstateDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sm/!svn/ver/28/His_Sm/src/com/znyy/sm/dao/WritstateDao.java
+END
+AnesthesiaSummaryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/AnesthesiaSummaryDao.java
+END
+IoDefinationDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/IoDefinationDao.java
+END
+SystemConfigDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/SystemConfigDao.java
+END
+HisDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/HisDao.java
+END
+TongJiDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/316/His_Sm/src/com/znyy/sm/dao/TongJiDao.java
+END
+RecoveryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/RecoveryDao.java
+END
+OperationPeopleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sm/!svn/ver/295/His_Sm/src/com/znyy/sm/dao/OperationPeopleDao.java
+END
+MedicalTakeWayDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/MedicalTakeWayDao.java
+END
+NoticeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/256/His_Sm/src/com/znyy/sm/dao/NoticeDao.java
+END
+SysloggerDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/SysloggerDao.java
+END
+WorkStationDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/302/His_Sm/src/com/znyy/sm/dao/WorkStationDao.java
+END
+StatisticsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/sm/!svn/ver/279/His_Sm/src/com/znyy/sm/dao/StatisticsDao.java
+END
+InstrumentDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/sm/!svn/ver/317/His_Sm/src/com/znyy/sm/dao/InstrumentDao.java
+END
+PreVisitDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sm/!svn/ver/253/His_Sm/src/com/znyy/sm/dao/PreVisitDao.java
+END
+OperroomDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/OperroomDao.java
+END
+OptNurseDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sm/!svn/ver/47/His_Sm/src/com/znyy/sm/dao/OptNurseDao.java
+END
+ArrangeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/ArrangeDao.java
+END
+MedicalStandardDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sm/!svn/ver/313/His_Sm/src/com/znyy/sm/dao/MedicalStandardDao.java
+END
+YlwsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/sm/!svn/ver/286/His_Sm/src/com/znyy/sm/dao/YlwsDao.java
+END
+DrugOrGoodsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/DrugOrGoodsDao.java
+END
+RegionDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/279/His_Sm/src/com/znyy/sm/dao/RegionDao.java
+END
+OperdefDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/OperdefDao.java
+END
+MedicineDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/MedicineDao.java
+END
+CheckItemDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/dao/CheckItemDao.java
+END
+RegOptDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/dao/RegOptDao.java
+END

@@ -1,0 +1,754 @@
+.theme-popover {
+    z-index:9999;
+    position:fixed;
+    top:20%;
+    left:10%;
+    width:900px;
+    height:400px;
+    border:solid 5px  #1CAAD1;
+    background-color: #f6f6f6;
+    display:none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.head {
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    border: 0px solid #1CAAD1;
+    font-size: 30px;
+    text-align: left;
+    background-color: #1CAAD1;
+    color: 	#FFFFFF;
+    
+}
+
+.close {
+    float:right;
+    color:red;
+    font-size: 40px;
+}
+.medicineList{
+    position: absolute;
+    width: 245px;
+    height: 280px;
+    border: 0px solid #aaaaaa;
+    left: 1px;
+    overflow :auto
+
+}
+
+.smdName{
+	width: 190px;
+	height: 20px;
+	font-size:12px;
+	text-align:left;
+	border:solid 1px #FFFFFF;
+	
+}
+.smdPinyin{
+	width: 55px;
+	height: 20px;
+	font-size:12px;
+	text-align:left;
+	border:solid 1px #FFFFFF;
+}
+
+
+.medicines{
+    position: absolute;
+    float: left;
+    width: 250px;
+    height: 350px;
+    border: 0px dotted dodgerblue;
+    text-align: center;
+    border-radius: 3px;
+    margin-right: 5%;
+    top: 45px;
+    text-align:center;
+     
+}
+.aMedicineList{
+    position: absolute;
+    left: 250px;
+    width: 550px;
+    height: 340px;
+    border: 0px dotted dodgerblue;
+    border-radius: 3px;
+    font-size: 12px;
+    top: 40px;
+   
+    /*margin-right: 5%;*/
+
+}
+a{
+    text-decoration:none
+}
+.aMedicineList hr{
+    color:red; 
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    /*background-color: #ffffff;*/
+}
+.medicines hr{
+	margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.buttons{
+    position: absolute;
+    float: left;
+    right: 15%;
+    top:5%;
+}
+button{
+    width: 85px;
+    height: 35px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+    border: 0px dotted  #000000;
+}
+button.close1{
+    width: 85px;
+    height: 75px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+    border: 0px dotted  #000000;
+}
+button.close1:hover{
+    background-color: #ff0000;
+}
+button:hover{
+    background-color: darkgreen;
+}
+.buttons ul{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+}
+.buttons li{
+    list-style:none;
+    float:left;
+    margin-top: 50px;
+
+}
+.fonts{
+    margin-left: 5.5%;
+}
+.medicineName ,.medicalTakeWay ,.medicineDose,.medicineConcentration,.medicineSpeed{
+    margin-left: 1%;
+}
+.medicineSpec,.medicineFirm{
+
+}
+th{
+    background-color: #cecece;
+    font-size: 13px;
+}
+.theme-popover-mask {
+	z-index: 9998;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	display:none
+}
+
+.liquidsIn {
+    z-index:9999;
+    position:fixed;
+    top:20%;
+    left:10%;
+    width: 1000px;;
+    height: 500px;;
+    border:solid 5px #1CAAD1;
+    background-color: #f6f6f6;
+    display:none;
+    border-radius: 5px;
+
+}
+.liquidsInTitle{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    border: 0px solid #1CAAD1;
+    font-size: 30px;
+    text-align: left;
+    background-color: #1CAAD1;
+    color: 	#FFFFFF;
+}
+.liquidsInNames{
+    position: absolute;
+    height: 65%;
+    width: 25%;
+    border: 1px solid dodgerblue;
+    left: 1%;
+    top: 12.5%;
+    border-radius: 3px;
+    font-size:13px;
+    background-color: #ededed;
+     
+}
+.liquidsInNamesParent{
+    position: absolute;
+    height: 98%;
+    width: 25%;
+    border: 1px dotted dodgerblue;
+    left: 1%;
+    top: 0.5%;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+.liquidsInNamesChild{
+    position: absolute;
+    height: 98%;
+    width: 72%;
+    border: 1px dotted dodgerblue;
+    right: 1%;
+    top: 0.5%;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    overflow :auto;
+    font-size:85%;
+}
+.liquidsInList{
+    position: absolute;
+    height: 65%;
+    width: 64%;
+    border: 1px solid dodgerblue;
+    left: 26.5%;
+    top: 12.5%;
+    border-radius: 3px;
+    overflow :auto;
+}
+.liquidsInList th{
+    font-size: 15px;
+    color: dodgerblue;
+    border: 0px solid dodgerblue;
+    height: 25px;
+    text-align: center;
+}
+.liquidsInInput{
+    position: absolute;
+    height: 19%;
+    width: 98%;
+    border: 1px solid dodgerblue;
+    left: 1%;
+    top: 79%;
+    text-align: center;
+    line-height: 50%;
+    border-radius: 3px;
+    font-size: 15px;
+}
+.liquidsInInput hr{
+    color:  white;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+.liquidsInInput button{
+    width: 35px;
+    height: 30px;
+    background-color: #1CAAD1;
+    border-radius: 5px;
+    color: brown;
+    text-align: center;
+}
+.liquidsInButtons{
+    position: absolute;
+    height: 65%;
+    width: 11%;
+    border: 0px solid dodgerblue;
+    left: 89.5%;
+    top: 12.5%;
+    text-align: center;
+    border-radius: 3px;
+}
+.liquidsInButtons button{
+    width: 75%;
+    height: 12%;
+    background-color: #1CAAD1;
+    border-radius: 5px;
+    left: 10%;
+}
+.liquidsInButtons  button:hover{
+    background-color: darkgreen;
+}
+.liquidsInButtons button.liquidsInClose:hover{
+    background-color: red;
+}
+.liquidsInButtons button.liquidsInStop:hover {
+    background-color: orange;
+}
+.liquidsInButtons button.liquidsInDelete:hover{
+    background-color: orange;
+}
+
+
+
+.liquidsOut {
+    z-index:9999;
+    position:fixed;
+    top:20%;
+    left:10%;
+    width:900px;
+    height:400px;
+    border:solid 5px #1CAAD1;
+    background-color: #f6f6f6;
+    display:none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.liquidsOutTitle{
+    position: absolute;
+    width:100%;
+    height: 10%;
+    border: 0px solid #000000;
+    font-size: 30px;
+    text-align: left;
+    font-family: "华文楷体";
+    background-color: #1CAAD1;
+    color: 	#FFFFFF;
+}
+.liquidsOutNames{
+    position: absolute;
+    height: 65%;
+    width: 15%;
+    border: 1px solid #1CAAD1;
+    top:12%;
+    left: 1%;
+    border-radius: 3px;
+    overflow :auto
+}
+.liquidsOutsList{
+    position: absolute;
+    height: 65%;
+    width: 70%;
+    border: 1px solid #1CAAD1;
+    top: 12%;
+    left: 17%;
+    border-radius: 3px;
+    overflow :auto;
+}
+.liquidsOutInput{
+    position: absolute;
+    height: 15%;
+    width: 98%;
+    border: 1px solid #1CAAD1;
+    top: 80%;
+    left: 1%;
+    border-radius: 3px;
+    text-align: center;
+
+
+}
+.liquidsOutButtons{
+    position: absolute;
+    height: 65%;
+    width: 11%;
+    border: 0px solid red;
+    top: 12%;
+    left: 88%;
+}
+.liquidsOutButtons button{
+    width: 85px;
+    height: 35px;
+    background-color: #1CAAD1;
+    border-radius: 5px;
+}
+.liquidsOutInput button:hover{
+    background-color: darkgreen;
+}
+.liquidsOutButtons button.liquidsOutClose:hover{
+    background-color: #ff0000;
+}
+.liquidsOutButtons button.liquidsOutDelete:hover{
+    background-color: orange;
+}
+.liquidsOutButtons  button:hover{
+    background-color: darkgreen;
+}
+.liquidsOutsList th{
+    font-size: 15px;
+    color: dodgerblue;
+    border: 0px solid dodgerblue;
+    height: 25px;
+}
+
+
+
+
+  /* 手术事件弹出框 */
+.operationEventPopupDivClass{
+    z-index:9999;
+    position:fixed;
+    height: 400px;
+    width: 300px;
+    background-color:#F0F8FF;
+    border-radius: 5px;
+    border: solid 4px #1CAAD1;
+    top: 20%;
+    left: 25%;
+    display:none;
+}
+.operationEventPopupDivTitleClass{
+    position: absolute;
+    height: 40px;
+    width: 300px;
+    background-color: #1CAAD1;
+}
+.operationEventPopupDivCloseClass{
+    position: absolute;
+    right: 2px;
+    width: 36px;
+    height:36px;
+    top: 2px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 27px;
+    color:#FFFFFF;
+    background-color: #ff5050;
+    border-radius: 5px;
+}
+.operationEventPopupDivCloseClass:hover{
+    color: black;
+}
+.operationEventPopupDivInputClass{
+    position: absolute;
+    height: 355px;
+    width: 300px;
+    top:45px;
+}
+.operationEventPopupDivButton1Class{
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    top: 310px;
+    left: 40px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #1CAAD1;
+}
+.operationEventPopupDivButton2Class{
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    top: 310px;
+    left: 160px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #1CAAD1;
+}
+
+.operationEventPopupDivButton1Class:hover{
+     background-color: darkgreen;
+ }
+.operationEventPopupDivButton2Class:hover{
+    background-color: red;
+}
+.operationEventDeleteButton{
+	position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: left;
+    padding-left:2px;
+    margin-left:2px;
+    color:red;
+    left:310px;
+    line-height: 2px;
+    background-color: #1CAAD1;
+}
+.operationEventDeleteButton:hover{
+	   color:#000000;
+	   background-color: red;
+}
+.operationEventUpdateButton{
+	position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: left;
+    padding-left:2px;
+    margin-left:2px;
+    color:blue;
+    left:337px;
+    line-height: 2px;
+    background-color: #1CAAD1;
+}
+.operationEventUpdateButton:hover{
+	   color:green;
+	   background-color: #FFD700;
+}
+  /* 呼吸事件弹出框 */
+  .respiratoryEventPopupDivClass{
+    z-index:9999;
+    position:fixed;
+    height: 280px;
+    width: 220px;
+    background-color:#F0F8FF;
+    border-radius: 5px;
+    border: solid 4px #1CAAD1;
+    top: 20%;
+    left: 50%;
+    display:none;
+}
+.respiratoryEventPopupDivTitleClass{
+    position: absolute;
+    height: 40px;
+    width: 220px;
+    background-color: #1CAAD1;
+}
+.respiratoryEventPopupDivCloseClass{
+    position: absolute;
+    right: 2px;
+    width: 36px;
+    height:36px;
+    top: 2px;
+    text-align: center;
+    font-size: 40px;
+    line-height: 27px;
+    color:#FFFFFF;
+    background-color: #ff5050;
+    border-radius: 5px;
+}
+.respiratoryEventPopupDivCloseClass:hover{
+    color: black;
+}
+.respiratoryEventPopupDivInputClass{
+    position: absolute;
+    height: 150px;
+    width: 220px;
+    top:45px;
+}
+.respiratoryEventPopupDivButton1Class{
+    position: absolute;
+    width: 80px;
+    height: 35px;
+    top: 180px;
+    left: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #1CAAD1;
+}
+.respiratoryEventPopupDivButton2Class{
+    position: absolute;
+    width: 80px;
+    height: 35px;
+    top: 180px;
+    left: 120px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #1CAAD1;
+}
+
+.respiratoryEventPopupDivButton1Class:hover{
+     background-color: darkgreen;
+ }
+.respiratoryEventPopupDivButton2Class:hover{
+    background-color: red;
+}
+.breathEventDeleteButton{
+	position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    text-align: left;
+    padding-left:2px;
+    margin-left:2px;
+    color:red;
+    left:330px;
+    line-height: 2px;
+    background-color: #1CAAD1;
+}
+.breathEventDeleteButton:hover{
+	   color:#000000;
+	   background-color: red;
+}
+
+
+/*  麻醉人员弹出框*/
+.anesthetistersPopupDivClass{
+	z-index:9999;
+	position: fixed;
+	width: 450px;
+	height: 350px; 
+	top:30%;
+	left: 40%; 
+	background-color: #D3D3D3;
+	border-radius: 3px;
+	border: solid 5px #1CAAD1;
+	display:none;
+}
+.anesthetistersPopupTiTle01{
+	width: 450px;
+	height: 40px; 
+	background-color: #1CAAD1;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+.anesthetistersPopupClose{
+	position: absolute;
+	width: 35px;
+	height: 35px; 
+	top:1px;
+	left: 415px; 
+	background-color: #ff5050;
+	border: solid 1px #1CAAD1;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-size: 40px;
+	text-align:center; 
+	line-height: 33px;
+}
+.anesthetistersPopupClose:hover{
+	color:#000000;
+}
+.anesthetistersPopupLeftDivClass{
+	position: absolute;
+	width: 200px;
+	height: 300px; 
+	top:44px;
+	left: 3px; 
+	background-color: #FFFFFF;
+	border: solid 1px #1CAAD1;
+}
+.anesthetistersPopupRightDivClass{
+	position: absolute;
+	width: 232px;
+	height: 300px; 
+	top:44px;
+	left: 212px; 
+	border: solid 1px #1CAAD1;
+}
+.anesthetistersPopupButton1Class{
+	width: 90px;
+	height: 35px;
+	background-color: #1CAAD1;
+	border-radius: 3px;
+}
+.anesthetistersPopupButton1Class:hover{
+	background-color: darkgreen;
+}
+.anesthetistersPopupButton2Class{
+	width: 90px;
+	height: 35px;
+	background-color: #1CAAD1;
+	border-radius: 3px;
+}
+.anesthetistersPopupButton2Class:hover{
+	background-color: red;
+}
+
+
+ /* 手术人员弹出框 */
+ 
+.operatersPopupDivClass{
+    z-index:9999;
+	position: fixed;
+    width: 450px;
+    height: 350px;
+    top:30%;
+    left: 40%;
+    background-color: #D3D3D3;
+    border-radius: 3px;
+    border: solid 5px #1CAAD1;
+    display:none;
+}
+.operatersPopupTitle01DivClass{
+    width: 450px;
+    height: 40px;
+    background-color: #1CAAD1;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+.operatersPopupCloseDivClass{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top:1px;
+    left: 415px;
+    background-color: #ff5050;
+    border: solid 1px #1CAAD1;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 40px;
+    text-align:center;
+    line-height: 33px;
+}
+.operatersPopupCloseDivClass:hover{
+    color: black;
+}
+.operatersPopupLeftTableDivClass{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    top:44px;
+    left: 3px;
+    background-color: #FFFFFF;
+    border: solid 1px #1CAAD1;
+}
+.operatersPopupRightTableDivClass{
+    position: absolute;
+    width: 232px;
+    height: 300px;
+    top:44px;
+    left: 212px;
+    border: solid 1px #1CAAD1;
+}
+.operatersPopupAddButton01DivClass{
+    width: 90px;
+    height: 35px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+}
+.operatersPopupAddButton01DivClass:hover{
+    background-color: green;
+}
+.operatersPopupAddButton02DivClass{
+    width: 90px;
+    height: 35px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+}
+.operatersPopupAddButton02DivClass:hover{
+    background-color: green;
+}
+.operatersPopupDeleteButtonDivClass{
+    width: 90px;
+    height: 40px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+}
+.operatersPopupDeleteButtonDivClass:hover{
+    background-color: darkorange;
+}
+.operatersPopupCloseButtonDivClass{
+    width: 90px;
+    height: 40px;
+    background-color: #1CAAD1;
+    border-radius: 3px;
+}
+.operatersPopupCloseButtonDivClass:hover{
+    background-color: red;
+}
+
+
+
+
+
+

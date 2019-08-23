@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	     http://www.springframework.org/schema/beans
+	      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 手术查询Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.QueryDaoImpl"
+		id="queryDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术查询Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.QueryServiceImpl"
+		id="queryService">
+		<property name="queryDao" ref="queryDao" />
+		<property name="regOptDao" ref="regOptDao" />
+		<property name="diagnosedefDao" ref="diagnosedefDao" />
+		<property name="deptDao" ref="deptDao" />
+	</bean>
+
+	<!-- 手术查询Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.QueryAction" id="queryAction">
+		<property name="queryService" ref="queryService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	
+	<!-- 麻醉总结Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.AnesthesiaSummaryDaoImpl"
+		id="anesthesiaSummaryDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 麻醉总结Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.AnesthesiaSummaryServiceImpl"
+		id="anesthesiaSummaryService">
+		<property name="anesthesiaSummaryDao" ref="anesthesiaSummaryDao" />
+	</bean>
+
+	<!-- 麻醉总结Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.AnesthesiaSummaryAction" id="anesthesiaSummaryAction">
+		<property name="anesthesiaSummaryService" ref="anesthesiaSummaryService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	
+	<!-- 恢复室记录单Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.RecoveryDaoImpl"
+		id="recoveryDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 恢复室记录单Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.RecoveryServiceImpl"
+		id="recoveryService">
+		<property name="recoveryDao" ref="recoveryDao" />
+	</bean>
+
+	<!-- 恢复室记录单Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.RecoveryAction" id="recoveryAction">
+		<property name="recoveryService" ref="recoveryService" />
+	</bean>
+	
+	
+	<!-- 器械Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.InstrumentDaoImpl"
+		id="instrumentDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 器械Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.InstrumentServiceImpl"
+		id="instrumentService">
+		<property name="instrumentDao" ref="instrumentDao" />
+		<property name="queryDao" ref="queryDao" />
+	</bean>
+
+	<!-- 器械Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.InstrumentAction" id="instrumentAction">
+		<property name="instrumentService" ref="instrumentService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1dtd">
+<struts>
+	<!-- *************************HIS*********************************** -->
+	<package name="his" namespace="/his" extends="struts-default,json-default">
+
+		<!-- 获取HIS列表 -->
+		<action name="getHisList" class="hisAction" method="getHisList">
+			<result name="success">/jsp/sm/hisyy/list.jsp</result>
+
+		</action>
+		<!-- HIS修改 -->
+		<action name="modHisList" class="hisAction" method="modHisList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getHisList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+		<!-- HIS状态修改 -->
+		<action name="modStateList" class="hisAction" method="modStateList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getHisList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+	</package>
+	<package name="zd" namespace="/zd" extends="struts-default,json-default">
+
+		<!-- 获取诊断信息列表 -->
+		<action name="zdList" class="diagnosedefAction" method="getZdList">
+			<result name="success">/jsp/sm/diagnosedef/list.jsp</result>
+		</action>
+
+		<!-- 诊断信息列表修改跳转 -->
+		<action name="modZdListTo" class="diagnosedefAction" method="modZdListTo">
+			<result name="success">/jsp/sm/diagnosedef/modZdList.jsp</result>
+		</action>
+
+		<!-- 诊断信息列表修改数据 -->
+		<action name="modZdList" class="diagnosedefAction" method="modZdList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">zdList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+
+		<!-- 跳转到添加诊断信息列表的页面 -->
+		<action name="addDzGo" class="diagnosedefAction" method="addDzGo">
+			<result name="success">/jsp/sm/diagnosedef/addZd.jsp</result>
+		</action>
+
+		<!-- 添加诊断信息 -->
+		<action name="addZd" class="diagnosedefAction" method="addZd">
+			<result name="success" type="redirectAction">
+				<param name="actionName">zdList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证诊断名称 -->
+		<action name="checkZdName" class="diagnosedefAction" method="getZdByName">
+		</action>
+	</package>
+
+<!-- *************************工作站*********************************** -->
+	<package name="gzz" namespace="/gzz" extends="struts-default,json-default">
+		<!-- 获取工作站列表 -->
+		<action name="wsList" class="workStationAction" method="getWsList">
+			<result name="success">/jsp/sm/workstation/list.jsp</result>
+		</action>
+	
+	<!-- 跳转到添加工作站的页面 -->
+		<action name="addStationGo" class="workStationAction" method="addStationGo">
+			<result name="success">/jsp/sm/workstation/add.jsp</result>
+		</action>
+		<!-- 添加工作站信息 -->
+		<action name="addStation" class="workStationAction" method="addStation">
+			<result name="success" type="redirectAction">
+				<param name="actionName">wsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 获取手术室信息 -->
+		<action name="getRoom" class="workStationAction" method="getRoom">
+		</action>
+		<!-- 查询工作站ID是否存在 -->
+		<action name="checkId" class="workStationAction" method="checkId">
+		</action>
+		
+		<!-- 工作站修改跳转 -->
+		<action name="modWsListTo" class="workStationAction" method="modWsListTo">
+			<result name="success">/jsp/sm/workstation/modWork.jsp</result>
+		</action>
+				<!-- 工作站修改跳转 -->
+		<action name="modStationGo" class="workStationAction" method="modStationGo">
+			<result name="success">/jsp/sm/workstation/modWorkByPort.jsp</result>
+		</action>
+		
+		<!-- 端口配置修改跳转 -->
+		<action name="modPListTo" class="workStationAction" method="modPListTo">
+			<result name="success">/jsp/sm/workstation/addPort.jsp</result>
+		</action>
+		<!-- 跳转到添加端口配置的页面 -->
+		<action name="addPortGo" class="workStationAction" method="addPortGo">
+			<result name="success">/jsp/sm/workstation/addPort.jsp</result>
+		</action>
+		<!-- 获取端口配置列表 -->
+		<action name="portList" class="workStationAction" method="getPortList">
+			<result name="success">/jsp/sm/workstation/portList.jsp</result>
+		</action>
+		<!-- 添加端口配置-->
+		<action name="addPortConfig" class="workStationAction" method="addPortConfig">
+			<result name="success" type="redirectAction">
+				<param name="actionName">portList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		
+	</package>
+
+	<!-- *************************手术名称*********************************** -->
+	<package name="ss" namespace="/ss" extends="struts-default,json-default">
+		<!-- 获取手术名称列表 -->
+		<action name="ssList" class="operdefAction" method="getSsList">
+			<result name="success">/jsp/sm/operdef/list.jsp</result>
+		</action>
+		<!-- 手术列表修改跳转 -->
+		<action name="modSsListTo" class="operdefAction" method="modSsListTo">
+			<result name="success">/jsp/sm/operdef/modSsList.jsp</result>
+		</action>
+		<!-- 手术列表修改数据 -->
+		<action name="modSsList" class="operdefAction" method="modSsList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ssList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 跳转到添加手术信息的页面 -->
+		<action name="addSsGo" class="operdefAction" method="addSsGo">
+			<result name="success">/jsp/sm/operdef/addSs.jsp</result>
+		</action>
+		<!-- 添加手术信息 -->
+		<action name="addSs" class="operdefAction" method="addSs">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ssList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证手术名称 -->
+		<action name="checkSsName" class="operdefAction" method="getSsByName">
+		</action>
+		<!-- ajax验证手术代码 -->
+		<action name="checkSsCode" class="operdefAction" method="getSsByCode">
+		</action>
+	</package>
+
+	<!-- *************************手术人员*********************************** -->
+	<package name="sp" namespace="/sp" extends="struts-default,json-default">
+		<!-- 获取手术人员列表 -->
+		<action name="spList" class="operationPeopleAction" method="getSpList">
+			<result name="success">/jsp/sm/operationpeople/list.jsp</result>
+		</action>
+		<!-- 手术人员修改跳转 -->
+		<action name="modSpListTo" class="operationPeopleAction"
+			method="modSpListTo">
+			<result name="success">/jsp/sm/operationpeople/modSpList.jsp</result>
+		</action>
+		<!-- 手术人员修改数据 -->
+		<action name="modSpList" class="operationPeopleAction" method="modSpList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">spList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 跳转到添加手术人员的页面 -->
+		<action name="addSpGo" class="operationPeopleAction" method="addSpGo">
+			<result name="success">/jsp/sm/operationpeople/addSp.jsp</result>
+		</action>
+		<!-- 添加手术人员 -->
+		<action name="addSp" class="operationPeopleAction" method="addSp">
+			<result name="success" type="redirectAction">
+				<param name="actionName">spList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证手术人员名称 -->
+		<action name="checkSpName" class="operationPeopleAction"
+			method="getSpByName">
+		</action>
+		<!-- ajax验证手术人员代码 -->
+		<action name="checkSpCode" class="operationPeopleAction"
+			method="getSpByCode">
+		</action>
+	</package>
+
+<!-- *************************知识库*********************************** -->
+	<package name="zsk" namespace="/zsk" extends="struts-default,json-default">
+		<!-- 读取本地文档 -->
+		<action name="readFile" class="medicalStandradAction" method="readFile">
+		</action>
+		<!-- 本地文档下载 -->
+		<action name="fileDownload" class="medicalStandradAction" method="fileDownload">
+		</action>
+		<!-- 本地文档上传 -->
+		<action name="fileUpload" class="medicalStandradAction" method="fileUpload">
+		<result name="success" type="redirectAction">
+				<param name="actionName">dkTo.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 获取知识库信息 -->
+		<action name="zskList" class="medicalStandradAction" method="getZskList">
+		</action>
+		<!-- 跳转到知识库 -->
+		<action name="dkTo" class="medicalStandradAction" method="zskListTo">
+		<result name="success">/jsp/sm/know/list.jsp</result>
+		</action>
+		<!-- 获取知识库简介 -->
+		<action name="queryZskSummaryById" class="medicalStandradAction" method="queryZskSummaryById">
+		</action>
+		<!-- 添加类别 -->
+		<action name="addCatalog" class="medicalStandradAction" method="addCatalog">
+			<result name="success" type="redirectAction">
+				<param name="actionName">dkTo.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 删除文档 -->
+		<action name="zskDel" class="medicalStandradAction" method="zskDel">
+			<result name="success" type="redirectAction">
+				<param name="actionName">dkTo.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- *************************麻醉方法*********************************** -->
+	<package name="mzff" namespace="/mzff" extends="struts-default,json-default">
+		<!-- 读取本地文档 -->
+		<action name="abcdef" class="anaesMethodAction" method="abcdef">
+		</action>
+		<!-- 本地文档下载 -->
+		<action name="fileDownload" class="anaesMethodAction" method="DownloadAction">
+		</action>
+		<!-- 本地文档上传 -->
+		<action name="fileUpload" class="anaesMethodAction" method="fileUpload">
+		</action>
+		<!-- 获取麻醉方法信息 -->
+		<action name="mzffList" class="anaesMethodAction" method="getMzffList">
+			<result name="success">/jsp/sm/anaes/list.jsp</result>
+		</action>
+		<!-- 麻醉方法修改跳转 -->
+		<action name="modMzffListTo" class="anaesMethodAction" method="modMzffListTo">
+			<result name="success">/jsp/sm/anaes/modAsList.jsp</result>
+		</action>
+		<!-- 麻醉方法修改数据 -->
+		<action name="modMzffList" class="anaesMethodAction" method="modMzffList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">mzffList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 跳转到添加麻醉方法的页面 -->
+		<action name="addMzffGo" class="anaesMethodAction" method="addMzffGo">
+			<result name="success">/jsp/sm/anaes/addAs.jsp</result>
+		</action>
+		<!-- 添加麻醉方法信息 -->
+		<action name="addMzff" class="anaesMethodAction" method="addMzff">
+			<result name="success" type="redirectAction">
+				<param name="actionName">mzffList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证麻醉方法名称 -->
+		<action name="checkMzffName" class="anaesMethodAction" method="getMzffByName">
+		</action>
+		<!-- ajax验证麻醉方法代码 -->
+		<action name="checkMzffCode" class="anaesMethodAction" method="getMzffByCode">
+		</action>
+
+	</package>
+
+	<!-- *************************手术室*********************************** -->
+	<package name="sss" namespace="/sss" extends="struts-default,json-default">
+		<!-- 获取手术室信息 -->
+		<action name="orList" class="operroomAction" method="getOrList">
+			<result name="success">/jsp/sm/operroom/list.jsp</result>
+		</action>
+		<!-- 跳转到添加手术室的页面 -->
+		<action name="addOrGo" class="operroomAction" method="addOrGo">
+			<result name="success">/jsp/sm/operroom/addOr.jsp</result>
+		</action>
+		<!-- 添加手术室信息 -->
+		<action name="addOr" class="operroomAction" method="addOr">
+			<result name="success" type="redirectAction">
+				<param name="actionName">orList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 手术室修改跳转 -->
+		<action name="modOrListTo" class="operroomAction" method="modOrListTo">
+			<result name="success">/jsp/sm/operroom/modOrList.jsp</result>
+		</action>
+		<!-- 手术室修改数据 -->
+		<action name="modOrList" class="operroomAction" method="modOrList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">orList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证手术室名称 -->
+		<action name="checkOrName" class="operroomAction" method="getOrByName">
+		</action>
+	</package>
+
+	<!-- *************************科室*********************************** -->
+	<package name="dept" namespace="/dept" extends="struts-default,json-default">
+		<!-- 获取科室信息 -->
+		<action name="deptList" class="deptAction" method="getDeptList">
+			<result name="success">/jsp/sm/dept/list.jsp</result>
+		</action>
+		<!-- 跳转到添加科室的页面 -->
+		<action name="addDeptGo" class="deptAction" method="addDeptGo">
+			<result name="success">/jsp/sm/dept/addDept.jsp</result>
+		</action>
+		<!-- 添加科室信息 -->
+		<action name="addDept" class="deptAction" method="addDept">
+			<result name="success" type="redirectAction">
+				<param name="actionName">deptList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 科室修改跳转 -->
+		<action name="modDeptListTo" class="deptAction" method="modDeptListTo">
+			<result name="success">/jsp/sm/dept/modDeptList.jsp</result>
+		</action>
+		<!-- 科室修改数据 -->
+		<action name="modDeptList" class="deptAction" method="modDeptList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">deptList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证科室名称 -->
+		<action name="checkDeptName" class="deptAction" method="getDeptByName">
+		</action>
+	</package>
+
+	<!-- *************************病区*********************************** -->
+	<package name="region" namespace="/region" extends="struts-default,json-default">
+		<!-- 获取病区信息 -->
+		<action name="regionList" class="regionAction" method="getRegionList">
+			<result name="success">/jsp/sm/region/list.jsp</result>
+		</action>
+		<!-- 跳转到添加病区的页面 -->
+		<action name="addRegionGo" class="regionAction" method="addRegionGo">
+			<result name="success">/jsp/sm/region/addRegion.jsp</result>
+		</action>
+		<!-- 添加病区信息 -->
+		<action name="addRegion" class="regionAction" method="addRegion">
+			<result name="success" type="redirectAction">
+				<param name="actionName">regionList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 病区修改跳转 -->
+		<action name="modRegionListTo" class="regionAction" method="modRegionListTo">
+			<result name="success">/jsp/sm/region/modRegionList.jsp</result>
+		</action>
+		<!-- 病区修改数据 -->
+		<action name="modRegionList" class="regionAction" method="modRegionList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">regionList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证病区名称 -->
+		<action name="checkRegionName" class="regionAction" method="getRegionByName">
+		</action>
+	</package>
+
+	<!-- *************************出入量*********************************** -->
+	<package name="io" namespace="/io" extends="struts-default,json-default">
+		<!-- 获取出入量信息 -->
+		<action name="ioList" class="ioAction" method="getIoList">
+			<result name="success">/jsp/sm/io/list.jsp</result>
+		</action>
+		<!-- 跳转到添加出入量的页面 -->
+		<action name="addIoGo" class="ioAction" method="addIoGo">
+			<result name="success">/jsp/sm/io/addIo.jsp</result>
+		</action>
+		<!-- 添加出入量信息 -->
+		<action name="addIo" class="ioAction" method="addIo">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ioList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 出入量修改跳转 -->
+		<action name="modIoListTo" class="ioAction" method="modIoListTo">
+			<result name="success">/jsp/sm/io/modIoList.jsp</result>
+		</action>
+		<!-- 出入量修改数据 -->
+		<action name="modIoList" class="ioAction" method="modIoList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ioList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证出入量名称 -->
+		<action name="checkIoName" class="ioAction" method="getIoByName">
+		</action>
+	</package>
+	<!-- *************************检验项目*********************************** -->
+	<package name="check" namespace="/check" extends="struts-default,json-default">
+		<!-- 获取检验项目信息 -->
+		<action name="checkList" class="checkAction" method="getCheckList">
+			<result name="success">/jsp/sm/check/list.jsp</result>
+		</action>
+		<!-- 跳转到添加检验项目的页面 -->
+		<action name="addCheckGo" class="checkAction" method="addCheckGo">
+			<result name="success">/jsp/sm/check/addCheck.jsp</result>
+		</action>
+		<!-- 添加检验项目信息 -->
+		<action name="addCheck" class="checkAction" method="addCheck">
+			<result name="success" type="redirectAction">
+				<param name="actionName">checkList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 检验项目修改跳转 -->
+		<action name="modCheckListTo" class="checkAction" method="modCheckListTo">
+			<result name="success">/jsp/sm/check/modCheckList.jsp</result>
+		</action>
+		<!-- 检验项目修改数据 -->
+		<action name="modCheckList" class="checkAction" method="modCheckList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">checkList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证检验项目名称 -->
+		<action name="checkCheckName" class="checkAction" method="getCheckByName">
+		</action>
+		<!-- ajax验证检验项目代码 -->
+		<action name="checkCheckCode" class="checkAction" method="getCheckByCode">
+		</action>
+	</package>
+
+	<!-- *************************使用贵重或自费药品(物品)定义*********************************** -->
+	<package name="drug" namespace="/drug" extends="struts-default,json-default">
+		<!-- 获取药品物品信息 -->
+		<action name="drugList" class="drugAction" method="getDrugList">
+			<result name="success">/jsp/sm/drug/list.jsp</result>
+		</action>
+		<!-- 跳转到添加药品物品的页面 -->
+		<action name="addDrugGo" class="drugAction" method="addDrugGo">
+			<result name="success">/jsp/sm/drug/addDrug.jsp</result>
+		</action>
+		<!-- 添加药品物品信息 -->
+		<action name="addDrug" class="drugAction" method="addDrug">
+			<result name="success" type="redirectAction">
+				<param name="actionName">drugList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 药品物品修改跳转 -->
+		<action name="modDrugListTo" class="drugAction" method="modDrugListTo">
+			<result name="success">/jsp/sm/drug/modDrugList.jsp</result>
+		</action>
+		<!-- 药品物品修改数据 -->
+		<action name="modDrugList" class="drugAction" method="modDrugList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">drugList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证药品物品名称 -->
+		<action name="checkDrugName" class="drugAction" method="getDrugByName">
+		</action>
+		<!-- ajax验证药品物品代码 -->
+		<action name="checkDrugCode" class="drugAction" method="getDrugByCode">
+		</action>
+	</package>
+
+	<!-- *************************给药途径*********************************** -->
+	<package name="way" namespace="/way" extends="struts-default,json-default">
+		<!-- 获取给药途径信息 -->
+		<action name="wayList" class="wayAction" method="getWayList">
+			<result name="success">/jsp/sm/way/list.jsp</result>
+		</action>
+		<!-- 跳转到添加给药途径的页面 -->
+		<action name="addWayGo" class="wayAction" method="addWayGo">
+			<result name="success">/jsp/sm/way/addWay.jsp</result>
+		</action>
+		<!-- 添加给药途径信息 -->
+		<action name="addWay" class="wayAction" method="addWay">
+			<result name="success" type="redirectAction">
+				<param name="actionName">wayList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 给药途径修改跳转 -->
+		<action name="modWayListTo" class="wayAction" method="modWayListTo">
+			<result name="success">/jsp/sm/way/modWayList.jsp</result>
+		</action>
+		<!-- 给药途径修改数据 -->
+		<action name="modWayList" class="wayAction" method="modWayList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">wayList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证给药途径名称 -->
+		<action name="checkWayName" class="wayAction" method="getWayByName">
+		</action>
+		<!-- ajax验证给药途径代码 -->
+		<action name="checkWayCode" class="wayAction" method="getWayByCode">
+		</action>
+	</package>
+
+	<!-- *************************药品库*********************************** -->
+	<package name="med" namespace="/med" extends="struts-default,json-default">
+		<!-- 获取药品库信息 -->
+		<action name="medList" class="medAction" method="getMedList">
+			<result name="success">/jsp/sm/medicine/list.jsp</result>
+		</action>
+		<!-- 跳转到添加药品库的页面 -->
+		<action name="addMedGo" class="medAction" method="addMedGo">
+			<result name="success">/jsp/sm/medicine/addMed.jsp</result>
+		</action>
+		<!-- 添加药品库信息 -->
+		<action name="addMed" class="medAction" method="addMed">
+			<result name="success" type="redirectAction">
+				<param name="actionName">medList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 药品库修改跳转 -->
+		<action name="modMedListTo" class="medAction" method="modMedListTo">
+			<result name="success">/jsp/sm/medicine/modMedList.jsp</result>
+		</action>
+		<!-- 药品库修改数据 -->
+		<action name="modMedList" class="medAction" method="modMedList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">medList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax验证药品库名称 -->
+		<action name="checkMedName" class="medAction" method="getMedByName">
+		</action>
+	</package>
+
+	<!-- *************************药物单位*********************************** -->
+	<package name="medu" namespace="/medu" extends="struts-default,json-default">
+		<!-- 获取药物单位信息 -->
+		<action name="meduList" class="meduAction" method="getMeduList">
+			<result name="success">/jsp/sm/medunit/list.jsp</result>
+		</action>
+		<!-- 跳转到添加药物单位的页面 -->
+		<action name="addMeduGo" class="meduAction" method="addMeduGo">
+			<result name="success">/jsp/sm/medunit/addMedu.jsp</result>
+		</action>
+		<!-- 添加药物单位信息 -->
+		<action name="addMedu" class="meduAction" method="addMedu">
+			<result name="success" type="redirectAction">
+				<param name="actionName">meduList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+		<!-- 药物单位修改跳转 -->
+		<action name="modMeduListTo" class="meduAction" method="modMeduListTo">
+			<result name="success">/jsp/sm/medunit/modMeduList.jsp</result>
+		</action>
+		<!-- 药物单位修改数据 -->
+		<action name="modMeduList" class="meduAction" method="modMeduList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">meduList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- *************************药品价格*********************************** -->
+	<package name="price" namespace="/price" extends="struts-default,json-default">
+		<!-- 获取药品价格信息 -->
+		<action name="priceList" class="priceAction" method="getPriceList">
+			<result name="success">/jsp/sm/price/list.jsp</result>
+		</action>
+		<!-- 跳转到添加药品价格的页面 -->
+		<action name="addPriceGo" class="priceAction" method="addPriceGo">
+			<result name="success">/jsp/sm/price/addPrice.jsp</result>
+		</action>
+		<!-- 添加药品价格信息 -->
+		<action name="addPrice" class="priceAction" method="addPrice">
+			<result name="success" type="redirectAction">
+				<param name="actionName">priceList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+		<!-- 药品价格修改跳转 -->
+		<action name="modPriceListTo" class="priceAction" method="modPriceListTo">
+			<result name="success">/jsp/sm/price/modPriceList.jsp</result>
+		</action>
+		<!-- 药品价格修改数据 -->
+		<action name="modPriceList" class="priceAction" method="modPriceList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">priceList.action</param>
+				<param name="info">${info}</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- *************************系统及参数配置*********************************** -->
+	<package name="config" namespace="/config" extends="struts-default,json-default">
+		<!-- 获取系统及参数配置信息 -->
+		<action name="configList" class="configAction" method="getConfigList">
+			<result name="success">/jsp/sm/config/list.jsp</result>
+		</action>
+		<!-- 跳转到添加系统及参数配置的页面 -->
+		<action name="addConfigGo" class="configAction" method="addConfigGo">
+			<result name="success">/jsp/sm/config/addConfig.jsp</result>
+		</action>
+		<!-- 添加系统及参数配置信息 -->
+		<action name="addConfig" class="configAction" method="addConfig">
+			<result name="success" type="redirectAction">
+				<param name="actionName">configList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 系统及参数配置修改跳转 -->
+		<action name="modConfigListTo" class="configAction" method="modConfigListTo">
+			<result name="success">/jsp/sm/config/modConfigList.jsp</result>
+		</action>
+		<!-- 系统及参数配置修改数据 -->
+		<action name="modConfigList" class="configAction" method="modConfigList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">configList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- ajax系统及参数配置名称 -->
+		<action name="checkConfigName" class="configAction" method="getConfigByName">
+		</action>
+	</package>
+
+	<!-- *************************系统日志*********************************** -->
+	<package name="syslog" namespace="/syslog" extends="struts-default,json-default">
+		<!-- 获取系统日志信息 -->
+		<action name="syslogList" class="syslogAction" method="getSyslogList">
+			<result name="success">/jsp/sm/syslogger/list.jsp</result>
+		</action>
+		<!-- 跳转到添加系统日志的页面 -->
+		<action name="addSyslogGo" class="syslogAction" method="addSyslogGo">
+			<result name="success">/jsp/sm/syslogger/addSyslog.jsp</result>
+		</action>
+		<!-- 添加系统日志信息 -->
+		<action name="addSyslog" class="syslogAction" method="addSyslog">
+			<result name="success" type="redirectAction">
+				<param name="actionName">syslogList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		<!-- 系统日志修改跳转 -->
+		<action name="modSyslogListTo" class="syslogAction" method="modSyslogListTo">
+			<result name="success">/jsp/sm/syslogger/modSyslogList.jsp</result>
+		</action>
+		<!-- 系统日志修改数据 -->
+		<action name="modSyslogList" class="syslogAction" method="modSyslogList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">syslogList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+	</package>
+
+	<!-- *************************手术登记*********************************** -->
+	<package name="ssdj" namespace="/ssdj" extends="struts-default,json-default">
+		<!-- 查询手术登记列表 -->
+		<action name="ssdjList" class="ssdjAction" method="getSsdjList">
+			<result name="success">/jsp/sm/ssdj/addSsdj.jsp</result>
+		</action>
+
+		<action name="selectAnaes" class="ssdjAction" method="selectAnaes">
+			<result name="success">/jsp/sm/ssdj/selectMzff.jsp</result>
+		</action>
+
+		<!-- 麻醉方法选择控件 -->
+		<action name="selectMzff" class="ssdjAction" method="selectMzff">
+			<result name="success">/jsp/sm/ssdj/selectMzff.jsp</result>
+		</action>
+		<!-- 添加手术登记信息 -->
+		<action name="addSsdj" class="ssdjAction" method="addSsdj">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ssdjList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- AJAX联动查询手术人员 -->
+		<action name="queryNameBuZimu" class="ssdjAction" method="getNameByZimu">
+		</action>
+		<!-- AJAX联动查询手术人员 -->
+		<action name="queryNameById" class="ssdjAction" method="getNameByZimu">
+		</action>
+		<!-- AJAX联动查询术前诊断 -->
+		<action name="querySqzdNameBuZimu" class="ssdjAction" method="getSqzdNameByZimu">
+		</action>
+		<!-- AJAX联动查询拟施手术 -->
+		<action name="queryNsssNameBuZimu" class="ssdjAction" method="getNsssNameByZimu">
+		</action>
+
+		<!-- 查询手术人员 -->
+		<action name="getOperatorNameById" class="ssdjAction" method="getOperatorNameById">
+		</action>
+
+
+		<!-- AJAX联动查询术前诊断 -->
+		<action name="querySqzdName" class="ssdjAction" method="querySqzdName">
+		</action>
+	</package>
+	<!-- *************************手术安排*********************************** -->
+	<package name="ssap" namespace="/ssap" extends="struts-default,json-default">
+		<!-- 查询手术登记列表 -->
+		<action name="ssapList" class="ssapAction" method="getSsapList">
+			<result name="success">/jsp/sm/ssap/list.jsp</result>
+		</action>
+		<!-- 手术登记取消 -->
+		<action name="ssapQxList" class="ssapAction" method="ssapQxList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ssapList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+
+		<!-- 手术安排 -->
+		<action name="reservation" class="ssapAction" method="reservation">
+		</action>
+
+		<!-- 预约列表 -->
+		<action name="reservationList" class="ssapAction" method="reservationList">
+		</action>
+	</package>
+	<!-- *************************麻醉医生安排*********************************** -->
+	<package name="mzys" namespace="/mzys" extends="struts-default,json-default">
+		<!-- 查询手术安排列表 -->
+		<action name="mzysList" class="mzysAction" method="getMzysList">
+			<result name="success">/jsp/sm/mzysap/list.jsp</result>
+		</action>
+
+		<!-- 麻醉医生取消 -->
+		<action name="mzysQxList" class="mzysAction" method="mzysQxList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">mzysList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+
+		<!-- 麻醉医生安排 -->
+		<action name="reservation" class="mzysAction" method="reservation">
+		</action>
+
+		<!-- 已安排麻醉医生列表 -->
+		<action name="reservationList" class="mzysAction" method="reservationList">
+		</action>
+
+	</package>
+	<!-- *************************医疗文书*********************************** -->
+	<package name="ylws" namespace="/ylws" extends="struts-default,json-default">
+		<!-- 查询手术安排列表 -->
+		<action name="ylwsList" class="ylwsAction" method="getYlwsList1">
+			<result name="success">/jsp/sm/ylwsap/list.jsp</result>
+		</action>
+
+		<!-- 文书检查 -->
+		<action name="checkSmWirtstate" class="ylwsAction" method="checkSmWirtstate">
+		</action>
+
+		<!-- 文书归档 -->
+		<action name="modArchived" class="ylwsAction" method="modArchived">
+		</action>
+
+	</package>
+
+	<!-- *************************麻醉同意书*********************************** -->
+	<package name="mztys" namespace="/mztys" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到麻醉同意书 -->
+		<action name="ylwsToMztys" class="mztysAction" method="ylwsToMztys">
+			<result name="success">/jsp/sm/tys/tysmenu.jsp</result>
+		</action>
+		<!-- 麻醉知情同意书修改 -->
+		<action name="modMztysList" class="mztysAction" method="modMztysList">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- 自体输血治疗知情同意书修改 -->
+		<action name="modMztysList2" class="mztysAction" method="modMztysList2">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- 气管插管术知情同意书修改 -->
+		<action name="modMztysList3" class="mztysAction" method="modMztysList3">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- 中心静脉穿刺告知书修改 -->
+		<action name="modMztysList4" class="mztysAction" method="modMztysList4">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+
+		<!-- 获取麻醉知情同意书打印数据 -->
+		<action name="loadPrintMz" class="mztysAction" method="loadPrintMz">
+		</action>
+	</package>
+
+	<!-- *************************麻醉计划*********************************** -->
+	<package name="mzjh" namespace="/mzjh" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到麻醉计划 -->
+		<action name="ylwsToMzjh" class="mzjhAction" method="ylwsToMzjh">
+			<result name="success">/jsp/sm/mzjh/mzjh.jsp</result>
+		</action>
+		<!-- 麻醉计划修改 -->
+		<action name="modMzjhList" class="mzjhAction" method="modMzjhList">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+
+		<!-- 获取麻醉计划打印数据 -->
+		<action name="loadPrintMzjh" class="mzjhAction" method="loadPrintMzjh">
+		</action>
+	</package>
+	<!-- *************************术后随访*********************************** -->
+	<package name="shsf" namespace="/shsf" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到术后随访 -->
+		<action name="ylwsToShsf" class="shsfAction" method="ylwsToShsf">
+			<result name="success">/jsp/sm/shsf/shsf.jsp</result>
+		</action>
+		<!-- 术后随访修改 -->
+		<action name="modShsfList" class="shsfAction" method="modShsfList">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/ylws</param>
+				<param name="actionName">ylwsList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+
+		<!-- 获取术后随访打印数据 -->
+		<action name="loadPrintSf" class="shsfAction" method="loadPrintSf">
+		</action>
+
+		<!-- 存为模板界面跳转 -->
+		<action name="templateTo" class="shsfAction" method="templateTo">
+			<result name="success">/jsp/sm/shsf/template.jsp</result>
+		</action>
+
+		<!-- 保存术后随访模板 -->
+		<action name="saveShsfTemplate" class="shsfAction" method="saveShsfTemplate">
+		</action>
+
+		<!-- 选择模板界面跳转 -->
+		<action name="choseTemplateTo" class="shsfAction" method="choseTemplateTo">
+			<result name="success">/jsp/sm/shsf/choseTemplate.jsp</result>
+		</action>
+
+		<!-- 获取模板内容 -->
+		<action name="getTemplateVal" class="shsfAction" method="getTemplateVal">
+		</action>
+
+		<!-- 删除模板 -->
+		<action name="delTemplate" class="shsfAction" method="delTemplate">
+		</action>
+
+	</package>
+	<!-- *************************麻醉例数统计*********************************** -->
+	<package name="mzls" namespace="/mzls" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到术后随访 -->
+		<action name="mzlsList" class="mzlsAction" method="getMzlsList">
+			<result name="success">/jsp/sm/mzls/mzls.jsp</result>
+		</action>
+	</package>
+	<!-- *************************ASA统计*********************************** -->
+	<package name="asa" namespace="/asa" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到术后随访 -->
+		<action name="asaList" class="asaAction" method="getAsaList">
+			<result name="success">/jsp/sm/asa/asa.jsp</result>
+		</action>
+	</package>
+	<!-- *************************术前术后诊断统计*********************************** -->
+	<package name="sqsh" namespace="/sqsh" extends="struts-default,json-default">
+		<!-- 医疗文书跳转到术后随访 -->
+		<action name="sqshList" class="sqshAction" method="getSqList">
+			<result name="success">/jsp/sm/sqsh/sqsh.jsp</result>
+		</action>
+	</package>
+	<!-- *************************公告定义*********************************** -->
+	<package name="noc" namespace="/noc" extends="struts-default,json-default">
+		<!-- 获取公告信息列表 -->
+		<action name="nocList" class="nocAction" method="getNotcList">
+			<result name="success">/jsp/sm/notice/list.jsp</result>
+		</action>
+		<!-- 公告修改跳转 -->
+		<action name="modNoticeListTo" class="nocAction" method="modNoticeListTo">
+			<result name="success">/jsp/sm/notice/modNoticeList.jsp</result>
+		</action>
+		<!-- 公告修改数据 -->
+		<action name="modNoticeList" class="nocAction" method="modNoticeList">
+			<result name="success" type="redirectAction">
+				<param name="actionName">nocList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- 跳转到添加公告的页面 -->
+		<action name="addNoticeGo" class="nocAction" method="addNoticeGo">
+			<result name="success">/jsp/sm/notice/addNotice.jsp</result>
+		</action>
+		<!-- 添加给药途径信息 -->
+		<action name="addNotice" class="nocAction" method="addNotice">
+			<result name="success" type="redirectAction">
+				<param name="actionName">nocList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- 删除公告 -->
+		<action name="delNotice" class="nocAction" method="delNotice">
+			<result name="success" type="redirectAction">
+				<param name="actionName">nocList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid}</param>
+			</result>
+		</action>
+		<!-- -->
+		<action name="getOpterName" class="nocAction" method="getOpterName">
+			<result type="json">
+				<param name="root">userNameResult</param>
+			</result>
+		</action>
+	</package>
+	<!-- *************************麻醉记录*********************************** -->
+	<package name="anesthesiaRecord" namespace="/anesthesiaRecord"
+		extends="struts-default,json-default">
+		       <!-- 进入麻醉记录页面 -->
+		<action name="loadAnesthesiaRecord" class="anesthesiaRecordAction"
+			method="loadAnesthesiaRecord">
+			<!-- <result name="success">/jsp/sm/anesthesiaRecord/anesthesiaRecordMainView.jsp
+			</result> -->
+			<result name="success">/jsp/sm/anesthesiaRecord/anesthesiaRecord.jsp</result>
+		</action>
+		       <!-- 获取体征信息 -->
+		<action name="getVitalSignFromMachine" class="anesthesiaRecordAction" method="getVitalSignFromMachine">
+		    <result  type="json" >
+			<param name="root"></param>
+			</result>
+		</action>
+		<!-- 采集数据 -->
+		<action name="getCollectItems" class="anesthesiaRecordAction"
+			method="getCollectItems">
+			<result type="json">
+				<param name="root">collectItemsResult</param>
+			</result>
+		</action>
+		<!-- 加载麻醉用药 -->
+		<action name="loadMedicineList" class="anesthesiaRecordAction"
+			method="loadMedicineList">
+			<result type="json">
+				<param name="root">collectItemsResult</param>
+			</result>
+		</action>
+		<!-- 添加出入量 -->
+		<action name="smIoEventSaveAndUpdate" class="anesthesiaRecordAction"
+			method="smIoEventSaveAndUpdate">
+		</action>
+		
+		<!-- 保存出量 -->
+		<action name="saveOutPutEvent" class="anesthesiaRecordAction"
+			method="saveOutPutEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">returnOutPutData.action</param>
+				<param name="outPutOperationId">${outPutOperationId}</param>
+				<param name="outPutY">${outPutY}</param>
+			</result>
+		</action>
+		<!-- 保存出量返回值 -->  
+		<action name="returnOutPutData" class="anesthesiaRecordAction"
+			method="returnOutPutData">
+			<result type="json">
+				<param name="root">smIoEventListResult</param>
+			</result>
+		</action>
+		<!-- 加载出量 -->
+		<action name="getOutPutEvents" class="anesthesiaRecordAction"
+			method="getOutPutEvents">
+			<result type="json">
+				<param name="root">smIoEventListResult</param>
+			</result>
+		</action>
+		<!-- 删除出量 -->
+		<action name="deleteOutPutEvent" class="anesthesiaRecordAction"
+			method="deleteOutPutEvent">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		
+		<!-- 保存入量 -->
+		<action name="saveInPutEvent" class="anesthesiaRecordAction"
+			method="saveInPutEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">returnInPutData.action</param>
+				<param name="inPutOperationId">${inPutOperationId}</param>
+				<param name="inPutStartY">${inPutStartY}</param>
+			</result>
+		</action>
+		<!-- 保存入量返回值 -->  
+		<action name="returnInPutData" class="anesthesiaRecordAction"
+			method="returnInPutData">
+			<result type="json">
+				<param name="root">smIoEventListResult</param>
+			</result>
+		</action>
+		<!-- 加载入量-->
+		<action name="getInPutEvents" class="anesthesiaRecordAction"
+			method="getInPutEvents">
+			<result type="json">
+				<param name="root">smIoEventListResult</param>
+			</result>
+		</action>
+		<!-- 删除入量 -->
+		<action name="deleteInPutEvent" class="anesthesiaRecordAction"
+			method="deleteInPutEvent">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 保存麻醉用药 -->
+		<action name="saveMedEvent" class="anesthesiaRecordAction"
+			method="saveMedEvent">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+				<!-- 加载麻醉用药 -->
+		<action name="getMedEvents" class="anesthesiaRecordAction"
+			method="getMedEvents">
+			<result type="json">
+				<param name="root">smMedicalEventListResult</param>
+			</result>
+		</action>
+		<!-- 加载麻醉用药 -->
+		<action name="deleteMedEventa" class="anesthesiaRecordAction"
+			method="deleteMedEventa">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		
+		<!-- 加载液体入量子菜单液体名称 -->
+		<action name="getInChildNamesList" class="anesthesiaRecordAction"
+			method="getInChildNamesBySubType">
+			<result type="json">
+				<param name="root">inChildNamesResult</param>
+			</result>
+		</action>
+		<!-- 加载麻醉事件项 -->
+		<action name="getSmAnaesEventItems" class="anesthesiaRecordAction"
+			method="getSmAnaesEventItems">
+			<result type="json">
+				<param name="root">smAnaesEventItemsResult</param>
+			</result>
+		</action>
+		
+		<!-- 加载麻醉事件项 -->
+		<action name="getAnaeEventItem" class="anesthesiaRecordAction"
+			method="getAnaeEventItem">
+			<result type="json">
+				<param name="root">smAnaesEventsResult</param>
+			</result>
+		</action>
+
+		<!-- 添加麻醉事件 -->
+		<action name="anesthesiaEventSave" class="anesthesiaRecordAction"
+			method="anesthesiaEventSave">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 保存麻醉事件 -->
+		<action name="saveAnesthEvent" class="anesthesiaRecordAction"
+			method="saveAnesthEvent">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 添加麻醉记录单中手术开始时间、手术结束时间、麻醉开始时间、麻醉结束时间 -->
+		<action name="updateAnaesRecordSomething" class="anesthesiaRecordAction"
+			method="updateAnaesRecordSomething">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+
+		<!-- 通过手术ID获取麻醉事件集合 -->
+		<action name="getSmAnesthesiaEventsList" class="anesthesiaRecordAction"
+			method="getSmAnesthesiaEventsList">
+			<result type="json">
+				<param name="root">smAnaesEventsResult</param>
+			</result>
+		</action>
+		<!-- 更新手术状态到术中-->
+		<action name="updateRegOptToStart" class="anesthesiaRecordAction"
+			method="updateRegOptToStart">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 更新手术状态到术后-->
+		<action name="updateRegOptToEnd" class="anesthesiaRecordAction"
+			method="updateRegOptToEnd">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 获取手术开始时间-->
+		<action name="getOptStartTime" class="anesthesiaRecordAction"
+			method="getOptStartTime">
+			<result type="json">
+				<param name="root">optStartTimeResult</param>
+			</result>
+		</action>
+		<!-- 添加麻醉记录单 -->
+		<action name="createAnaesRecord" class="anesthesiaRecordAction"
+			method="addSmAnaesRecord">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 删除麻醉事件 -->
+		<action name="deleteSmAnesEvent" class="anesthesiaRecordAction"
+			method="deleteSmAnesEvent">
+			<result name="success" type="redirectAction">
+				<param name="info">${info}</param>
+			</result>
+		</action>
+		<!-- 添加麻醉用药 -->
+		<action name="saveMedicalEvent" class="anesthesiaRecordAction"
+			method="saveMedicalEvent">
+		</action>
+		<!-- 通过手术ID获取麻醉用药集合 -->
+		<action name="getMedicalEventList" class="anesthesiaRecordAction"
+			method="getMedicalEventListByOperationId">
+			<result type="json">
+				<param name="root">smMedicalEventListResult</param>
+			</result>
+		</action>
+		<!-- 保存采集项 -->
+		<action name="saveMonitoSign" class="anesthesiaRecordAction"
+			method="saveMonitoringSign">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 添加手术结束时间-->
+		<action name="addStopTime" class="anesthesiaRecordAction"
+			method="updateStopTime">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 结束采集 -->
+		<action name="updateStopRecord" class="anesthesiaRecordAction"
+			method="updateStopRecordTime">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 保存描点图 -->
+		<action name="addAnaesRecordMonis" class="anesthesiaRecordAction"
+			method="addSmAnaesRecordMonis">
+		</action>
+		<!-- 通过手术ID获取采集项描点list -->
+		<action name="getSmWaveDataList" class="anesthesiaRecordAction"
+			method="getSmWaveDataListByOperationId">
+			<result type="json">
+				<param name="root">smMonitoringSignResult</param>
+			</result>
+		</action>
+
+		<!-- 获取麻醉记录单打印数据 -->
+		<action name="loadAnesthesiaRecordPrint" class="anesthesiaRecordAction" method="loadAnesthesiaRecordPrint">
+		     <result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 添加手术事件 -->
+		<action name="addOperationEvent" class="anesthesiaRecordAction"
+			method="saveOperationEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getOperationEventListByoperationId.action</param>
+				<param name="operationId">${operationId}</param>
+			</result>
+		</action>
+		<!-- 通过手术ID获取手术事件集合 -->
+		<action name="getOperationEventListByoperationId" class="anesthesiaRecordAction"
+			method="getOperationEventListByoperationId">
+			<result type="json">
+				<param name="root">smOperationEventListResult</param>
+			</result>
+		</action>
+		<!-- 删除手术事件 -->
+		<action name="deleteOperationEvent" class="anesthesiaRecordAction"
+			method="deleteOperationEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getOperationEventListByoperationId.action</param>
+				<param name="operationId">${operationId}</param>
+			</result>
+		</action>
+		<!-- 添加呼吸事件 -->
+		<action name="saveBreathEvent" class="anesthesiaRecordAction"
+			method="saveBreathEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getBreathEventListByoperationId.action</param>
+				<param name="operationId">${operationId}</param>
+			</result>
+		</action>
+		<!-- 通过手术ID获取呼吸事件集合 -->
+		<action name="getBreathEventListByoperationId" class="anesthesiaRecordAction"
+			method="getBreathEventListByoperationId">
+			<result type="json">
+				<param name="root">smBreathEventListResult</param>
+			</result>
+		</action>
+		<!-- 删除呼吸事件 -->
+		<action name="deleteBreathEvent" class="anesthesiaRecordAction"
+			method="deleteBreathEvent">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getBreathEventListByoperationId.action</param>
+				<param name="operationId">${operationId}</param>
+			</result>
+		</action>
+		<!-- 通过手术ID获取麻醉人员集合 -->
+		<action name="getAnesthetistersListByoperationId" class="anesthesiaRecordAction"
+			method="getAnesthetistersListByoperationId">
+			<result type="json">
+				<param name="root">anesthetisterResult</param>
+			</result>
+		</action>
+
+
+		<!-- 通过手术ID获取手术人员集合 -->
+		<action name="getOperatorsByoperationId" class="anesthesiaRecordAction"
+			method="getOperatorsByoperationId">
+			<result type="json">
+				<param name="root">operatorsResult</param>
+			</result>
+		</action>
+		<!-- 保存修改体位信息 -->
+		<action name="saveBodyPosition" class="anesthesiaRecordAction"
+			method="saveBodyPosition">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 获取体位信息 -->
+		<action name="getBodyPosition" class="anesthesiaRecordAction"
+			method="getBodyPositionByOptId">
+			<result type="json">
+				<param name="root">bodyPositionResult</param>
+			</result>
+		</action>
+		<!-- 获取麻醉小结所需的信息 -->
+		<action name="getAnesthSummary" class="anesthesiaRecordAction"
+			method="getAnesthSummary">
+			<result type="json">
+				<param name="root">anesthSummaryResult</param>
+			</result>
+		</action>
+		<!-- 刷新医疗文书每个文书状态 -->
+		<action name="loadDocumentState" class="anesthesiaRecordAction"
+			method="loadDocumentState">
+			<result type="json">
+				<param name="root">documentStateResult</param>
+			</result>
+		</action>
+		<!-- 保存出室情况 -->
+		<action name="addOutRoomStatus" class="anesthesiaRecordAction"
+			method="addOutRoomStatus">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 获取出室情况 -->
+		<action name="getOutRoomStatus" class="anesthesiaRecordAction"
+			method="getOutRoomStatus">
+			<result type="json">
+				<param name="root">outRoomStatusResult</param>
+			</result>
+		</action>
+		<!-- 更新病人基本信息 -->
+		<action name="updateSmRegOptSomething" class="anesthesiaRecordAction"
+			method="updateSmRegOptSomething">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 结束手术 -->
+		<action name="stopOperation" class="anesthesiaRecordAction"
+			method="stopOperation">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 根据姓名修改麻醉人员 -->
+		<action name="deleteAnesthetistersByoperationName" class="anesthesiaRecordAction"
+			method="deleteAnesthetistersByoperationName">
+			<result type="json">
+				<param name="root">anesthetisterResult</param>
+			</result>
+		</action>
+		<!-- 通过角色查询麻醉人员 -->
+		<action name="getAnesthesiaDoctor" class="anesthesiaRecordAction" method="getAnesthesiaDoctor">
+		    <result type="json">
+				<param name="root">anesthesiaDoctorsResult</param>
+			</result>
+		</action>
+		<!-- 通过角色查询手术医生 -->
+		<action name="getAnesthetistersByRole1" class="anesthesiaRecordAction"
+			method="getAnesthetistersByRole1">
+		</action>
+		<!-- 通过角色查询护士 -->
+		<action name="getAnesthetistersByRole2" class="anesthesiaRecordAction"
+			method="getAnesthetistersByRole2">
+		</action>
+		<!-- 通过姓名添加麻醉人员 -->
+		<action name="addAnesthetistersByRole" class="anesthesiaRecordAction"
+			method="addAnesthetistersByRole">
+			<result type="json">
+				<param name="root">anesthetisterResult</param>
+			</result>
+		</action>
+		<!-- 修改麻醉人员 -->
+		<action name="editAnesthesiaDoctor" class="anesthesiaRecordAction"
+			method="editAnesthesiaDoctor">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+				<!-- 修改手术人员 -->
+		<action name="editOperationDoctor" class="anesthesiaRecordAction"
+			method="editOperationDoctor">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+						<!-- 修改巡回护士 --> 
+		<action name="editTourNurse" class="anesthesiaRecordAction"
+			method="editTourNurse">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		
+								<!-- 修改巡回护士 --> 
+		<action name="editInstrumentNurse" class="anesthesiaRecordAction"
+			method="editInstrumentNurse">
+			<result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 通过姓名添加手术人员 -->
+		<action name="addAnesthetistersByRole1" class="anesthesiaRecordAction"
+			method="addAnesthetistersByRole1">
+			<result type="json">
+				<param name="root">anesthetisterResult</param>
+			</result>
+		</action>
+		<!-- 通过姓名添加手术护士 -->
+		<action name="addAnesthetistersByRole2" class="anesthesiaRecordAction"
+			method="addAnesthetistersByRole2">
+			<result type="json">
+				<param name="root">anesthetisterResult</param>
+			</result>
+		</action>
+		<!-- 通过角色查询麻醉人员 -->
+		<action name="getAnesthetistersByPy" class="anesthesiaRecordAction"
+			method="getAnesthetistersByPy">
+		</action>
+		<!-- 通过角色查询手术医师 -->
+		<action name="getAnesthetistersByPy1" class="anesthesiaRecordAction"
+			method="getAnesthetistersByPy1">
+		</action>
+		<!-- 通过角色查询手术护士 -->
+		<action name="getAnesthetistersByPy2" class="anesthesiaRecordAction"
+			method="getAnesthetistersByPy2">
+		</action>
+		<!-- 通过姓名查询麻醉人员角色 -->
+		<action name="AnesthetistersByyishiName" class="anesthesiaRecordAction"
+			method="AnesthetistersByyishiName">
+		</action>
+		<!-- 通过姓名查询术护士角色 -->
+		<action name="AnesthetistersByyishiName1" class="anesthesiaRecordAction"
+			method="AnesthetistersByyishiName1">
+		</action>
+
+		<!-- 根据姓名修改手术人员 -->
+		<action name="deleteAnesthetistersByoperationName1" class="anesthesiaRecordAction"
+			method="deleteAnesthetistersByoperationName1">
+			<result type="json">
+				<param name="root">operatorsResult</param>
+			</result>
+		</action>
+		<!-- 保存镇痛等信息-->
+		<action name="saveZhenTong" class="anesthesiaRecordAction" method="saveZhenTong">
+		    <result type="json">
+				<param name="root"></param>
+			</result>
+		</action>
+		<!-- 加载出量 -->
+		<action name="getOutputLiquid" class="anesthesiaRecordAction"
+			method="getOutputLiquid">
+			<result type="json">
+				<param name="root">outputLiquidResult</param>
+			</result>
+		</action>
+		<!-- 获取体征信息 -->
+		<action name="getVitalSignFromMachine" class="anesthesiaRecordAction" method="getVitalSignFromMachine">
+		    <result  type="json" >
+			<param name="root"></param>
+			</result>
+		</action>
+		<!-- 添加开始采集时间 -->
+		<action name="addStartRecordTime" class="anesthesiaRecordAction" method="addStartRecordTime">
+		    <result  type="json" >
+			<param name="root"></param>
+			</result>
+		</action>
+		<!-- 加载出量 -->
+		<action name="getOutputLiquid" class="anesthesiaRecordAction"
+			method="getOutputLiquid">
+			<result type="json">
+				<param name="root">outputLiquidResult</param>
+			</result>
+		</action>
+		<!-- 获取体征信息 -->
+		<action name="getVitalSignFromMachine" class="anesthesiaRecordAction" method="getVitalSignFromMachine">
+		    <result  type="json" >
+			<param name="root"></param>
+			</result>
+		</action>
+		<!-- 查询麻醉用药 -->
+		<action name="queryMedicineNameByPY" class="anesthesiaRecordAction"
+			method="getMedicineNameByPinYin">
+		</action>
+			<!-- 查询麻醉用药 -->
+		<action name="getMedicineById" class="anesthesiaRecordAction"
+			method="getMedicineById">
+			<result type="json">
+				<param name="root">smMedicineResult</param>
+			</result>
+		</action>
+			<!-- 查询入量 -->
+		<action name="getInPutById" class="anesthesiaRecordAction"
+			method="getInPutById">
+			<result type="json">
+				<param name="root">smInPutIdResult</param>
+			</result>
+		</action>
+		<!-- 获取麻醉事件列表-->
+		<action name="getAnesEventList" class="anesthesiaRecordAction" method="getAnesEventList">
+		</action>
+		
+		<!-- 添加麻醉事件-->
+		<action name="addAnesEventItem" class="anesthesiaRecordAction" method="addAnesEventItem">
+		</action>
+		
+		<!-- 添加手术事件-->
+		<action name="addOperationEventItem" class="anesthesiaRecordAction" method="addOperationEventItem">
+		</action>
+	
+		<!-- 删除手术事件-->
+		<action name="delOperationEventItem" class="anesthesiaRecordAction" method="delOperationEventItem">
+		</action>
+	
+		<!-- 获取手术事件信息-->
+		<action name="getOpEventById" class="anesthesiaRecordAction" method="getOpEventById">
+		</action>
+		
+		<!-- 修改手术事件信息-->
+		<action name="modOperationEventItem" class="anesthesiaRecordAction" method="modOperationEventItem">
+		</action>
+	
+		<!-- 添加呼吸事件信息-->
+		<action name="addBreathEvent" class="anesthesiaRecordAction" method="addBreathEvent">
+		</action>
+	
+		<!-- 删除呼吸事件信息-->
+		<action name="delBreathEventItem" class="anesthesiaRecordAction" method="delBreathEventItem">
+		</action>
+	
+	
+	</package>
+</struts>

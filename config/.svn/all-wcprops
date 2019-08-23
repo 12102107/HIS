@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/sm/!svn/ver/313/His_Sm/config
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sm/!svn/ver/6/His_Sm/config/hibernate.cfg.xml
+END
+xwork-conversion.properties
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/sm/!svn/ver/4/His_Sm/config/xwork-conversion.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/sm/!svn/ver/4/His_Sm/config/log4j.properties
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/sm/!svn/ver/302/His_Sm/config/applicationContext.xml
+END
+struts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/sm/!svn/ver/20/His_Sm/config/struts.xml
+END
+struts.properties
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sm/!svn/ver/4/His_Sm/config/struts.properties
+END

@@ -1,0 +1,91 @@
+
+.anesthesiaEventDivClass{
+    z-index:9999;
+    position:fixed;
+    top: 150px;
+    left: 300px;
+    width:300px;
+    height: 450px;
+    border:solid 5px #1CAAD1;
+    background-color: #F0F8FF;
+    display:none;
+    border-radius: 5px;
+}
+.anesthesiaEventTitleClass{
+    position: absolute;
+    width: 302px;
+    height: 40px;
+    left: -1px;
+    top: -1px;
+    border:solid 0px dodgerblue;
+    text-align: left;
+    font-size: 23px;
+    font-weight:bold;
+    letter-spacing:20px;
+    background-color: #1CAAD1;
+    color: #FFFFFF;
+}
+.anesthesiaEventTitleClass div{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 2px;
+    top: 3px;
+    background-color: red;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+.anesthesiaEventTitleClass div:hover{
+    color: #000000;
+}
+.anesthesiaEventNamesClass{
+    position: absolute;
+    width: 270px;
+    height: 310px;
+    left: 11px;
+    top: 50px;
+    border:solid 2px #DCDCDC;
+    background-color: #FFFFFF;
+    overflow: auto;
+
+}
+.anesthesiaEventInputClass{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    top: 370px;
+    left: -1px;
+    border:solid 0px dodgerblue;
+    text-align: center;
+}
+.anesthesiaEventInputClass input{
+    width: 200px;
+}
+.anesthesiaEventButtonsClass{
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    top: 400px;
+    left: -1px;
+    border:solid 0px dodgerblue;
+    border-radius: 5px;
+    text-align: center;
+
+}
+.anesthesiaEventButtonsClass button{
+    width: 100px;
+    height: 35px;
+    background-color: #1CAAD1;
+    border-radius: 5px;
+    text-align: center;
+
+}
+.anesthesiaEventButtonsClass  button:hover{
+    background-color: darkgreen;
+}
+.anesthesiaEventButtonsClass button.anesthesiaEventButtonClose:hover{
+    background-color: red;
+}

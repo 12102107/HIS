@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sm/!svn/ver/313/His_Sm/src/com/znyy/sm/service
+END
+DeptService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/sm/!svn/ver/284/His_Sm/src/com/znyy/sm/service/DeptService.java
+END
+AnesthesiaRecordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sm/!svn/ver/325/His_Sm/src/com/znyy/sm/service/AnesthesiaRecordService.java
+END
+InstrumentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sm/!svn/ver/317/His_Sm/src/com/znyy/sm/service/InstrumentService.java
+END
+DiagnosedefService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sm/!svn/ver/279/His_Sm/src/com/znyy/sm/service/DiagnosedefService.java
+END
+PreVisitService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/253/His_Sm/src/com/znyy/sm/service/PreVisitService.java
+END
+QueryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sm/!svn/ver/288/His_Sm/src/com/znyy/sm/service/QueryService.java
+END
+OperroomService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/236/His_Sm/src/com/znyy/sm/service/OperroomService.java
+END
+OptNurseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sm/!svn/ver/47/His_Sm/src/com/znyy/sm/service/OptNurseService.java
+END
+ArrangeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sm/!svn/ver/275/His_Sm/src/com/znyy/sm/service/ArrangeService.java
+END
+MedicalStandardService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sm/!svn/ver/313/His_Sm/src/com/znyy/sm/service/MedicalStandardService.java
+END
+YlwsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/sm/!svn/ver/286/His_Sm/src/com/znyy/sm/service/YlwsService.java
+END
+AnesthesiaSummaryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/sm/!svn/ver/211/His_Sm/src/com/znyy/sm/service/AnesthesiaSummaryService.java
+END
+IoDefinationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/IoDefinationService.java
+END
+SystemConfigService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/SystemConfigService.java
+END
+HisService.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/service/HisService.java
+END
+TongJiService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sm/!svn/ver/316/His_Sm/src/com/znyy/sm/service/TongJiService.java
+END
+DrugOrGoodsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/DrugOrGoodsService.java
+END
+RegionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sm/!svn/ver/279/His_Sm/src/com/znyy/sm/service/RegionService.java
+END
+RecoveryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/service/RecoveryService.java
+END
+OperationPeopleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sm/!svn/ver/298/His_Sm/src/com/znyy/sm/service/OperationPeopleService.java
+END
+MedicalTakeWayService.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/MedicalTakeWayService.java
+END
+OperdefService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/OperdefService.java
+END
+NoticeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sm/!svn/ver/256/His_Sm/src/com/znyy/sm/service/NoticeService.java
+END
+MedicineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/MedicineService.java
+END
+CheckItemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/CheckItemService.java
+END
+SysloggerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sm/!svn/ver/50/His_Sm/src/com/znyy/sm/service/SysloggerService.java
+END
+RegOptService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/service/RegOptService.java
+END
+WorkStationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sm/!svn/ver/302/His_Sm/src/com/znyy/sm/service/WorkStationService.java
+END
+AnaesMethodService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/service/AnaesMethodService.java
+END
+StatisticsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sm/!svn/ver/287/His_Sm/src/com/znyy/sm/service/StatisticsService.java
+END

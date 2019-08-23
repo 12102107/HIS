@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1dtd">
+<struts>
+	
+	<package name="query" namespace="/query" extends="struts-default,json-default">
+
+		<!-- 获取一周手术列表 -->
+		<action name="getSroList" class="queryAction" method="getSroList">
+			<result name="success">/jsp/sm/query/list.jsp</result>
+		</action>
+		
+		<!-- 取消手术信息 -->
+		<action name="cancelSro" class="queryAction" method="cancelSro">
+		</action>
+		
+		<!-- 激活手术信息 -->
+		<action name="activateSro" class="queryAction" method="activateSro">
+		</action>
+		
+		<!-- 变更手术信息跳转 -->
+		<action name="changeSroTo" class="queryAction" method="changeSroTo">
+			<result name="success">/jsp/sm/query/change.jsp</result>
+		</action>
+		
+		<!-- 变更手术信息 -->
+		<action name="changeSro" class="queryAction" method="changeSro">
+		</action>
+		
+		<!-- 紧急手术跳转 -->
+		<action name="emergencyTo" class="queryAction" method="emergencyTo">
+			<result name="success">/jsp/sm/emergency/emergency.jsp</result>
+		</action>
+		
+		<!-- 保存紧急手术信息 -->
+		<action name="addEmergencySro" class="queryAction" method="addEmergencySro">
+		</action>
+		
+		<!-- 科研查询  -->
+		<action name="scientificQuery" class="queryAction" method="scientificQuery">
+			<result name="success">/jsp/sm/query/scientificQuery.jsp</result>
+		</action>
+		
+	</package>
+
+	
+	<package name="screen" namespace="/screen" extends="struts-default,json-default">
+		<!-- 手术室外大屏幕 -->
+		<action name="getOutside" class="queryAction" method="getOutside">
+			<result name="success">/jsp/sm/screen/outside.jsp</result>
+		</action>
+		
+		<!-- 手术室内大屏幕 -->
+		<action name="getInside" class="queryAction" method="getInside">
+			<result name="success">/jsp/sm/screen/inside.jsp</result>
+		</action>
+	
+	</package>
+		
+	<package name="summary" namespace="/summary" extends="struts-default,json-default">
+		
+		<action name="getSummaryByYlwsid" class="anesthesiaSummaryAction" method="getSummaryByYlwsid">
+			<result name="success">/jsp/sm/anesthesiaSummary/summary.jsp</result>
+		</action>
+		
+		<action name="saveSummary" class="anesthesiaSummaryAction" method="saveSummary">
+		</action>
+		
+		<!-- 存为模板界面跳转 -->
+		<action name="templateTo" class="anesthesiaSummaryAction" method="templateTo">
+			<result name="success">/jsp/sm/anesthesiaSummary/template.jsp</result>
+		</action>
+		
+		<!-- 保存麻醉总结模板 -->
+		<action name="saveSummaryTemplate" class="anesthesiaSummaryAction" method="saveSummaryTemplate">
+		</action>
+		
+		<!-- 选择模板界面跳转 -->
+		<action name="choseTemplateTo" class="anesthesiaSummaryAction" method="choseTemplateTo">
+			<result name="success">/jsp/sm/anesthesiaSummary/choseTemplate.jsp</result>
+		</action>
+		
+		<!-- 获取模板内容 -->
+		<action name="getTemplateVal" class="anesthesiaSummaryAction" method="getTemplateVal">
+		</action>
+		
+		<!-- 删除模板 -->
+		<action name="delTemplate" class="anesthesiaSummaryAction" method="delTemplate">
+		</action>
+
+		<!-- 获取打印数据 -->
+		<action name="loadPrint" class="anesthesiaSummaryAction" method="loadPrint">
+		</action>
+
+	</package>
+	
+	<package name="recovery" namespace="/recovery" extends="struts-default,json-default">
+		
+		<action name="getRecoveryRecordByYlwsid" class="recoveryAction" method="getRecoveryRecordByYlwsid">
+			<result name="success">/jsp/sm/recovery/recovery.jsp</result>
+		</action>
+		
+		<action name="saveRecord" class="recoveryAction" method="saveRecord">
+		</action>
+		<!--创建虚拟体征信息  -->
+		<action name="generateData" class="recoveryAction" method="generateData">
+		</action>
+		<!--获取体征信息  -->
+		<action name="getCollectDate" class="recoveryAction" method="getCollectDate">
+		    <result  type="json" >
+			  <param name="root">collectDateResult</param>
+			</result>
+		</action>
+		<!--创建恢复室记录单  -->
+		<action name="createRecovery" class="recoveryAction" method="createRecovery">
+		</action>
+		<!--添加开始记录时间  -->
+		<action name="addMonitorStartTime" class="recoveryAction" method="addMonitorStartTime">
+		</action>
+		<!--添加结束记录时间  -->
+		<action name="addMonitorEndTime" class="recoveryAction" method="addMonitorEndTime">
+		</action>
+		<!--结束恢复室记录 -->
+		<action name="endRecovery" class="recoveryAction" method="endRecovery">
+		</action>
+		<!--保存恢复室体征信息 -->
+		<action name="endRecovery" class="recoveryAction" method="endRecovery">
+		</action>
+		<!--保存恢复室体恢复小结 -->
+		<action name="saveRecovery" class="recoveryAction" method="saveRecovery">
+		</action>
+		<!--加载已结束体征信息  -->
+		<action name="loadRecoveryData" class="recoveryAction" method="loadRecoveryData">
+		    <result  type="json" >
+			  <param name="root">recoveryDataResult</param>
+			</result>
+		</action>
+		<!-- 打印恢复室记录单-->
+		<action name="recoveryPrint" class="recoveryAction" method="recoveryPrint">
+		</action>
+		
+	</package>
+	
+	
+	<package name="instrument" namespace="/instrument" extends="struts-default,json-default">
+	
+		<!-- 获取手术器械列表 -->
+		<action name="getInstrumentList" class="instrumentAction" method="getInstrumentList">
+			<result name="success">/jsp/sm/instrument/list.jsp</result>
+		</action>
+		
+		<!-- 添加手术器械跳转 -->
+		<action name="addInstrumentTo" class="instrumentAction" method="addInstrumentTo">
+			<result name="success">/jsp/sm/instrument/add.jsp</result>
+		</action>
+		
+		<!-- 校验手术器械 -->
+		<action name="checkNameSpecifications" class="instrumentAction" method="checkNameSpecifications">
+		</action>
+		
+		<!-- 添加手术器械 -->
+		<action name="addInstrument" class="instrumentAction" method="addInstrument">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getInstrumentList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		
+		<!-- 修改手术器械跳转 -->
+		<action name="modInstrumentTo" class="instrumentAction" method="modInstrumentTo">
+			<result name="success">/jsp/sm/instrument/mod.jsp</result>
+		</action>
+		
+		<!-- 修改手术器械 -->
+		<action name="modInstrument" class="instrumentAction" method="modInstrument">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getInstrumentList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		
+		<!-- 删除手术器械 -->
+		<action name="delInstrument" class="instrumentAction" method="delInstrument">
+		</action>
+		
+		
+		<!-- 获取手术包列表 -->
+		<action name="getInstrumentPackageList" class="instrumentAction" method="getInstrumentPackageList">
+			<result name="success">/jsp/sm/instrument/packageList.jsp</result>
+		</action>
+		
+		<!-- 添加手术包跳转 -->
+		<action name="addInstrumentPackageTo" class="instrumentAction" method="addInstrumentPackageTo">
+			<result name="success">/jsp/sm/instrument/addPackage.jsp</result>
+		</action>
+		
+		<!-- 添加手术包 -->
+		<action name="addInstrumentPackage" class="instrumentAction" method="addInstrumentPackage">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getInstrumentPackageList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		
+		<!-- 修改手术包跳转 -->
+		<action name="modInstrumentPackageTo" class="instrumentAction" method="modInstrumentPackageTo">
+			<result name="success">/jsp/sm/instrument/modPackage.jsp</result>
+		</action>
+		
+		<!-- 修改手术包 -->
+		<action name="modInstrumentPackage" class="instrumentAction" method="modInstrumentPackage">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getInstrumentPackageList.action</param>
+				<param name="info">${info}</param>
+				<param name="functionid">${functionid }</param>
+			</result>
+		</action>
+		
+		<!-- 删除手术器械 -->
+		<action name="delInstrumentPackage" class="instrumentAction" method="delInstrumentPackage">
+		</action>
+		
+		
+		<!-- 器械清点跳转 -->
+		<action name="checkInstrumentTo" class="instrumentAction" method="checkInstrumentTo">
+			<result name="success">/jsp/sm/checkInstrument/checkInstrument.jsp</result>
+		</action>
+		
+		<!-- 获取手术器械信息 -->
+		<action name="getInstrumentInfo" class="instrumentAction" method="getInstrumentInfo">
+		</action>
+
+		<!-- 保存或修改手术器械清单 -->
+		<action name="saveOrUpdateInstrumentCheck" class="instrumentAction" method="saveOrUpdateInstrumentCheck">
+		</action>
+		
+		<!-- 获取打印信息 -->
+		<action name="loadPrint" class="instrumentAction" method="loadPrint">
+		</action>
+		
+	</package>
+	
+</struts>

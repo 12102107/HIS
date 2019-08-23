@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.form-horizontal .controls{ margin-left:160px;!important}
+.form-horizontal .control-label{ width:130px;!important}
+.radio input[type="radio"], .checkbox input[type="checkbox"]{ margin-left:0; margin-right:5px;!important}
+input, textarea, .uneditable-input{ width:80%;}

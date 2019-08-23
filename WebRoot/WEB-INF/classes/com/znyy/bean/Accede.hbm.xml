@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.znyy.bean.Accede" table="SM_ACCEDE">
+        <id name="id" type="integer">
+            <column name="ID" scale="0" />
+            <generator class="sequence">
+             <param name="sequence">SEQ_SM_ACCEDE</param>
+            </generator> 
+        </id>
+        <property name="docId" type="java.lang.String">
+            <column name="DOC_ID" length="20" />
+        </property>
+        <property name="operationId" type="java.lang.String">
+            <column name="OPERATION_ID" length="11" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" length="8" />
+        </property>
+        <property name="specialIllness" type="java.lang.String">
+            <column name="SPECIAL_ILLNESS" length="200" />
+        </property>
+        <property name="notice" type="java.lang.String">
+            <column name="NOTICE" length="30" />
+        </property>
+        <property name="noticeOther" type="java.lang.String">
+            <column name="NOTICE_OTHER" length="200" />
+        </property>
+        <property name="visitDate" type="java.lang.String">
+            <column name="VISIT_DATE" length="20" />
+        </property>
+        <property name="propositionalMethod" type="java.lang.String">
+            <column name="PROPOSITIONAL_METHOD" length="30" />
+        </property>
+        <property name="specialRisk" type="java.lang.String">
+            <column name="SPECIAL_RISK" length="200" />
+        </property>
+        <property name="otherRisk" type="java.lang.String">
+            <column name="OTHER_RISK" length="200" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" length="8" />
+        </property>
+        <property name="choosePain" type="java.lang.String">
+            <column name="CHOOSE_PAIN" length="200" />
+        </property>
+        <property name="transfusionYn" type="java.lang.String">
+            <column name="TRANSFUSION_YN" length="200" />
+        </property>
+        <property name="chooseAirtube" type="java.lang.String">
+            <column name="CHOOSE_AIRTUBE" length="200" />
+        </property>
+        <property name="otherAnesthesia" type="java.lang.String">
+            <column name="OTHER_ANESTHESIA" length="200" />
+        </property>
+        <property name="transfusionMerit" type="java.lang.String">
+            <column name="TRANSFUSION_MERIT" length="200" />
+        </property>
+        <property name="otherPuncture" type="java.lang.String">
+            <column name="OTHER_PUNCTURE" length="200" />
+        </property>
+        <property name="accidentConcurrency" type="java.lang.String">
+            <column name="ACCIDENT_CONCURRENCY" length="200" />
+        </property>
+        <property name="airtubeDate" type="java.lang.String">
+            <column name="AIRTUBE_DATE" length="200" />
+        </property>
+        <property name="airtubeDateDay" type="java.lang.String">
+            <column name="AIRTUBE_DATE_DAY" length="200" />
+        </property>
+        <property name="punctureDate" type="java.lang.String">
+            <column name="PUNCTURE_DATE" length="200" />
+        </property>
+        <property name="transfusionDate" type="java.lang.String">
+            <column name="TRANSFUSION_DATE" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+input[maxlength='3'] {	width: 30px;	}
+	input[maxlength='4'] {	width: 40px;	}
+	input[maxlength='5'] {	width: 45px;	}
+	
+	
+	input[type='text'].inactive,
+	input[type='number'].inactive,
+	input[type='email'].inactive,
+	input[type='url'].inactive,
+	textarea.inactive,
+	select.inactive,
+	option.inactive
+	{
+		color: #999;
+		font-style: italic;
+	}
+	input[type='text'].invalid,
+	input[type='password'].invalid,
+	input[type='number'].invalid,
+	input[type='email'].invalid,
+	input[type='url'].invalid, 
+	textarea.invalid, select.invalid
+	{
+		border-color: red;
+	}
+	
+	span.checkbox-container
+	{
+		border: 1px solid transparent;
+		display: block;
+		width: 145px;
+		padding: 2px 5px;
+		float: left;
+	}
+	span.checkbox-container.invalid
+	{
+		border-color: red;
+	}
+	
+	select.inactive option
+	{
+		color: #000;
+		font-style: normal;
+	}
+	select option.inactive,
+	select.inactive option.inactive
+	{
+		color: #999;
+		font-style: italic;
+	}
+	
+	input[type='submit'] 
+	{
+		margin: 0 20px 0 90px;
+	}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1dtd">
+<struts>
+	
+	
+	<!-- struts2的action必须放在一个指定的包空间下定义 -->
+	<package name="user" namespace="/user" extends="struts-default,json-default">  
+		<global-results>
+            <result name="login" type="redirectAction">
+				<param name="actionName">index</param>
+			</result>
+        </global-results>
+       <!-- 程序超时或退出登录时调用 -->
+		<action name="index" class="userAction" method="index">
+			<result name="success">/jsp/jump.jsp</result>
+		</action>
+		<!-- 登录操作 -->
+        <action name="login" class="userAction" method="login">
+			<result name="success">/jsp/index_admin.jsp</result>
+		</action>
+		<!-- 跳转到top页面-->
+        <action name="findTopTo" class="userAction" method="findTopTo">
+			<result name="success">/jsp/top.jsp</result>
+		</action>
+		<!--查询左侧菜单 -->
+		<action name="findMenu" class="userAction" method="findMenu">
+			<result name="success">/jsp/menu.jsp</result>
+		</action>
+		
+		<action name="menuframe" class="userAction" method="menuframe">
+			<result name="success">/jsp/menuframe.jsp</result>
+		</action>
+		<action name="menuframeToByfunction" class="userAction" method="menuframeToByfunction">
+			<result name="success">/jsp/menuframe.jsp</result>
+		</action>
+    </package>
+	<!-- *************************功能模块管理end********************* -->
+	<package name="unit" namespace="/unit" extends="struts-default,json-default">
+	
+		<!--跳转到选择多科室页面 -->
+		<action name="selMoreUnitTo" class="unitAction" method="selMoreUnitTo">
+			<result name="success">/jsp/chooseUnit.jsp</result>
+		</action>
+	</package>	
+	
+    <!-- ************************系统管理start********************* -->
+    <package name="system" namespace="/system" extends="struts-default,json-default"> 
+    	<global-results>
+            <result name="login" type="redirectAction">
+				<param name="actionName">../user/index</param>
+			</result>
+        </global-results>
+		<!-- 登录操作 -->
+        <action name="login" class="systemAction" method="login">
+			<result name="success">/jsp/admin/system/system_index.jsp</result>
+			<result name="error">/index.jsp</result>
+		</action>
+		<!-- 返回到平台页面 -->
+        <action name="backPlatform" class="systemAction" method="backPlatform">
+			<result name="success">/jsp/admin/system/system_index.jsp</result>
+		</action>
+		
+    </package>
+	
+	<!-- 医院字典表维护 -->
+	<package name="hospital" namespace="/hospital" extends="struts-default,json-default">
+		<!-- 为登录页面获取医院信息 -->
+		<action name="getHospitalForLogin" class="hospitalAction" method="getHospitalForLogin">
+		</action>
+	</package>
+</struts>     
