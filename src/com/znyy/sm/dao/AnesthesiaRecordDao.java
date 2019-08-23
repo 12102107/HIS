@@ -1,0 +1,672 @@
+package com.znyy.sm.dao;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import com.znyy.bean.SmAnaesEvent;
+import com.znyy.bean.SmAnaesEventItems;
+import com.znyy.bean.SmAnaesRecord;
+import com.znyy.bean.SmBloodtypeItem;
+import com.znyy.bean.SmBodyPosition;
+import com.znyy.bean.SmBreathEvent;
+import com.znyy.bean.SmIoDefination;
+import com.znyy.bean.SmIoEvent;
+import com.znyy.bean.SmMedicalEvent;
+import com.znyy.bean.SmMedicalTakeWay;
+import com.znyy.bean.SmMedicine;
+import com.znyy.bean.SmOperationEvent;
+import com.znyy.bean.SmOutRoomStatus;
+import com.znyy.bean.SmRegOpt;
+import com.znyy.bean.SmRemarkPoint;
+import com.znyy.bean.SmWaveData;
+
+public interface AnesthesiaRecordDao {
+	
+	 /**
+	 * @方法名称: loadAnesthesiaRecordMainView
+	 * @功能描述: 医疗文书跳转到麻醉记录界面
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-02 上午10:41:21
+	 * @param id
+	 * @return List<SmRegOpt>
+	 */
+	public SmRegOpt loadAnesthesiaRecordMainViewById(String ylwsid);
+	
+	/**
+	 * @方法名称: getSmRegOptByOperationId
+	 * @功能描述: 根据operationId获取病人手术信息
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-30 上午11:20:21
+	 * @param operationId
+	 * @return SmRegOpt
+	 */
+	public SmRegOpt getSmRegOptByOperationId(String operationId);
+	
+	 /**
+	 * @方法名称: collectItemsPointByOptId
+	 * @功能描述: 通过手术ID获取该病人的要查询时间的点
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-04 上午10:41:21
+	 * @param operationId
+	 * @return List<SmRemarkPoint>   
+	 */
+	public List<SmRemarkPoint> getCollectItemsPointByOptId(String operationId,String id);
+	/**
+	 * @方法名称: getSmMedicineList
+	 * @功能描述: 获取麻醉用药
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-10 上午10:41:21
+	 * @param 
+	 * @return List<SmMedicine>   
+	 */
+	public List<SmMedicine> getSmMedicineList(); 
+	/**
+	 * @方法名称: getMedicineNameByPy
+	 * @功能描述: 获取麻醉用药
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-10 上午10:41:21
+	 * @param 
+	 * @return List<SmMedicine>   
+	 */
+	public List<SmMedicine> getMedicineNameByPy(String mpyCode);
+	/**
+	 * @方法名称: getMedicinesById
+	 * @功能描述: 获取麻醉用药
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-10 上午10:41:21
+	 * @param 
+	 * @return SmMedicine   
+	 */
+	public SmMedicine getMedicinesById(Integer medicinesId);
+	
+	/**
+	 * @方法名称: getSmMedicalTakeWayList
+	 * @功能描述: 获取给药途径
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-15 上午10:41:21
+	 * @param 
+	 * @return List<SmMedicalTakeWay>   
+	 */
+	public List<SmMedicalTakeWay> getSmMedicalTakeWayList();
+	
+	/**
+	 * @方法名称: getSmIoDefinationAllList
+	 * @功能描述: 获取液体出量
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param   
+	 * @return List<SmIoDefination>   
+	 */
+	public List<SmIoDefination> getSmIoDefinationAllList();
+	
+	/**
+	 * @方法名称: getAInPutById
+	 * @功能描述: 获取液体入量
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param   getAInPutById
+	 * @return List<SmIoDefination>   
+	 */
+	public SmIoDefination getAInPutById(Integer inPutId);
+	
+	
+	/**
+	 * @方法名称: getBloodtypeItemList
+	 * @功能描述: 获取血型
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmBloodtypeItem>   
+	 */
+	public List<SmBloodtypeItem> getBloodtypeItemList();
+	
+	/**
+	 * @方法名称: getSmIoDefinationAllList
+	 * @功能描述: 获取液体出量
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoDefination>   
+	 */
+	public void addSmIoEvent(SmIoEvent smie);
+	
+	/**
+	 * @方法名称: getSmIoEventByIdAndType
+	 * @功能描述: 获取液体出量通过ID
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return SmIoDefination>  
+	 */
+	public SmIoEvent getSmIoEventById(String operationId,String itemId);
+	
+	/**
+	 * @方法名称: UpdateSmIoEvent
+	 * @功能描述: 获取液体出量通过ID
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return   
+	 */
+	public void UpdateSmIoEvent(SmIoEvent smie);
+	
+	/**
+	 * @方法名称: getSmIoEventListByOperationId
+	 * @功能描述: 获取液体出量通过operationId
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoEvent>>  
+	 */
+	public List<SmIoEvent> getSmIoEventListByOperationId(String operationId,String type);
+	
+	/**
+	 * @方法名称: getIoEventById
+	 * @功能描述: 获取液体出量通过Id
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoEvent>>  
+	 */
+	public SmIoEvent getIoEventById(Integer id);
+	
+	/**
+	 * @方法名称: getInChildNamesBySubType
+	 * @功能描述: 
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoEvent>>  
+	 */
+	public List<SmIoDefination> getInNamesBySubType(String subType);
+	
+	/**
+	 * @方法名称: getSmAnaesEventItemsList
+	 * @功能描述: 
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午10:41:21
+	 * @param 
+	 * @return List<SmAnaesEventItems>>  
+	 */
+	public List<SmAnaesEventItems> getSmAnaesEventItems();
+	
+	/**
+	 * @方法名称: getSmAnaesEventItemsList
+	 * @功能描述: 
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午10:41:21
+	 * @param 
+	 * @return List<SmAnaesEventItems>>  
+	 */
+	public SmAnaesEventItems getAnaesEventItem(String code);
+	
+	/**
+	 * @方法名称: addSmAnesEvent
+	 * @功能描述: 获取液体出量
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoDefination>   
+	 */
+	public void addSmAnesEvent(SmAnaesEvent sae);
+	
+	/**
+	 * @方法名称: addAnaesRecord
+	 * @功能描述: 创建麻醉记录单
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return    
+	 */
+	public void addAnaesRecord(SmAnaesRecord sar);
+	
+	/**
+	 * @方法名称: updateAnaesRecord
+	 * @功能描述: 更新麻醉记录单
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return    
+	 */
+	public void updateAnaesRecord(SmAnaesRecord sar);
+	
+	/**
+	 * @方法名称: getAnaesRecordByoperationId
+	 * @功能描述: 查询麻醉记录单By手术ID
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param operationId
+	 * @return    SmAnaesRecord
+	 */
+	public SmAnaesRecord getAnaesRecordByoperationId(String operationId);
+	
+	/**
+	 * @方法名称: updateSmAnesEvent
+	 * @功能描述: 获取液体出量
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return List<SmIoDefination>   
+	 */
+	public void updateSmAnesEvent(SmAnaesEvent sae);
+	
+	/**
+	 * @方法名称: getSmAnesEventsListByOperationId
+	 * @功能描述: 获取液体出量
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午10:41:21
+	 * @param 
+	 * @return List<SmAnaesEvent>   
+	 */
+	public List<SmAnaesEvent> getSmAnesEventsListByOperationId(String operationId);
+	
+	
+	/**
+	 * @方法名称: getSmAnesEventByOperationIdAndCode
+	 * @功能描述: 获取麻醉事件
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午10:41:21
+	 * @param 
+	 * @return SmAnaesEvent   
+	 */
+	public SmAnaesEvent getSmAnesEventByOperationIdAndCode(String operationId,String code);
+	
+	
+	/**
+	 * @方法名称: getSmAnesEventByOperationId
+	 * @功能描述: 获取麻醉事件
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午10:41:21
+	 * @param 
+	 * @return SmAnaesEvent   
+	 */
+	public List<SmAnaesEvent> getSmAnesEventByOperationId(String operationId);
+	
+	
+	
+	
+	/**
+	 * @方法名称: updateSmRegOpt
+	 * @功能描述: 
+	 * @作者:崔连瑞
+     * @创建时间:2016-3-24 上午10:41:21
+	 * @param 
+	 * @return   
+	 */
+	public void updateSmRegOpt(SmRegOpt sro);
+
+    /**
+     * @方法名称: getMedicalEventByOptIdAndMedCode
+     * @功能描述: 获取麻醉用药
+     * @作者:崔连瑞
+     * @创建时间:2016-3-31 上午10:41:21
+     * @param 
+     * @return SmAnaesEvent   
+     */
+    public SmMedicalEvent getMedicalEventByOptIdAndMedCode(String operationId,String medId);
+    
+
+    /**
+     * @方法名称: getMedEventaById
+     * @功能描述: 获取麻醉用药
+     * @作者:崔连瑞
+     * @创建时间:2016-3-31 上午10:41:21
+     * @param 
+     * @return SmAnaesEvent   
+     */
+    public SmMedicalEvent getMedEventaById(Integer id);
+    
+    /**
+     * @方法名称: addMedicalEvent
+     * @功能描述: 添加麻醉用药
+     * @作者:崔连瑞
+     * @创建时间:2016-3-31 上午10:41:21
+     * @param SmMedicalEvent
+     * @return    
+     */
+    public void addMedicalEvent(SmMedicalEvent sme) ;
+    
+    /**
+     * @方法名称: updateMedicalEvent
+     * @功能描述: 修改麻醉用药
+     * @作者:崔连瑞
+     * @创建时间:2016-3-31 上午10:41:21
+     * @param SmMedicalEvent
+     * @return    
+     */
+    public void updateMedicalEvent(SmMedicalEvent sme) ;
+    
+    /**
+     * @方法名称: getMedicalEventListByOperationId
+     * @功能描述: 获取麻醉用药
+     * @作者:崔连瑞
+     * @创建时间:2016-3-31 上午10:41:21
+     * @param operationId
+     * @return    List<SmMedicalEvent>
+     */
+    public List<SmMedicalEvent> getMedicalEventListByOperationId(String operationId) ;
+ 
+    /**
+     * @方法名称: addMonitSign
+     * @功能描述: 保存采集项
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmWaveData
+     * @return    
+     */
+    public void addMonitSign(SmWaveData smwd) ;
+    
+    /**
+     * @方法名称: updateMonitSign
+     * @功能描述: 修改采集项
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmWaveData
+     * @return    
+     */
+    public void updateMonitSign(SmWaveData smwd) ;
+
+    /**
+     * @方法名称: getMonitoringSignByOptIdAndTime
+     * @功能描述: 查找采集项
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午8:21:21
+     * @param operationId,time
+     * @return  SmWaveData  
+     */
+    public SmWaveData getMonitoringSignByOptIdAndTime(String operationId,Integer xpoint) ;
+    
+    /**
+     * @方法名称: getMonitListByOperationId
+     * @功能描述: 获取采集项集合通过手术ID
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  List<SmWaveData>  
+     */
+    public List<SmWaveData> getMonitListByOperationId(String operationId) ;
+    
+    /**
+     * @方法名称: getAnesthesiaRecordPrint
+     * @功能描述: 获取打印数据
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  List<Map<String, Object>>
+     */
+    public  List<Map<String, Object>> getAnesthesiaRecordPrint(String operationId) ;
+    
+    
+    /**
+     * @方法名称: getOptEventById
+     * @功能描述: 获取手术事件ById
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午8:21:21
+     * @param id
+     * @return  SmOperationEvent  
+     */
+    public SmOperationEvent getOptEventById(String id) ;
+
+    
+    /**
+     * @方法名称: getOptEventByOperationId
+     * @功能描述: 获取手术事件集合
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  List<SmOperationEvent>  
+     */
+    public List<SmOperationEvent> getOptEventByOperationId(String operationId) ;
+    
+    /**
+     * @方法名称: addOptEvent
+     * @功能描述: 保存手术事件
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmOperationEvent
+     * @return    
+     */
+    public void addOptEvent(SmOperationEvent sopet) ;
+    
+    /**
+     * @方法名称: updateOptEvent
+     * @功能描述: 修改手术事件
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmOperationEvent
+     * @return    
+     */
+    public void updateOptEvent(SmOperationEvent sopet) ;
+    
+    /**
+     * @方法名称: getBreathEventById
+     * @功能描述: 获取呼吸事件ById
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午8:21:21
+     * @param id
+     * @return  SmBreathEvent  
+     */
+    public SmBreathEvent getBreathEventById(String id) ;
+
+    
+    /**
+     * @方法名称: getBreathEventByOperationId
+     * @功能描述: 获取呼吸事件集合
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  List<SmBreathEvent>  
+     */
+    public List<SmBreathEvent> getBreathEventByOperationId(String operationId) ;
+    
+    /**
+     * @方法名称: addBreathEvent
+     * @功能描述: 保存呼吸事件
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmBreathEvent
+     * @return    
+     */
+    public void addBreathEvent(SmBreathEvent sbet) ;
+    
+    /**
+     * @方法名称: updateBreathEvent
+     * @功能描述: 修改呼吸事件
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmBreathEvent
+     * @return    
+     */
+    public void updateBreathEvent(SmBreathEvent sbet) ;
+    
+    /**
+     * @方法名称: getBodyPositionByOperationId
+     * @功能描述: 获取体位
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  SmBodyPosition 
+     */
+    public SmBodyPosition getBodyPositionByOperationId(String operationId) ;
+    
+    /**
+     * @方法名称: addBodyPosition
+     * @功能描述: 保存体位
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmBodyPosition
+     * @return    
+     */
+    public void addBodyPosition(SmBodyPosition sbp) ;
+    
+    /**
+     * @方法名称: updateBodyPosition
+     * @功能描述: 修改体位
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmBodyPosition
+     * @return    
+     */
+    public void updateBodyPosition(SmBodyPosition sbp) ;
+    
+    /**
+     * @方法名称: getOutRoomStatusOperationId
+     * @功能描述: 获取出室情况
+     * @作者:崔连瑞
+     * @创建时间:2016-4-20 上午9:21:21
+     * @param operationId
+     * @return  SmOutRoomStatus 
+     */
+    public SmOutRoomStatus getOutRoomStatusByoperationId(String operationId) ;
+    
+    /**
+     * @方法名称: addOutRoomStatus
+     * @功能描述: 保存出室情况
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmOutRoomStatus
+     * @return    
+     */
+    public void addOutRoomStatus(SmOutRoomStatus sors) ;
+    
+    /**
+     * @方法名称: updateOutRoomStatus
+     * @功能描述: 修改出室情况
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param SmOutRoomStatus
+     * @return    
+     */
+    public void updateOutRoomStatus(SmOutRoomStatus sors) ;
+    
+    
+    public List<Map<String, Object>> LoadDocumentState();
+	
+	 /**
+	 * @方法名称: modAnesthetistersByoperationName
+	 * @功能描述: 删除麻醉人员
+	 * @作者:付士山
+	 * @创建时间:2016-6-17 下午5:00:28
+	 * @param sross void   
+	 */
+	 
+	public void modAnesthetistersByoperationName(SmRegOpt sross);
+  
+	/**
+     * @方法名称: addVitalSign
+     * @功能描述: 模拟创建体征信息
+     * @作者:崔连瑞
+     * @创建时间:2016-4-19 下午7:41:21
+     * @param 
+     * @return    
+     */
+    public void addVitalSign(SmRemarkPoint srp) ;
+
+	/**
+	 * @方法名称: getTimesPointByOptId
+	 * @功能描述: 获取病人所有体征信息时间集合
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-04 上午10:41:21
+	 * @param operationId
+	 * @return List<Date>   
+	 */
+	public List<Date> getTimesPointByOptId(String operationId,String hospitalCode,String roomCode);
+    
+	 /**
+	 * @方法名称: collectItemsPointByOptId
+	 * @功能描述: 通过手术ID获取该病人的要查询时间的点
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-04 上午10:41:21
+	 * @param operationId
+	 * @return List<SmRemarkPoint>   
+	 */
+	public SmRemarkPoint getCollectItemsPointByOptId(String operationId,String itemCode, String hospitalCode,String roomCode,Date time);
+	
+
+	/**
+	 * @Description: 获取手术事件列表
+	 * @param @return   
+	 * @return List<Map<String,Object>>  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月25日
+	 */
+	public List<Map<String, Object>> getAnesEventList();
+
+	/**
+	 * @Description: 保存麻醉事件
+	 * @param @param event   
+	 * @return void  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月25日
+	 */
+	public void saveSmAnaesEvent(SmAnaesEvent event);
+
+	/**
+	 * @Description: 根据code获取麻醉事件
+	 * @param @param itemCode
+	 * @param @return   
+	 * @return SmAnaesEventItems  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月25日
+	 */
+	public SmAnaesEventItems getSmAnesEventItemByCode(String itemCode);
+
+	/**
+	 * @Description: 根据手术Id获取麻醉事件
+	 * @param @param ylwsid
+	 * @param @return   
+	 * @return List<Map<String, Object>>  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月26日
+	 */
+	public List<Map<String, Object>> getAnesEventByOperationId(String ylwsid);
+
+	/**
+	 * @Description: 保存手术事件
+	 * @param @param event   
+	 * @return void  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月27日
+	 */
+	public void saveSmOperationEvent(SmOperationEvent event);
+
+	/**
+	 * @Description: 获取手术事件
+	 * @param @param ylwsid
+	 * @param @return   
+	 * @return List<SmOperationEvent>  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月27日
+	 */
+	public List<SmOperationEvent> getOpEventByOperationId(String ylwsid);
+
+	/**
+	 * @Description: 根据id获取手术事件
+	 * @param @param id
+	 * @param @return   
+	 * @return SmOperationEvent  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月27日
+	 */
+	public SmOperationEvent getOpEventById(String id);
+
+	/**
+	 * @Description: 保存呼吸事件
+	 * @param @param event   
+	 * @return void  
+	 * @throws
+	 * @author 白东旭
+	 * @date 2016年7月28日
+	 */
+	public void saveSmBreathEvent(SmBreathEvent event);
+	
+
+}

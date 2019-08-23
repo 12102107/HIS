@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1dtd">
+<struts>
+	
+	<package name="arrange" namespace="/arrange" extends="struts-default,json-default">
+
+		<!-- 获取一周内我的排班 -->
+		<action name="myArrangeList" class="arrangeAction" method="myArrangeList">
+			<result name="success">/jsp/sm/arrange/myArrange.jsp</result>
+		</action>
+
+		<!-- 获取一周内排班 -->
+		<action name="arrangePrintTo" class="arrangeAction" method="arrangePrintTo">
+			<result name="success">/jsp/sm/arrange/arrangePrint.jsp</result>
+		</action>
+
+		<!-- 获取打印数据 -->
+		<action name="loadPrint" class="arrangeAction" method="loadPrint">
+		</action>
+	</package>
+	
+	<package name="preVisit" namespace="/preVisit" extends="struts-default,json-default">
+		<!-- 获取术前访视单 -->
+		<action name="preVisitList" class="preVisitAction" method="preVisitList">
+			<result name="success">/jsp/sm/preVisit/preoperativeVisit.jsp</result>
+		</action>
+		
+		<!-- 保存术前访视信息 -->
+		<action name="savePreVisit" class="preVisitAction" method="savePreVisit">
+		</action>
+		
+		<!-- 保存术前访视信息 -->
+		<action name="commitPreVisit" class="preVisitAction" method="commitPreVisit">
+		</action>
+		
+		<!-- 选择asa界面跳转 -->
+		<action name="chooseAsaTo" class="preVisitAction" method="chooseAsaTo">
+			<result name="success">/jsp/sm/preVisit/ASA.jsp</result>
+		</action>
+		
+		<!-- 获取打印数据 -->
+		<action name="loadPrint" class="preVisitAction" method="loadPrint">
+		</action>
+		
+		<!-- 存为模板界面跳转 -->
+		<action name="templateTo" class="preVisitAction" method="templateTo">
+			<result name="success">/jsp/sm/preVisit/template.jsp</result>
+		</action>
+		
+		<!-- 保存术前访视模板 -->
+		<action name="savePreVisitTemplate" class="preVisitAction" method="savePreVisitTemplate">
+		</action>
+		
+		<!-- 选择模板界面跳转 -->
+		<action name="choseTemplateTo" class="preVisitAction" method="choseTemplateTo">
+			<result name="success">/jsp/sm/preVisit/choseTemplate.jsp</result>
+		</action>
+		
+		<!-- 获取模板内容 -->
+		<action name="getTemplateVal" class="preVisitAction" method="getTemplateVal">
+		</action>
+		
+		<!-- 删除模板 -->
+		<action name="delTemplate" class="preVisitAction" method="delTemplate">
+		</action>
+		<!-- 加载检验检查事件 -->
+		<action name="loadTest" class="preVisitAction" method="loadTest">
+		    <result  type="json" >
+			    <param name="root">loadTestResult</param>
+			</result>
+		</action>
+		<!-- 保存检验检查事件 -->
+		<action name="saveTest" class="preVisitAction" method="saveTest">
+		    <result  type="json" >
+			    <param name="root"></param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="optNurse" namespace="/optNurse" extends="struts-default,json-default">
+		<!-- 手术护理单 -->
+		<action name="optNurseList" class="optNurseAction" method="optNurseList">
+			<result name="success">/jsp/sm/optNurse/optNurse.jsp</result>
+		</action>
+		
+		<!-- 模糊查询手术人员 -->
+		<action name="getSopVague" class="optNurseAction" method="getSopVague">
+		</action>
+		
+		<!-- 保存 -->
+		<action name="saveOptNurse" class="optNurseAction" method="saveOptNurse">
+		</action>
+		
+		<!-- 提交 -->
+		<action name="commitOptNurse" class="optNurseAction" method="commitOptNurse">
+		</action>
+		
+		<!-- 获取打印数据 -->
+		<action name="loadPrint" class="optNurseAction" method="loadPrint">
+		</action>
+		
+		<!-- 存为模板界面跳转 -->
+		<action name="templateTo" class="optNurseAction" method="templateTo">
+			<result name="success">/jsp/sm/optNurse/template.jsp</result>
+		</action>
+		
+		<!-- 保存手术护理模板 -->
+		<action name="saveOptNurseTemplate" class="optNurseAction" method="saveOptNurseTemplate">
+		</action>
+		
+		<!-- 选择模板界面跳转 -->
+		<action name="choseTemplateTo" class="optNurseAction" method="choseTemplateTo">
+			<result name="success">/jsp/sm/optNurse/choseTemplate.jsp</result>
+		</action>
+		
+		<!-- 获取模板内容 -->
+		<action name="getTemplateVal" class="optNurseAction" method="getTemplateVal">
+		</action>
+		
+		<!-- 删除模板 -->
+		<action name="delTemplate" class="optNurseAction" method="delTemplate">
+		</action>
+		
+	</package>
+	
+	
+	<package name="statistics" namespace="/statistics" extends="struts-default,json-default">
+		<!-- 手术等级统计 -->
+		<action name="levelStatistics" class="statisticsAction" method="levelStatistics">
+			<result name="success">/jsp/sm/statistics/level.jsp</result>
+		</action>
+		
+		<!-- 工作时间统计 -->
+		<action name="workingTime" class="statisticsAction" method="workingTime">
+			<result name="success">/jsp/sm/statistics/workingTime.jsp</result>
+		</action>
+		
+		<!-- 镇痛治疗例数统计 -->
+		<action name="analgesiaStatistics" class="statisticsAction" method="analgesiaStatistics">
+			<result name="success">/jsp/sm/statistics/analgesia.jsp</result>
+		</action>
+		
+		<!-- 心肺复苏治疗例数统计 -->
+		<action name="cprStatistics" class="statisticsAction" method="cprStatistics">
+			<result name="success">/jsp/sm/statistics/cpr.jsp</result>
+		</action>
+		
+		<!-- 麻醉复苏管理例数统计 -->
+		<action name="recoveryStatistics" class="statisticsAction" method="recoveryStatistics">
+			<result name="success">/jsp/sm/statistics/recovery.jsp</result>
+		</action>
+		
+		<!-- niss统计 -->
+		<action name="nissStatistics" class="statisticsAction" method="nissStatistics">
+			<result name="success">/jsp/sm/statistics/niss.jsp</result>
+		</action>
+		
+		<!-- 麻醉方法统计 -->
+		<action name="methodStatistics" class="statisticsAction" method="methodStatistics">
+			<result name="success">/jsp/sm/statistics/method.jsp</result>
+		</action>
+	</package>
+</struts>

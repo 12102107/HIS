@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*分页开始*/
+.Paging ul li{ float:left; margin-left:1%;}
+.Paging ul li a{ background:#f9fafa; width:32px; height:32px; display:inline-block; border:1px solid #c3c3c3; text-align:center; line-height:32px; color:#4a4a4a}
+.Paging ul li a:hover{ background:#1dabd3; color:#FFFFFF;}
+/*分页结束*/
+
+
+
+.Paging1 ul li{ float:left; margin-left:1.5%;}
+.Paging1 ul li a{ border:1px solid #dddddd; width:22px; height:22px; line-height:22px;  /*width:28px; height:28px; line-height:28px;*//* width:34px; height:34px; line-height:28px;*/ /*width:54px; height:54px; line-height:54px;*/display:inline-block; text-align:center; color:#0088cc;}
+.Paging1 ul li a:hover{ background:#f5f5f5; color:#999999;}

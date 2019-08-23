@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+.small{ width:80px}
+.responsive-table {
+  position: relative;
+  overflow: hidden;
+  margin-left:10px }
+.responsive-table .scrollable-area {
+    width: 100%;
+    overflow-y: hidden; }
+.responsive-table table td {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden; }
+/*table开始*/
+.table{font-family:"微软雅黑";}
+.icon_modify{ margin-left:5%;}
+.bj_special{ background:#4ddab8}
+
+.table th{ width:123px; background:#1caad1; color:#FFFFFF;border-bottom:1px solid #E0E0E0; font-size:18px; font-weight:normal; height:30px; letter-spacing:1px}
+.table td{ text-align:left; height:30px}
+.table td input{ width:96%; height:30px; margin-left:1%}
+.border-r{border-right:1px solid #E0E0E0;}
+td.table-prompt_text{ border-bottom:none}
+td.table-prompt_text font{ font-size:12px; color:#9e9e9e; line-height:28px; padding-left:3px; letter-spacing:1px;}
+td.table-prompt_text img{ padding-left:145px}
+/*table结束*/
+
+
+.bj{background:#1caad1; color:#FFFFFF; font-size:14px}
+
+.button_blue_74_33{ background:url(../../images/button/button_blue_74_33.png) no-repeat; width:74px; height:33px; text-align:center; line-height:33px; color:#FFFFFF;}/*蓝色 首要 按钮代码*/
+.button_blue_88_33{ background:url(../../images/button/button_blue_88_33.png) no-repeat; width:88px; height:33px; text-align:center; line-height:33px; color:#FFFFFF;}/*蓝色 首要 按钮代码*/
+
+.table_input .form-group input{ border:1px solid #1caad1; height:24px; width:250px}
+.table_input .form-group button{ border:none; margin-left:10px}
+
+.table_input{ margin-bottom:30px}
+/*button开始*/
+.button{ margin-top:2%; float:right;}
+.button_save4{ background:url(../images/button/save.png) no-repeat; width:94px; height:45px; border:none; color:#FFFFFF;}
+/*button开始*/
+
+
+
+
+
+/*table开始*/
+td{ text-align:center; line-height:45px;}
+.table{ margin-top:2%;}
+.table_Patient_Name{ color:#FFFFFF; border:1px solid #dfdfdf; border-right:none; width:90px;}
+.table_Patient_Name3{ width:120px; color:#FFFFFF; border:1px solid #dfdfdf;}
+.table_Patient_Name2{ width:140px; color:#FFFFFF; border:1px solid #dfdfdf;}
+.table1_input{ border:1px solid #dfdfdf}
+.table_star{ vertical-align:middle; margin-right:2%;}
+.table_Writing{ font-size:12px; color:#9e9e9e}
+
+.table_2 td input{ width:600px; height:20px; margin-left:1%}
+.table_3 td input{ width:350px; height:20px; margin-left:1%}
+.table_4 td input{ width:260px; height:20px; margin-left:1%}
+/*table结束*/
+
+
+
+
+
+
+/*form1开始*/
+.Underline{ border-bottom:1px solid #D4D4D4;}
+/*form1结束*/

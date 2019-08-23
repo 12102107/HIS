@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	     http://www.springframework.org/schema/beans
+	      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+            http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- 诊断Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.DiagnosedefDaoImpl"
+		id="diagnosedefDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 诊断Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.DiagnosedefServiceImpl"
+		id="diagnosedefService">
+		<property name="diagnosedefDao" ref="diagnosedefDao" />
+	</bean>
+
+	<!-- 诊断Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.DiagnosedefAction"
+		id="diagnosedefAction">
+		<property name="diagnosedefService" ref="diagnosedefService" />
+		<property name="permissionService" ref="permissionService"/>
+
+	</bean>
+	<!-- 手术Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.OperdefDaoImpl"
+		id="operdefDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.OperdefServiceImpl"
+		id="operdefService">
+		<property name="operdefDao" ref="operdefDao" />
+	</bean>
+
+	<!-- 手术Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.OperdefAction"
+		id="operdefAction">
+		<property name="operdefService" ref="operdefService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 手术人员Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.OperationPeopleDaoImpl"
+		id="operationPeopleDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术人员Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.OperationPeopleServiceImpl"
+		id="operationPeopleService">
+		<property name="operationPeopleDao" ref="operationPeopleDao" />
+	</bean>
+
+	<!-- 手术人员Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.OperationPeopleAction"
+		id="operationPeopleAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 麻醉方法Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.AnaesMethodDaoImpl"
+		id="anaesMethodDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 麻醉方法Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.AnaesMethodServiceImpl"
+		id="anaesMethodService">
+		<property name="anaesMethodDao" ref="anaesMethodDao" />
+	</bean>
+
+	<!-- 麻醉方法Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.AnaesMethodAction"
+		id="anaesMethodAction">
+		<property name="anaesMethodService" ref="anaesMethodService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 手术室Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.OperroomDaoImpl"
+		id="operroomDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 手术室Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.OperroomServiceImpl"
+		id="operroomService">
+		<property name="operroomDao" ref="operroomDao" />
+	</bean>
+
+	<!-- 手术室Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.OperroomAction"
+		id="operroomAction">
+		<property name="operroomService" ref="operroomService" />
+		<property name="permissionService" ref="permissionService"/>
+		
+	</bean>
+
+	<!-- 科室Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.DeptDaoImpl"
+		id="deptDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 科室Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.DeptServiceImpl"
+		id="deptService">
+		<property name="deptDao" ref="deptDao" />
+	</bean>
+
+	<!-- 科室Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.DeptAction" id="deptAction">
+		<property name="deptService" ref="deptService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 病区Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.RegionDaoImpl"
+		id="regionDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 病区Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.RegionServiceImpl"
+		id="regionService">
+		<property name="regionDao" ref="regionDao" />
+	</bean>
+
+	<!-- 病区Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.RegionAction"
+		id="regionAction">
+		<property name="regionService" ref="regionService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 出入量Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.IoDefinationDaoImpl"
+		id="ioDefinationDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 出入量Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.IoDefinationServiceImpl"
+		id="ioDefinationService">
+		<property name="ioDefinationDao" ref="ioDefinationDao" />
+	</bean>
+
+	<!-- 出入量Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.IoDefinationAction"
+		id="ioAction">
+		<property name="ioDefinationService" ref="ioDefinationService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 检验项目Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.CheckItemDaoImpl"
+		id="checkItemDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 检验项目Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.CheckItemServiceImpl"
+		id="checkItemService">
+		<property name="checkItemDao" ref="checkItemDao" />
+	</bean>
+
+	<!-- 检验项目Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.CheckItemAction"
+		id="checkAction">
+		<property name="checkItemService" ref="checkItemService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 使用贵重或自费药品(物品)定义Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.DrugOrGoodsDaoImpl"
+		id="drugOrGoodsDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 使用贵重或自费药品(物品)定义Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.DrugOrGoodsServiceImpl"
+		id="drugOrGoodsService">
+		<property name="drugOrGoodsDao" ref="drugOrGoodsDao" />
+	</bean>
+
+	<!-- 使用贵重或自费药品(物品)定义Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.DrugOrGoodsAction"
+		id="drugAction">
+		<property name="drugOrGoodsService" ref="drugOrGoodsService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 给药途径Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.MedicalTakeWayDaoImpl"
+		id="medicalTakeWayDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 给药途径Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.MedicalTakeWayServiceImpl"
+		id="medicalTakeWayService">
+		<property name="medicalTakeWayDao" ref="medicalTakeWayDao" />
+	</bean>
+
+	<!-- 给药途径Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MedicalTakeWayAction"
+		id="wayAction">
+		<property name="medicalTakeWayService" ref="medicalTakeWayService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 药品库Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.MedicineDaoImpl"
+		id="medicineDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 药品库Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.MedicineServiceImpl"
+		id="medicineService">
+		<property name="medicineDao" ref="medicineDao" />
+	</bean>
+
+	<!-- 药品库Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MedicineAction"
+		id="medAction">
+		<property name="medicineService" ref="medicineService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 系统及参数配置Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.SystemConfigDaoImpl"
+		id="systemConfigDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 系统及参数配置Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.SystemConfigServiceImpl"
+		id="systemConfigService">
+		<property name="systemConfigDao" ref="systemConfigDao" />
+	</bean>
+
+	<!-- 系统及参数配置Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.SystemConfigAction"
+		id="configAction">
+		<property name="systemConfigService" ref="systemConfigService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 系统日志Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.SysloggerDaoImpl"
+		id="sysloggerDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 系统日志Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.SysloggerServiceImpl"
+		id="sysloggerService">
+		<property name="sysloggerDao" ref="sysloggerDao" />
+	</bean>
+
+	<!-- 系统日志Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.SysloggerAction"
+		id="syslogAction">
+		<property name="sysloggerService" ref="sysloggerService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+		<!-- hisDao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.HisDaoImpl" id="hisDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- hisService -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.HisServiceImpl"
+		id="hisService">
+		<property name="hisDao" ref="hisDao" />
+	</bean>
+	<!-- his Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.HisAction" id="hisAction">
+		<property name="queryService" ref="queryService" />
+		<property name="hisService" ref="hisService" />
+		<property name="regOptService" ref="regOptService" />
+        <property name="permissionService" ref="permissionService"/>
+	</bean>
+	
+	
+	<!-- 预约安排Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.RegOptDaoImpl"
+		id="regOptDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 预约安排Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.RegOptServiceImpl"
+		id="regOptService">
+		<property name="regOptDao" ref="regOptDao" />
+	</bean>
+	<!-- 预约安排Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.SsdjAction" id="ssdjAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="regionService" ref="regionService" />
+		<property name="diagnosedefService" ref="diagnosedefService" />
+		<property name="operdefService" ref="operdefService" />
+		<property name="regOptService" ref="regOptService" />
+		<property name="anaesMethodService" ref="anaesMethodService" />
+		<property name="deptService" ref="deptService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	<!-- 手术安排Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.SsapAction" id="ssapAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="operroomService" ref="operroomService" />
+		<property name="regOptService" ref="regOptService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	<!-- 麻醉医师安排Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MzysapAction"
+		id="mzysAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="regOptService" ref="regOptService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+
+	<!-- 医疗文书Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.YlwsDaoImpl"
+		id="ylwsDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 医疗文书service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.YlwsServiceImpl"
+		id="ylwsService">
+		<property name="ylwsDao" ref="ylwsDao" />
+		<property name="writstateDao" ref="writstateDao" />
+	</bean>
+	<!-- 医疗文书Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.YlwsAction" id="ylwsAction">
+		<property name="ylwsService" ref="ylwsService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	<!--麻醉同意书Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MztysAction" id="mztysAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="ylwsService" ref="ylwsService" />
+	</bean>
+	
+	
+		<!-- 麻醉记录单Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.AnesthesiaRecordDaoImpl"
+		id="anesthesiaRecordDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<!-- 麻醉记录单Service -->
+	<bean scope="singleton" class="com.znyy.sm.service.impl.AnesthesiaRecordServiceImpl"
+		id="anesthesiaRecordService">
+		<property name="anesthesiaRecordDao" ref="anesthesiaRecordDao" />
+	</bean>
+	<!-- 麻醉记录单Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.AnesthesiaRecordAction" id="anesthesiaRecordAction">
+	    <property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="anesthesiaRecordService" ref="anesthesiaRecordService" />
+	</bean>
+	
+	<!-- 麻醉计划Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MzjhAction" id="mzjhAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="ylwsService" ref="ylwsService" />
+	</bean>
+	<!-- 术后随访Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.ShsfAction" id="shsfAction">
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="ylwsService" ref="ylwsService" />
+	</bean>
+
+	<!-- 麻醉例数统计Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MzlsAction" id="mzlsAction">
+		<property name="tongJiService" ref="tongJiService" />
+		<property name="operationPeopleService" ref="operationPeopleService" />
+	</bean>
+	<!-- 麻醉例数统计Service -->
+	<bean scope="prototype" class="com.znyy.sm.service.impl.TongJiServiceImpl"
+		id="tongJiService">
+		<property name="tongJiDao" ref="tongJiDao" />
+	</bean>
+
+	<!-- 麻醉例数统计Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.TongJiDaoImpl"
+		id="tongJiDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ASA统计Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.AsaAction" id="asaAction">
+		<property name="tongJiService" ref="tongJiService" />
+		<property name="operationPeopleService" ref="operationPeopleService" />
+		<property name="deptService" ref="deptService" />
+	</bean>
+	<!-- 术前术后诊断统计Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.SqshAction" id="sqshAction">
+		<property name="tongJiService" ref="tongJiService" />
+	</bean>
+	
+	<!-- 公告定义Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.NoticeAction" id="nocAction">
+		<property name="noticeService" ref="noticeService" />
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
+	<!-- 公告定义Service -->
+	<bean scope="prototype" class="com.znyy.sm.service.impl.NoticeServiceImpl"
+		id="noticeService">
+		<property name="noticeDao" ref="noticeDao" />
+	</bean>
+
+	<!-- 公告定义Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.NoticeDaoImpl"
+		id="noticeDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 知识库Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.MedicalStandardAction" id="medicalStandradAction">
+		<property name="medicalStandardService" ref="medicalStandardService" />
+	</bean>
+		<!-- 知识库Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.MedicalStandardDaoImpl"
+		id="medicalStandardDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<!-- 知识库Service -->
+	<bean scope="prototype" class="com.znyy.sm.service.impl.MedicalStandardServiceImpl"
+		id="medicalStandardService">
+		<property name="medicalStandardDao" ref="medicalStandardDao" />
+	</bean>
+	
+		<!-- 工作站Action -->
+	<bean scope="prototype" class="com.znyy.sm.action.WorkStationAction" id="workStationAction">
+		<property name="workStationService" ref="workStationService" />
+		<property name="permissionService" ref="permissionService"/>
+		<property name="operroomService" ref="operroomService"/>
+	</bean>
+		<!-- 工作站Dao -->
+	<bean scope="singleton" class="com.znyy.sm.dao.impl.WorkStationDaoImpl"
+		id="workStationDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<!-- 工作站Service -->
+	<bean scope="prototype" class="com.znyy.sm.service.impl.WorkStationServiceImpl"
+		id="workStationService">
+		<property name="workStationDao" ref="workStationDao" />
+	</bean>
+</beans> 

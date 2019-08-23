@@ -1,0 +1,271 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+p{color:#7B7B7B; padding-bottom:3px; font-size:12px}
+
+
+select, input, textarea, .uneditable-input{ width:100%; !important}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{ padding:4px 0 !important;}
+
+.form-horizontal{padding:10px 10px; margin-left:10px; border-radius:5px;}
+.fuzhi {
+    margin-top: -55px;
+    margin-left: -15px;
+}
+.Rounded_corners_green{
+	width:95px;
+	height:85px;
+	border:1px solid #CFCFCF;
+	color:#5A5A5A;
+	font-family:"宋体";
+	font-size:18px;
+	padding-top:10px;
+	text-align:center;
+	border-radius:5px; 
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	-ms-border-radius:5px; 
+	background:-ms-linear-gradient(top, #F5F5F5, #E7E7E7);
+	background: -moz-linear-gradient(top, #F5F5F5, #E7E7E7);
+	background:-webkit-linear-gradient(top, #F5F5F5, #E7E7E7); 
+	background: -o-linear-gradient(top, #F5F5F5, #E7E7E7);
+	background: linear-gradient(to bottom,#F5F5F5, #E7E7E7); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbc7d3', endColorstr='#adbbc4',GradientType=0 );}
+.Rounded_corners_green p{ padding-top:10px}
+
+h1{font-size:36px !important; font-weight:500; font-family:"微软雅黑";}
+h2{font-size:30px !important; font-weight:500; font-family:"微软雅黑";}
+h3{font-size:24px !important; font-weight:500; font-family:"微软雅黑"; text-align:center; padding-top:30px;}
+h4{font-size:18px !important; font-weight:500; font-family:"微软雅黑";}
+h5{font-size:14px !important; font-weight:500; font-family:"微软雅黑";}
+h6{font-size:12px !important; font-weight:500; font-family:"微软雅黑";}
+
+
+/*标题和下划线*/
+.title_green{ color:#69aa46 !important; border-bottom: 1px solid #69aa46 !important;}
+.title_purple{ color:#a372c4 !important; border-bottom: 1px solid #a372c4 !important;}
+.title_gray{ color:#7c7c7c !important; border-bottom: 1px solid #7c7c7c !important;}
+.title_blue{ color:#3f89c6 !important; border-bottom: 1px solid #3f89c6 !important;}
+.title_red{ color:#e16452 !important; border-bottom: 1px solid #e16452 !important;}
+
+
+/*初复诊页*/
+.outside{ padding:0 !important; line-height:30px !important;}
+.inside td{ background-color:inherit !important; line-height:1; border:none; padding:3px 0 0 0 }
+.inside tr{ border-top:1px solid #ddd;}
+
+.margin1{ padding:8px 15px !important;}
+.margin2{ padding:8px 0 !important;}
+
+
+/*收费*/
+.Thecustom-table tr{ height:45px;}
+.Thecustom-name{ width:90px;}
+.jl{ padding-left:15px;}
+
+.hui{ text-align:center}
+.hui ul{ border:1px dashed #D1D1D1 !important; border-bottom:none !important; margin:0 0 !important; color:#555; text-align:left}
+.hui ul li{ border-bottom:1px dashed #D1D1D1; line-height:50px; list-style:none; padding: 0 10px}
+.hui ul .badge_number{ float:right;}
+.hui ul .badge_number1{ float:right; width:22%; text-align:center; border-left:1px dashed #D1D1D1;}
+.b_text{ color:#262626; font-size:14px; font-weight:600}
+.portlet-title .caption{ font-size:16px;}
+.label-yellow{background-color:#fd8c01 !important; }
+.Highlight_long{
+background:#44cdac; 
+width:100%; 
+height:35px; 
+border:1px solid #33be9c; 
+display:inline-block;
+text-align:center; 
+line-height:35px; 
+margin:0 5px 5px 0;
+font-family:"微软雅黑"; 
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px; 
+color:#FFFFFF/*background:#8fe1cd不可用*/}
+.Highlight_long:hover{background:#3ABD9E; color:#FFFFFF; text-decoration:none}
+
+td{ line-height:45px;}
+.bj td{ color:#FFFFFF;}
+.button1{ margin-top:20px;}
+.button1 .save{ background:url(../images/save_33.png) no-repeat left center; width:94px; height:45px; border:none; color:#FFFFFF; margin-left:10px;}
+.star{ color:#FF0004; margin-left:20px;}
+.Thecustom-name1{ width:80px;}
+
+
+/*分页*/
+#pageGro{ width:400px; height:25px; padding-top:30px; margin-bottom:2%;}
+#pageGro div,#pageGro div ul li{ font-size:12px; color:#999; line-height:23px; float:left;}
+#pageGro div ul li{ width:22px; text-align:center; border:1px solid #e0e8eb; cursor:pointer; background:#fafafa;}
+#pageGro div ul li.on{ color:#fff; background:#6faed9; border:1px solid #3c90d9;}
+#pageGro .pageUp,#pageGro .pageDown{ width:40px; border:1px solid #e0e8eb; cursor:pointer;}
+#pageGro .pageUp{ text-indent:13px; background:url(../images/images/pageUp.png)5px 7px no-repeat;}
+#pageGro .pageDown{ text-indent:15px; background:url(../images/images/pageDown.png)46px 6px no-repeat;}
+
+
+.Highlight_23{ 
+background:#44cdac; 
+width:88px; 
+height:35px; 
+border:1px solid #33be9c; 
+display:inline-block;
+text-align:center; 
+line-height:35px; 
+margin:0 5px 5px 0;
+font-family:"微软雅黑"; 
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px; 
+color:#FFFFFF/*background:#8fe1cd不可用*/}
+.Highlight_23:hover{background:#3ABD9E;color:#FFFFFF; text-decoration:none}
+
+
+
+
+
+/*急诊挂号*/
+.right{ border:1px solid #C8C8C8; height:100%;}
+.span6{ margin-top:15px;}
+.Internal{ margin-top:15px;}
+.Internal li{ float:left; width:120px; height:116px; border:1px solid #C8C8C8; margin-left:20px; margin-top:5px;  text-align:center; }
+.Internal li a{ line-height:116px;  font-size:18px;}
+.Internal li a:hover{ background:#34d0ab; color:#FFFFFF; display:inline-block; width:120px;}
+.Internal .medicine{ background:#34d0ab; color:#FFFFFF; display:inline-block; width:120px;}
+.no{ margin-top:20px;}
+.no li{ float:left; width:120px; height:116px; border:1px solid #C8C8C8; margin-left:20px; margin-top:5px;  text-align:center; margin-bottom:10px; margin-right:3px;}
+.no li a{ line-height:116px;}
+.form-group button{ border:none; margin-left:10px}
+.button_blue_74_33{ background:url(../images/button/button_blue_74_33.png) no-repeat; width:74px; height:33px; text-align:center; line-height:33px; color:#FFFFFF;}/*蓝色 首要 按钮代码*/
+.button_blue_88_33{ background:url(../images/button/button_blue_88_33.png) no-repeat; width:88px; height:33px; text-align:center; line-height:33px; color:#FFFFFF;}/*蓝色 首要 按钮代码*/
+	
+
+
+
+
+.form-group .button_blue_74{
+background:#f5f5f5;
+width:74px; 
+height:34px; border:1px solid #dddddd;
+display:inline-block;
+text-align:center;
+line-height:34px; 
+margin:0 5px 10px 5px;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;color:#2e2e2e;/*background:#f7f7f7不可用*/ 
+	}
+.patient{ width:43%; margin-right:1%; height:100%; overflow:hidden; margin-bottom:25px; border:1px solid #dfdfdf; -moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;color:#2e2e2e;/*background:#f7f7f7不可用*/ }
+
+
+.appointment{ margin-left:10px;}
+
+.combined{ color:#FF0004; font-size:18px;}
+.portlet-body .save{ background:url(../images/save_33.png) no-repeat left center; width:94px; height:35px; display:block; border:none; margin-top:5px; color:#FFFFFF;}
+
+
+
+/*门诊*/
+Cardiology{ width:55%;}
+.Cardiology_top{ border:1px solid #C8C8C8; height:100%; overflow:hidden; border-radius:5px;}
+.width{ margin:10px;}
+.Cardiology_bottom{ border:1px solid #C8C8C8; overflow:hidden; border-radius:5px; margin-top:10px; width: 96.5%}
+.Cardiologyt_bottom_left{ width:50%;}
+.Click_on li{ float:left; color:#FFFFFF; }
+.Click_on li a{ background:#34d0ab;
+width:85px; 
+height:50px; 
+border:1px solid #2fc09e; 
+display:inline-block;
+text-align:center;
+line-height:45px; 
+margin:0 5px 10px 0; color:#FFFFFF;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;/*background:#f7f7f7不可用*/ }
+
+.nav_button ul li a{ background:#f5f5f5; float:left;
+width:94px; 
+height:45px; 
+border:1px solid #dfdfdf; 
+display:inline-block;
+text-align:center;
+line-height:45px; 
+margin:0 5px 10px 0;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;color:#2e2e2e;/*background:#f7f7f7不可用*/ }
+.nav_button ul li a:hover{ background:url(../images/save_33.png) no-repeat left center; width:94px; height:45px; border:none; display:inline-block; color:#FFFFFF;}
+.nav_button ul li .after{ background:url(../images/save_33.png) no-repeat left center; width:94px; height:45px; border:none; display:inline-block; color:#FFFFFF;}
+
+.Click_on li{ float:left;}
+.Click_on li a{ background:#34d0ab;
+width:85px; 
+height:50px; 
+border:1px solid #2fc09e; 
+display:inline-block;
+text-align:center;
+line-height:45px; 
+margin:0 5px 10px 0; color:#FFFFFF;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;/*background:#f7f7f7不可用*/ }
+.The_default li a{background:#f5f5f5;
+width:85px; 
+height:50px; 
+border:1px solid #dfdfdf; 
+display:inline-block;
+text-align:center;
+line-height:45px; 
+margin:0 5px 10px 0;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;color:#2e2e2e;/*background:#f7f7f7不可用*/ }
+.Cardiologyt_bottom_left ul li .kidney{ background:#fd8c01; border:1px solid #f08400;}
+
+
+.The_default li{ float:left;}
+
+.Cardiologyt_bottom_right{ width:48%; border-left:1px solid #dfdfdf;} 
+
+.experts li{ float:left;}
+.experts li a{background:#f5f5f5;
+width:140px; 
+height:50px; 
+border:1px solid #dfdfdf; 
+display:inline-block;
+text-align:center;
+line-height:45px; 
+margin:0 20px 10px 30px;
+font-family:"微软雅黑";
+border-radius:3px; 
+-moz-border-radius:3px; 
+-webkit-border-radius:3px; 
+-ms-border-radius:3px;color:#2e2e2e;/*background:#f7f7f7不可用*/}
+.experts li a:hover{ background:#34d0ab; color:#FFFFFF; border:1px solid #2fc09e; }
+.Cardiologyt_bottom_right ul li .kidney{ background:#34d0ab; color:#FFFFFF; border:1px solid #2fc09e;}
+.name ul{}
+.name ul li{ float:left; margin-top:15px; margin-left:30px; border:1px solid #C8C8C8; width:150px; }
+.morning{ width:20px; height:20px; background:#fd8c01; display:inline-block; text-align:center; line-height:20px; color:#FFFFFF; border-radius:5px;}
+.afternoon{ width:20px; height:20px; background:#34d0ab; display:inline-block; text-align:center; line-height:20px; color:#FFFFFF; border-radius:5px;}
+.name ul li a:hover{ color:#FFFFFF;}
+.star{ color:#FF0004; margin-left:5px;}
+
+
+.In_turn{ background:url(../../images/save_33.png) no-repeat left center; width:94px; height:45px; display:block; text-align:center; line-height:45px; color:#FFFFFF;}
+.In_turn:hover{ color:#FFFFFF;}

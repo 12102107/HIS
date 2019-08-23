@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+.top_top{ background:url(../../images/bg_01.jpg) repeat-x 100% 100%; height:28px;}
+.top_bottom{ background:url(../../images/fdsf_05.jpg) repeat-x 100% 100%; height:90px;}
+.logo img{ margin-left:56px; padding-top:10px;}
+.logo{ width:450px;}
+.top_top_right{ float:right;}
+.top_top_right ul li{ float:left; width:100px;}
+.top_top_right ul li a{ margin-left:35px; color:#d7e2ed;}
+.top_top_right ul li a img{ text-align:center; margin-left:10px;}
+.top_top_right ul li a:hover{ color:#fffdb6}
+.top_top_right ul li a .a1:hover{ background:url(../../images/xi9aotubiao_12.png) no-repeat;}
+.top_top_right ul li a .a2:hover{ background:url(../../images/tubiao-qq_23.png) no-repeat;}
+.top_top_right ul li a .a3:hover{ background:url(../../images/tubiao-qq_12.png) no-repeat;}
+.top_top_right ul li a .a4:hover{ background:url(../../images/tubiao-qq_14.png) no-repeat;}
+.top_top_right ul li a .a5:hover{ background:url(../../images/tubiao-qq_16.png) no-repeat;}
+.top_top_right ul li a .a6:hover{ background:url(../../images/tubiao-qq_26.png) no-repeat;}
+.top_top_right ul li a .a7:hover{ background:url(../../images/menu/yemian-dwsd_03.png) no-repeat;}
+.top_nihao{ background:url(../../images/bg_07.jpg) repeat-x 100% 100%; height:38px;}
+.top_nihao p{ margin-left:60px; line-height:38px;}
+.top_nihao p span{ color:#336699;}

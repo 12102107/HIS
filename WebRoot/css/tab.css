@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*input开始*/
+.input_Basic_form{ color:#333232; font-size:16px; border-bottom:1px solid #e8e8e8; line-height:45px;}
+.input p{ line-height:45px;}
+.input_basic input{ border:1px solid #e8e8e8}
+.input_enter_time input{ border:1px solid #1eacd3}
+.input_Disable input{ border:1px solid #ed5565}
+.input_Multiple{ vertical-align:middle;}
+.Input_success input{ background:#f1f8e9; border:1px solid #daecc9;}
+.Input_error input{ background:#fde0dc; border:1px solid #f9afa2}
+.input_address input{ background:url(../images/input/address.png) no-repeat left center; border:1px solid #ececec; text-indent:2em}
+.input_password input{ background:url(../images/input/password.png) no-repeat left center; border:1px solid #ececec; text-indent:2em}
+.input_Plug input{ background:url(../images/input/Checkbox1.png) no-repeat left center; border:1px solid #ececec; text-indent:2em}
+.input_Plug1 input{ background:url(../images/input/Checkbox1.png) no-repeat right center; border:1px solid #ececec;}
+.input_with input{ background:url(../images/input/deal_with.png) no-repeat right center; border:1px solid #ececec;}
+.input_caveat input{ background:url(../images/input/caveat.png) no-repeat right center; border:1px solid #ececec;}
+/*input结束*/
+
+.form-horizontal .controls{ margin-left:160px;!important}
+.form-horizontal .control-label{ width:130px;!important}
+.radio input[type="radio"], .checkbox input[type="checkbox"]{ margin-left:0; margin-right:5px;!important}
+input, textarea, .uneditable-input{ width:80%;}

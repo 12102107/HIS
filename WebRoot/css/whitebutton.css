@@ -1,0 +1,39 @@
+/* a标签按钮样式   class=‘button white’   baidongxv */
+.white:hover {
+background: #ededed;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+background: -moz-linear-gradient(top, #fff, #dcdcdc);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.button:hover {
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+.white {
+color: #606060;
+border: solid 1px #b7b7b7;
+background: #fff;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+background: -moz-linear-gradient(top, #fff, #ededed);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.button {
+display: inline-block;
+zoom: 1;
+vertical-align: baseline;
+margin: 0 2px;
+outline: none;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+font: 11px/100% Arial, Helvetica, sans-serif;
+padding: .5em .8em .55em;
+-webkit-border-radius: .5em;
+-moz-border-radius: .5em;
+border-radius: .5em;
+-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}

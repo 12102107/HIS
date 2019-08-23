@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { 
+  padding: 0px !important;
+  margin: 0px !important;
+  direction: ltr;
+  min-width:525px;
+  background:url(../images/big_bj.png) top center no-repeat; background-size:cover;
+  
+}
+.fr{ float:right;}
+.fl{ float:left;}
+.page-header-fixed .page-container {
+  margin:48px 15px 0 15px;
+  position:relative;  
+}
+
+
+/*header背景*/
+
+.header {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom:1px solid #d9eae9;
+  background:rgba(0, 0, 0, 0.2) none repeat scroll 0 0 !important;
+  filter:Alpha(opacity=0.2);
+  position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+  *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+
+}
+.header .container-fluid{
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+  }  
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .header{
+    background-color:#000000;
+    filter:Alpha(opacity=0.2);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+  .header .container-fluid{
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+  }  
+}
+
+/*logo设置*/
+.header .brand {
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 0;
+  padding-left: 20px;
+  padding-right: 0;
+  color:#FFFFFF
+  
+}
+
+/*盒子透明*/
+.portlet.box {
+   border-radius:5px 5px 0 0; 
+   -moz-border-radius:5px 5px 0 0; 
+   -webkit-border-radius:5px 5px 0 0; 
+   -ms-border-radius:5px 5px 0 0;
+   padding:0px !important;
+   background:rgba(255, 255, 255, 0.6) none repeat scroll 0 0 !important;
+   filter:Alpha(opacity=0.6);
+   position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+   *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+}
+
+.portlet.box .portlet-body{
+	position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+	border-top:1px solid #7c9e99;
+	}
+
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+  .portlet.box {
+    background-color:#ffffff;
+    filter:Alpha(opacity=0.6);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+  }
+  .portlet.box .portlet-body{
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+  }  
+}
+
+
+/*盒子头部*/
+.custom-blue {
+    background-image:url(../images/title_bj_63.png); !important;
+    background-color:#5BCCE1 !important;
+    border-radius:5px 5px 0 0; 
+	-moz-border-radius:5px 5px 0 0; 
+	-webkit-border-radius:5px 5px 0 0; 
+	-ms-border-radius:5px 5px 0 0;
+}
+.custom-gradient-gray {
+	background:-ms-linear-gradient(top, #f9f9f9, #e7e8e8);
+	background: -moz-linear-gradient(top, #f9f9f9, #e7e8e8);
+	background:-webkit-linear-gradient(top, #f9f9f9, #e7e8e8); 
+	background: -o-linear-gradient(top, #f9f9f9, #e7e8e8);
+	background: linear-gradient(to bottom, #f9f9f9, #e7e8e8); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=' #f9f9f9', endColorstr='#e7e8e8',GradientType=0 );
+	 border-radius:5px 5px 0 0; 
+	-moz-border-radius:5px 5px 0 0; 
+	-webkit-border-radius:5px 5px 0 0; 
+	-ms-border-radius:5px 5px 0 0;
+	
+}
+.border1{border-top:#c7c7c7 1px solid !important; overflow:hidden;}
+
+/*标题设置*/
+.portlet-title .caption-system {
+  font-family:Microsoft YaHei;
+  float: left;
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height:71px;
+  color:#FFFFFF;
+  padding-left:36px;
+}
+.portlet-title .caption-system i {
+  float: left;
+  margin-top: 25px;
+  display: inline-block !important;
+  font-size: 13px;
+  margin-right:15px;
+  color: #666;
+}
+.portlet-title .caption-news {
+  font-family:Microsoft YaHei;
+  float: left;
+  display: inline-block;
+  font-weight:400;
+  font-size: 24px;
+  letter-spacing:1px;
+  margin: 0;
+  padding: 0;
+  line-height:71px;
+  color:#003a63;
+  padding-left:36px;
+}
+.portlet-title .caption-news i {
+  float: left;
+  margin-top: 23px;
+  display: inline-block !important;
+  font-size: 13px;
+  margin-right:15px;
+  color: #666;
+}
+
+/*小图标代码*/
+.his-icon{ background:url(../images/icon_16.png) no-repeat; width:32px; height:26px;}
+.news-icon{ background:url(../images/news_16.png) no-repeat; width:28px; height:29px;}
+
+.clear{ clear:both; height:0; overflow:hidden;} 
+
+/*his系统功按钮*/
+.his-system{ padding:50px 20px 0 20px !important;}
+.his-system a{ display:block; float:left; width:115px; text-align:center; height:150px; text-decoration:none;}
+/*.his-system a i{  
+				width:68px; 
+				height:68px;
+				display:inline-block;
+				background:#FFFFFF;
+				border:5px solid #74a4d1;
+				border-radius:50%;
+				-moz-border-radius:50%; 
+				-webkit-border-radius:50%; 
+				-ms-border-radius:50%;}*/
+
+.his-system a p{font-family:Microsoft YaHei;
+				font-size:14px;
+				color:#525252;
+				padding-top:6px;}
+
+/*医技系统功按钮*/
+.medical-system{ padding:50px 5px 0 22px !important;}
+.medical-system a{ display:block; float:left; width:115px; text-align:center; height:150px; text-decoration:none;}
+/*.medical-system a i{  
+					width:68px; 
+					height:68px;
+					display:inline-block;
+					background:#FFFFFF;
+					border:5px solid #74a4d1;
+					border-radius:50%;
+					-moz-border-radius:50%; 
+					-webkit-border-radius:50%; 
+					-ms-border-radius:50%;}
+*/
+.medical-system a p{font-family:Microsoft YaHei;
+					font-size:14px;
+					color:#525252;
+					padding-top:6px;}
+.footer p{ color:#FFFFFF;}
+
+
+
+
+
+
+
+
+.tongyong a { background:#FFFFFF; width:74px; height:74px; border-radius:50%; margin-right:13px; margin-bottom:15px; border:5px solid #3ba0e7;}
+.tongyong a i{ padding-top:15px;}
+
+
+
+

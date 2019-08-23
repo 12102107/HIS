@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+ p,form,body,h1,h2,h3,h4,h5,h6,input,ul,li,il,dt,dd,dl{margin:0; padding:0;}
+img{ border:0; display:block}
+ul{ list-style:none;}
+a{ text-decoration:none; color:#141414;}
+body{ font-size:14px; font-family:"微软雅黑" ;color:#666666; line-height:1.7;
+ min-width: 1150px;
+           width: expression_r( document.body.clientWidth < 1151 ? "1150px" : "auto" );}
+		   
+		   .fl{ float:left;}
+		   .fr{ float:right;}
+		   .clear{ clear:both; overflow:hidden; height:0;}
+		   .center{ width:1280px; margin:0 auto;}
+		   .input:focus{ outline:none;}
+		   .rel{ position:relative;}
+		   .abs{ position:absolute;}
+		   .black{ display:block;}
+		   .zoom{ zoom:1}  /*ie6生效， ie6调兼容时zoom：1*/
+		    body html{ width:100%; height:100%}
+/* 按钮样式 */		    
+.ere{ background:url(../images/165031_03.png) no-repeat left center; width:67px; height:31px; border:none; margin-top:2%; margin-right:2%;}
+

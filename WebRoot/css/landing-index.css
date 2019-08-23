@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media (max-width:979px) { 
+	.page-header-fixed .page-container {
+		 margin: 150px 0px 0 0px !important;
+	}
+
+}
+
+.clear{ clear:both; height:0; overflow:hidden}
+
+body { 
+  padding: 0px !important;
+  margin: 0px !important;
+  direction: ltr;
+  min-width:525px;
+  background:url(../images/bj.png) top center no-repeat;
+  background-size:cover;
+  min-height:768px; 
+}
+
+.page-header-fixed .page-container {
+  margin:48px 15px 0 15px;
+  position:relative;  
+}
+
+
+/*logo设置*/
+.brand {
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 0;
+  padding-left: 20px;
+  padding-right: 0;
+  color:#FFFFFF
+  
+}
+.logo{
+	margin:50px 0 0 10%;
+	}
+.page-container{
+	background:url(../images/content_bj_08.png) repeat-x; height:126px;
+	margin-left:0 !important;
+	margin-right:0 !important;
+	margin-top:12% !important;
+	position:relative;
+	}
+.footer p{
+	text-align:center;
+	font-family:"微软雅黑";
+	color:#6e6e6e;
+	font-size:14px;
+	margin-top:16%;
+	}
+.footer p span{ padding-left:20px;}
+.page-container .ren{ margin-top:-85px;}
+.page-container .xian{ margin-top:9px; margin-left:25px; margin-right:16px;}
+.page-container .text{ margin-top:-44px;margin-bottom:22px;}
+.page-container .input input{ background:url(../images/input_18.png) no-repeat; width:208px;border:none;}
+.page-container .input{ margin-bottom:10px;}
+.page-container .button input{ background:url(../images/button_28.png) no-repeat; width:64px; height:24px; border:none; margin-left:3px;}
+.page-container .button .img_text{ padding-left:21px; padding-right:5px; padding-top:1px;}
+
+
+
+
+

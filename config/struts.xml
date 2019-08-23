@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1dtd">
+<struts>
+	<constant name="struts.multipart.maxSize" value="1009715200"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/> 
+	<package name="allInterceptor" extends="struts-default,json-default,jasperreports-default" >
+         <interceptors>
+             <!-- 定义权限控制拦截器 -->
+             <interceptor name="authority"
+                 class="com.common.interceptor.AuthInterceptor" />
+             <!-- 定义一个包含权限控制的拦截器栈 -->
+             <interceptor-stack name="mydefault">
+                 <interceptor-ref name="defaultStack" />
+                 <interceptor-ref name="authority" />
+             </interceptor-stack>
+         </interceptors>
+         <!-- 定义默认拦截器 -->
+         <default-interceptor-ref name="mydefault" />
+         <!-- 定义全局处理结果 -->
+         <global-results>
+             <!-- 逻辑名为login的结果，映射到/login.jsp页面 -->
+             <result name="login" type="redirect">/jsp/jump.jsp</result>
+         </global-results>
+    </package>
+    <!-- 引入struts配置文件 -->
+	<include file="struts/sys/struts-sys.xml"/> 
+	<include file="struts/sm/struts-sm.xml"/> 
+	
+	<include file="struts/sm/struts-query.xml"/> 
+	<include file="struts/sm/struts-arrange.xml"/> 
+</struts>

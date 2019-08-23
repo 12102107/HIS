@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ys{ border-top:1px solid #eeeeee; border-bottom:1px solid #eeeeee; color:#178eb9}
+.bk{ border-bottom:1px solid #eeeeee; }
+.cx{ background:url(../imsgess/anniu_07.png) no-repeat center center; width:53px; height:20px; border:none; }
+.sz{ background:url(../imsgess/sian.png) no-repeat center center; width:76px; height:20px; border:none;}
+.brjl{ margin-left:2%; margin-right:2%; }
+.jiaofei{ margin-top:2%; margin-bottom:2%;}
+
+.dy{ background:url(../imsgess/anniu_07.png) no-repeat center center; width:53px; height:20px; border:none; margin:2% 0}
+.fy ul li { float:left; border:1px solid #d1e3f1; width:45px; height:25px; text-align:center; margin-left:2%}
+.fy ul li:hover{ border:1px solid #75c6e4; width:45px;}
+.fy{ float:right; width:690px; margin-top:3%; border-bottom:2%;}
+

@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+.container_left{ margin-top:2%;background:url(../images/bjj_03.png) no-repeat left center; width:1282px; height:72px; position:relative}
+.huanzhexinxi{ position:absolute; left:60px; top:-10px; font-size:18px; color:#527299;}
+.container_zhong{ background:url(../images/zhongxian_03.png) repeat-y left center; width:1282px; height:60%; overflow:hidden;}
+.biaoge{ margin:2%; margin-top:0%;}
+td{ text-align:center;}
+.container_bottom{ background:url(../images/bjj_17.png) no-repeat left center; width:1282px; height:21px;}
+.zhong_left{ margin:2%; width:45%}
+.zhong_right1{ margin:2%}
+.Image{ font-size:18px; color:#527299; position:absolute; left:50px; top:-10px;}
+.zhong_left img{ padding-top:1%;}
+.zhong_left_top{ background:url(../images/bjj_07.png) no-repeat left center; width:628px; height:24px; position:relative;}
+.zhong_left_zhong{ background:url(../images/zhongxian_11.png) repeat-y left center; width:628px; height:70%;overflow: auto;}
+.zhong_left_zhong img{ margin-left:2%; }
+.zhong_left_bottom{ background:url(../images/bjj_13.png) no-repeat left center; width:628px; height:23px;}
+.zhong_right_top{ background:url(../images/bjj_09.png) no-repeat left center; width:582px; height:24px; position:relative;}
+.zhong_right_zhong{ background:url(../images/zhongxian_07.png) repeat-y left center; width:582px; height:70%}
+.zhong_right_bottom{ background:url(../images/bjj_14.png) no-repeat left center; width:582px; height:23px;}
+.txghnr{ position:absolute; left:55px; top:-10px; font-size:18px; color:#527299;}

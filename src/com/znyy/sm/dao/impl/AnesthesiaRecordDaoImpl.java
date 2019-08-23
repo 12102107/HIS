@@ -1,0 +1,910 @@
+package com.znyy.sm.dao.impl;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.common.dao.GenericDaoImpl;
+import com.common.util.OAMSUtils;
+import com.znyy.bean.SmAnaesEvent;
+import com.znyy.bean.SmAnaesEventItems;
+import com.znyy.bean.SmAnaesRecord;
+import com.znyy.bean.SmBloodtypeItem;
+import com.znyy.bean.SmBodyPosition;
+import com.znyy.bean.SmBreathEvent;
+import com.znyy.bean.SmIoDefination;
+import com.znyy.bean.SmIoEvent;
+import com.znyy.bean.SmMedicalEvent;
+import com.znyy.bean.SmMedicalTakeWay;
+import com.znyy.bean.SmMedicine;
+import com.znyy.bean.SmOperationEvent;
+import com.znyy.bean.SmOutRoomStatus;
+import com.znyy.bean.SmRegOpt;
+import com.znyy.bean.SmRemarkPoint;
+import com.znyy.bean.SmWaveData;
+import com.znyy.sm.dao.AnesthesiaRecordDao;
+
+public class AnesthesiaRecordDaoImpl extends GenericDaoImpl<SmRegOpt, String> implements AnesthesiaRecordDao{
+
+	@Override
+	public SmRegOpt loadAnesthesiaRecordMainViewById(String ylwsid) {
+		String hql=" from SmRegOpt where id=?";			
+		List<?> list = this.getHibernateTemplate().find(hql, ylwsid);
+		if (!list.isEmpty()) {
+			return (SmRegOpt) list.get(0);
+		} else {
+			return null;
+		}
+
+	}
+
+	@Override
+	public List<SmRemarkPoint> getCollectItemsPointByOptId(String operationId,String itemCode) {
+		String hql = "from SmRemarkPoint where operationId=? and itemCode=? order by time desc";
+		return this.getHibernateTemplate().find(hql, operationId,itemCode);
+	}
+
+
+	@Override
+	public List<SmMedicine> getSmMedicineList() {
+		String hql = "from SmMedicine";
+		return this.getHibernateTemplate().find(hql);
+	}
+	public List<SmMedicine> getMedicineNameByPy(String mpyCode){
+		String hql=" from SmMedicine where pinyin like ? and type='11'";
+		return this.getHibernateTemplate().find(hql,"%"+mpyCode+"%");
+	}
+	public SmMedicine getMedicinesById(Integer medicinesId){
+		String hql=" from SmMedicine where id=?";			
+		List<?> list = this.getHibernateTemplate().find(hql, medicinesId);
+		if (!list.isEmpty()) {
+			return (SmMedicine) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<SmMedicalTakeWay> getSmMedicalTakeWayList() {
+		String hql = "from SmMedicalTakeWay";
+		return this.getHibernateTemplate().find(hql);
+	}
+
+
+	@Override  
+	public List<SmIoDefination> getSmIoDefinationAllList() {
+		String hql = "from SmIoDefination where type='0' and enable='0' ";
+		return this.getHibernateTemplate().find(hql);
+	}
+	
+	@Override 
+	public SmIoDefination getAInPutById(Integer inPutId) {
+		String hql=" from SmIoDefination where id=? and enable='0' ";			
+		List<?> list = this.getHibernateTemplate().find(hql, inPutId);
+		if (!list.isEmpty()) {
+			return (SmIoDefination) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public  List<SmBloodtypeItem> getBloodtypeItemList() {
+		String hql = "from SmBloodtypeItem where enable='0' ";
+		return this.getHibernateTemplate().find(hql);
+	}
+
+
+	@Override
+	public SmIoEvent getSmIoEventById(String operationId,String itemId) {
+		String hql=" from SmIoEvent where operationId=? and itemId=? and enable='0' ";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId,itemId);
+		if (!list.isEmpty()) {
+			return (SmIoEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void addSmIoEvent(SmIoEvent smie) {
+		this.getHibernateTemplate().save(smie);
+		
+	}
+
+
+	@Override
+	public void UpdateSmIoEvent(SmIoEvent smie) {
+		this.getHibernateTemplate().merge(smie);
+		
+	}
+
+
+	@Override
+	public List<SmIoEvent> getSmIoEventListByOperationId(String operationId,String type) {
+		String hql=" from SmIoEvent where operationId=? and type=? and enable = '0'";
+		return this.getHibernateTemplate().find(hql,operationId,type);
+	}
+
+	public SmIoEvent getIoEventById(Integer id){
+		String hql=" from SmIoEvent where id=? and enable='0' ";			
+		List<?> list = this.getHibernateTemplate().find(hql, id);
+		if (!list.isEmpty()) {
+			return (SmIoEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	@Override
+	public List<SmIoDefination> getInNamesBySubType(String subType) {
+		
+		String hql = "from SmIoDefination where type='1' and enable='0' and subType=? ";
+		return this.getHibernateTemplate().find(hql,subType);
+	}
+
+	@Override
+	public List<SmAnaesEventItems> getSmAnaesEventItems() {
+		String hql = "from SmAnaesEventItems where enable='0'";
+		return this.getHibernateTemplate().find(hql);
+	}
+
+	@Override
+	public void addSmAnesEvent(SmAnaesEvent sae) {
+		this.getHibernateTemplate().save(sae);
+		
+	}
+
+	@Override
+	public List<SmAnaesEvent> getSmAnesEventsListByOperationId(String operationId) {
+		String hql = "from SmAnaesEvent where enable='0' and operationId=?";
+		return this.getHibernateTemplate().find(hql,operationId);
+	}
+
+	@Override
+	public SmRegOpt getSmRegOptByOperationId(String operationId) {
+		//int id = Integer.parseInt(operationId);
+		String hql=" from SmRegOpt where id=?";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId);
+		if (!list.isEmpty()) {
+			return (SmRegOpt) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void updateSmRegOpt(SmRegOpt sro) {
+		this.getHibernateTemplate().merge(sro);	
+	}
+
+	@Override
+	public void updateSmAnesEvent(SmAnaesEvent sae) {
+		this.getHibernateTemplate().merge(sae);
+		
+	}
+
+	@Override
+	public SmAnaesEvent getSmAnesEventByOperationIdAndCode(String operationId,String code) {
+		String hql=" from SmAnaesEvent where operationId=? and code=? and enable='0'";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId,code);
+		if (!list.isEmpty()) {
+			return (SmAnaesEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	@Override
+	public List<SmAnaesEvent> getSmAnesEventByOperationId (String operationId) {
+		String hql=" from SmAnaesEvent where operationId=?  and enable='0'";			
+		return this.getHibernateTemplate().find(hql,operationId);
+	}
+
+	@Override
+	public SmAnaesEventItems getAnaesEventItem(String code) {
+		String hql=" from SmAnaesEventItems where code=? and enable='0'";			
+		List<?> list = this.getHibernateTemplate().find(hql, code);
+		if (!list.isEmpty()) {
+			return (SmAnaesEventItems) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void addAnaesRecord(SmAnaesRecord sar) {
+		this.getHibernateTemplate().save(sar);
+	}
+	
+	@Override
+	public void updateAnaesRecord(SmAnaesRecord sar) {
+		this.getHibernateTemplate().merge(sar);
+	}
+
+	@Override
+	public SmAnaesRecord getAnaesRecordByoperationId(String operationId) {
+		String hql=" from SmAnaesRecord where docId=? and enable='0'";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId);
+		if (!list.isEmpty()) {
+			return (SmAnaesRecord) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public SmMedicalEvent getMedicalEventByOptIdAndMedCode(String operationId,
+			String medId) {
+		String hql=" from SmMedicalEvent where operationId=? and medicineCode=? and enable='0'";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId,medId);
+		if (!list.isEmpty()) {
+			return (SmMedicalEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	public SmMedicalEvent getMedEventaById(Integer id){
+		String hql=" from SmMedicalEvent where id=? and enable='0'";			
+		List<?> list = this.getHibernateTemplate().find(hql, id);
+		if (!list.isEmpty()) {
+			return (SmMedicalEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	@Override
+	public void addMedicalEvent(SmMedicalEvent sme) {
+		this.getHibernateTemplate().save(sme);
+		
+	}
+
+	@Override
+	public void updateMedicalEvent(SmMedicalEvent sme) {
+		this.getHibernateTemplate().merge(sme);
+		
+	}
+
+	@Override
+	public List<SmMedicalEvent> getMedicalEventListByOperationId(
+			String operationId) {
+		String hql = "from SmMedicalEvent where operationId=? and enable='0' order by starttime asc";
+		return this.getHibernateTemplate().find(hql, operationId);
+	}
+
+	@Override
+	public void addMonitSign(SmWaveData smwd) {
+		this.getHibernateTemplate().save(smwd);
+		
+	}
+	@Override
+	public void updateMonitSign(SmWaveData smwd) {
+		this.getHibernateTemplate().merge(smwd);	
+	}
+
+	@Override
+	public SmWaveData getMonitoringSignByOptIdAndTime(String operationId,
+			Integer xpoint) {
+		String hql=" from SmWaveData where operationId=? and xpoint=?";			
+		List<?> list = this.getHibernateTemplate().find(hql, operationId,xpoint);
+		if (!list.isEmpty()) {
+			return (SmWaveData) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<SmWaveData> getMonitListByOperationId(String operationId) {
+		String hql=" from SmWaveData where operationId=? order by xpoint asc";
+		return this.getHibernateTemplate().find(hql,operationId);
+	}
+	//获取两个Date 所差的天、小时、分钟
+	public static String getDatePoor(Date endDate, Date nowDate) {
+	    long nd = 1000 * 24 * 60 * 60;
+	    long nh = 1000 * 60 * 60;
+	    long nm = 1000 * 60;
+	    long diff = endDate.getTime() - nowDate.getTime();
+	    long day = diff / nd;
+	    long hour = diff % nd / nh;
+	    long min = diff % nd % nh / nm;
+	    return hour + "H" + min + "M";
+	}
+	
+	@Override
+	public List<Map<String, Object>> getAnesthesiaRecordPrint(String operationId) {
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		SmAnaesRecord smar = getAnaesRecordByoperationId(operationId);
+		SmRegOpt sro = getSmRegOptByOperationId(operationId);
+		List<SmIoEvent> oel = getSmIoEventListByOperationId(operationId,"0");
+		List<SmIoEvent> iel = getSmIoEventListByOperationId(operationId,"1");
+		List<SmWaveData> list = getMonitListByOperationId(operationId);
+		List<SmMedicalEvent> medList = getMedicalEventListByOperationId(operationId);
+		int pages = (int) ((smar.getOptEndTime().getTime()-smar.getOptStartTime().getTime()) / (smar.getRemarkInterval()*60*1000)) /60 +1;
+
+		for (int i = 0; i < pages; i++) {
+			int col= i>0?0:OAMSUtils.minutesOfBetweenTwoDates(smar.getRecordStartTime(), smar.getOptStartTime()) / smar.getRemarkInterval();
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("NAME", sro.getName());
+			map.put("DEPT", sro.getDept());
+			map.put("REGION", sro.getRegion());
+			map.put("BED", sro.getBed());
+			map.put("PREENGAGEMENTNUMBER", sro.getPreengagementnumber());
+			map.put("OPERDATE", sro.getOperdate());
+			if ("0".equals(sro.getSex())) {
+				map.put("SEX", "男");
+			}
+			if ("1".equals(sro.getSex())) {
+				map.put("SEX", "女");
+			}
+			map.put("AGE", sro.getAge()!=null?sro.getAge().toString():"");
+			map.put("AGE_MON", sro.getAgeMon()!=null?sro.getAgeMon().toString():"");
+			map.put("HEIGHT", sro.getHeight()!=null?sro.getHeight().toString():"");
+			map.put("WEIGHT", sro.getWeight()!=null?sro.getWeight().toString():"");
+			map.put("OPERATOR_NAME", sro.getOperatorName());//手术医生
+			map.put("NURSE",sro.getInstrnurse1()+","+sro.getCircunurse1() );//护士
+			map.put("ANESTHETISTER", sro.getAnesthetist()+","+sro.getCircuanesthetist()+","+sro.getAnaesAssistant());//麻醉医师
+			map.put("DESIGNED_ANAES_METHOD_NAME", sro.getDesignedAnaesMethodName());//麻醉方法
+			map.put("DIAGNOSIS_NAME", sro.getDiagnosisName());//术前诊断
+			map.put("DESIGNED_OPT_NAME", sro.getDesignedOptName());//拟施手术
+			map.put("BLOOD_TYPE", sro.getBloodType());//血型
+			map.put("EMERGENCY", sro.getEmergency());//是否急诊emergency
+		
+			
+			String resprateYs = "";
+			String pulserateYs = "";
+			String bpSysYs = "";
+			String bpDiasYs = "";
+			int p = 0;
+			for (int j = i*60+col; j < (i+1)*60; j++) {
+				if(j>=list.size()){
+					break;
+				}
+				int p1=i>0?p:j ;
+				SmWaveData swd =list.get(j);
+				if (swd.getResprate() != null) {
+					int resprateY = (int) Math.floor(swd.getResprate());
+					resprateYs += (p1* 9.33) + ":" + resprateY+ ",";
+				}
+				if (swd.getPulserate() != null) {
+					int pulserateY = (int) Math.floor(swd.getPulserate());
+					pulserateYs += (p1* 9.33) + ":" + pulserateY+ ",";
+				}
+				if (swd.getBpSys() != null) {
+					int bpSysY = (int) Math.floor(swd.getBpSys());
+					bpSysYs += (p1* 9.33) + ":" + bpSysY + ",";
+				}
+				if (swd.getBpDias() != null) {
+					int bpDiasY = (int) Math.floor(swd.getBpDias());
+					bpDiasYs += (p1* 9.33) + ":" + bpDiasY + ",";
+				}
+				p++;
+			}
+			
+			if (!"".equals(resprateYs) && null != resprateYs) {
+				map.put("RESPRATEYS", resprateYs.substring(0,resprateYs.length() - 1));
+			} else {
+				map.put("RESPRATEYS", "");
+			}
+			if (!"".equals(pulserateYs) && null != pulserateYs) {
+				map.put("PULSERATEYS", pulserateYs.substring(0,
+						pulserateYs.length() - 1));
+			} else {
+				map.put("PULSERATEYS", "");
+			}
+			if (!"".equals(bpSysYs) && null != bpSysYs) {
+				map.put("BPSYSYS",
+						bpSysYs.substring(0, bpSysYs.length() - 1));
+			} else {
+				map.put("BPSYSYS", "");
+			}
+			if (!"".equals(bpDiasYs) && null != bpDiasYs) {
+				map.put("BPDIASYS",
+						bpDiasYs.substring(0, bpDiasYs.length() - 1));
+			} else {
+				map.put("BPDIASYS", "");
+
+			}
+			
+			//出量
+			String oevent = "";
+			if (oel != null) {
+				for (int k = 0; k < oel.size(); k++) {
+					if (k > 2) {
+						break;
+					}
+					map.put("outEventName" + k, oel.get(k).getName() + "");
+
+					double oEx = ((600 * i) + (oel.get(k).getStartXpoint() - 600 * i));
+					int oEx1 = (int) ((oEx * 2) / 3);
+					String dosa = oel.get(k).getDosage()
+							+ oel.get(k).getDosageUnit() + "";
+					map.put("outEventDosage" + k, dosa);
+					oevent += oEx1 + ":" + dosa + ",";
+
+				}
+
+				if (!"".equals(oevent) && null != oevent) {
+					map.put("outEvent",
+							oevent.substring(0, oevent.length() - 1));
+				}
+			}
+			//入量
+			String ievent = "";
+			if (iel != null) {
+
+				for (int j = 0; j < iel.size(); j++) {
+					if (j > 2) {
+						break;
+					}
+					map.put("inEventName" + j, iel.get(j).getName() + "");
+					double oEx0 = ((600 * i) + (iel.get(j).getStartXpoint() - 600 * i));
+					int oEx1 = (int) ((oEx0 * 2) / 3);
+					double oEx2 = ((600 * i) + (iel.get(j).getEndXpoint() - 600 * i));
+					int oEx3 = (int) ((oEx2 * 2) / 3);
+					String dosa = iel.get(j).getDosage()
+							+ iel.get(j).getDosageUnit() + "";
+					map.put("inEventDosage" + j, dosa);
+					ievent += oEx1 + ":" + oEx3 + ":" + dosa + ",";
+				}
+				if (!"".equals(ievent) && null != ievent) {
+					map.put("inEvent", ievent.substring(0, ievent.length() - 1));
+				}
+			}
+
+			//麻醉用药
+			String medevent = "";
+			if (medList != null) {
+				for (int j = 0; j < medList.size(); j++) {
+					if (j > 9)
+						break;
+
+					double meds = ((600 * i) + (medList.get(j).getStartXpoint() - 600 * i));
+					int medStartP = (int) ((meds * 2) / 3);
+
+					double mede = ((600 * i) + (medList.get(j).getEndXpoint() - 600 * i));
+					int medEndP = (int) ((mede * 2) / 3);
+
+					String medDosages = medList.get(j).getDosage()
+							+ iel.get(j).getDosageUnit() + "";
+
+					if ("0".equals(medList.get(j).getDurable())) {
+						map.put("medEventName" + j, medList.get(j)
+								.getMedicineName() + "");
+						map.put("medEventDosage" + j, medDosages);
+						medevent += "0" + ":" + medStartP + ":" + medDosages
+								+ ",";
+					}
+					if ("1".equals(medList.get(j).getDurable())) {
+						map.put("medEventName" + j, medList.get(j)
+								.getMedicineName() + "");
+						map.put("medEventDosage" + j, medDosages);
+						medevent += "1" + ":" + medStartP + ":" + medEndP + ":"
+								+ medDosages + ",";
+					}
+				}
+				if (!"".equals(medevent) && null != medevent) {
+					map.put("medEvent",
+							medevent.substring(0, medevent.length() - 1));
+				}
+			}
+			
+			
+			
+			
+			
+			result.add(map);
+			
+		}
+		return result;
+	} 
+	
+	
+	
+	
+	public List<Map<String, Object>> LoadDocumentState(){
+		Map<String, Object> m = new HashMap<String, Object>();
+		List<Map<String, Object>> result =new ArrayList<Map<String, Object>>();
+		String sql=" select r.id,r.state,p.id sqfsId,a.id tysId,d.id mzjhId,rr.state rrState" +
+				             " from sm_reg_opt r " +
+				             " left join sm_pre_visit p on r.id=p.operation_id " +
+				             " left join sm_accede a on r.id=a.doc_id " +
+				             " left join sm_anaes_plan_document d on r.id=d.operation_id " +
+				             " left join sm_recoveryroom_record rr on r.id=rr.operation_id " +
+				             " where  r.state='03' or r.state='04'  or r.state='05' and r.archstate='00'";
+		List<?> list = this.findBySql(sql, m);
+		if(null!=list){
+			for (Object obj : list){
+				Map<String, Object> map = new HashMap<String, Object>();
+				 Object[] o = (Object[]) obj;
+				 map.put("ylwsState", o[0]);
+				 if(o[2]!=null){
+					 map.put("sqfsState", "1");
+				 }else{
+					 map.put("sqfsState", "0");
+					 
+				 }
+				 if(o[3]!=null){
+					 map.put("tysState", "1");
+				 }else{
+					 map.put("tysState", "0");
+					 
+				 }
+				 if(o[4]!=null){
+					 map.put("mzjhState", "1");
+				 }else{
+					 map.put("mzjhState", "0");
+					 
+				 }
+				 if(o[5]!=null){
+					 if("02".equals(o[5])){
+						 map.put("recoveryState", "1");
+					 }
+				 }else{
+					 map.put("recoveryState", "0");
+					 
+				 }
+				 result.add(map);
+			}
+		}
+        
+		return result;
+	}
+	
+	
+	/**
+	 * @方法名称: getPrintTimes
+	 * @功能描述: 获取時間打印数据
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午9:36:04
+	 * @param  String optStartTime,String optEndTime,int interval
+	 * @return Map<String,Object>
+	 */
+	public Map<String,Object> getPrintTimes(String optStartTime,String optEndTime,int interval){
+		Calendar calendar = Calendar.getInstance();
+		List<String> strsList = new ArrayList<String>();
+		Map<String, Object> result = new HashMap<String, Object>();
+		Date date=null;
+		 try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			date = sdf.parse(optStartTime);
+			calendar.setTime(date);
+		   } catch (Exception e) {
+			   e.printStackTrace();
+		      }
+		  for (int i = 0; i < 6; i++) {
+			  calendar.add(Calendar.MINUTE, interval*12);
+			  strsList.add(calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE));
+		    }
+		  result.put("MINUTE_SECOND0", strsList.get(0)+"--"+strsList.get(1));
+		  result.put("MINUTE_SECOND1", strsList.get(1)+"--"+strsList.get(2));
+		  result.put("MINUTE_SECOND2", strsList.get(2)+"--"+strsList.get(3));
+		  result.put("MINUTE_SECOND3", strsList.get(3)+"--"+strsList.get(4));
+		  result.put("MINUTE_SECOND4", strsList.get(4)+"--"+strsList.get(5));
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+public static String timeInterval(Date startTime ,Date endTime, int interval){
+	Long startTimeLong = startTime.getTime();
+	Long endTimeLong = endTime.getTime();
+	
+	Long timeCha = endTimeLong - startTimeLong;
+	int intervalMill =  interval*60*1000*12;
+	double aaa = timeCha/intervalMill;
+	int pages =0;;
+	if(aaa%5==0){
+		pages = (int) (aaa/5);
+	}else{
+		pages = (int) ((aaa/5)+1);
+	}
+	String sb = "";
+     for (int i = 0; i < pages; i++) {
+    	 Long ii = (long) (pages*interval*60*1000*12);
+    	 Long l = startTimeLong+ii;
+    	 DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    	 String ss = format1.format(new Date(l));
+    	 String[] s =ss.split(" ")[1].split(":");
+    	 sb += s[0]+":"+s[1]+",";
+      }
+     sb = sb.substring(0, sb.length()-1);
+	return sb;
+}
+	/**
+	 * @方法名称: stringToDate
+	 * @功能描述: 字符串转date
+	 * @作者:崔连瑞
+	 * @创建时间:2016-3-31 上午9:36:04
+	 * @param  String date  
+	 * @return Date
+	 */
+	public static Date stringToDate(String date){
+		Date result =null;
+		   try {
+			   SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");  
+			   result = sdf.parse(date); 
+		       } catch (Exception e) {
+			         e.printStackTrace();
+		            }
+		 return result;
+	}
+	@Override
+	public SmOperationEvent getOptEventById(String id) {
+		int id1 = Integer.parseInt(id);
+		String hql=" from SmOperationEvent where enable='0' and id=? ";			
+		List<?> list = this.getHibernateTemplate().find(hql, id1);
+		if (!list.isEmpty()) {
+			return (SmOperationEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<SmOperationEvent> getOptEventByOperationId(String operationId) {
+		String hql=" from SmOperationEvent where operationId=? and enable='0' order by time asc";
+		return this.getHibernateTemplate().find(hql,operationId);
+	}
+
+	@Override
+	public void addOptEvent(SmOperationEvent sopet) {
+		this.getHibernateTemplate().save(sopet);
+		
+	}
+
+	@Override
+	public void updateOptEvent(SmOperationEvent sopet) {
+		this.getHibernateTemplate().merge(sopet);	
+		
+	}
+
+	@Override
+	public SmBreathEvent getBreathEventById(String id) {
+		int id1 = Integer.parseInt(id);
+		String hql=" from SmBreathEvent where enable='0' and id=?";			
+		List<?> list = this.getHibernateTemplate().find(hql, id1);
+		if (!list.isEmpty()) {
+			return (SmBreathEvent) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<SmBreathEvent> getBreathEventByOperationId(String operationId) {
+		String hql=" from SmBreathEvent where operationId=? and enable='0' order by starttime asc";
+		return this.getHibernateTemplate().find(hql,operationId);
+	}
+
+	@Override
+	public void addBreathEvent(SmBreathEvent sbet) {
+		this.getHibernateTemplate().save(sbet);	
+	}
+
+	@Override
+	public void updateBreathEvent(SmBreathEvent sbet) {
+		this.getHibernateTemplate().merge(sbet);	
+		
+	}
+
+	@Override
+	public SmBodyPosition getBodyPositionByOperationId(String operationId) {
+		String hql=" from SmBodyPosition where operationId=? and enable='0'";
+		List<?> list = this.getHibernateTemplate().find(hql, operationId);
+		if (!list.isEmpty()) {
+			return (SmBodyPosition) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void addBodyPosition(SmBodyPosition sbp) {
+		this.getHibernateTemplate().save(sbp);		
+	}
+
+	@Override
+	public void updateBodyPosition(SmBodyPosition sbp) {
+		this.getHibernateTemplate().merge(sbp);	
+	}
+
+	@Override
+	public SmOutRoomStatus getOutRoomStatusByoperationId(String operationId) {
+		String hql=" from SmOutRoomStatus where operationId=? ";
+		List<?> list = this.getHibernateTemplate().find(hql, operationId);
+		if (!list.isEmpty()) {
+			return (SmOutRoomStatus) list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void addOutRoomStatus(SmOutRoomStatus sors) {
+		this.getHibernateTemplate().save(sors);		
+		
+	}
+
+	@Override
+	public void updateOutRoomStatus(SmOutRoomStatus sors) {
+		this.getHibernateTemplate().merge(sors);	
+		
+	}
+
+	@Override
+	public void modAnesthetistersByoperationName(SmRegOpt sross) {
+		this.getHibernateTemplate().merge(sross);
+	} 
+
+	@Override
+	public void addVitalSign(SmRemarkPoint srp) {
+		this.getHibernateTemplate().save(srp);	
+	}
+	
+	@Override
+	public List<Date> getTimesPointByOptId(String operationId,String hospitalCode,String roomCode) {
+		//String hql = "select time from SmRemarkPoint where operationId=? and  hospitalCode=? and roomCode=? ";
+		String hql = "select time from SmRemarkPoint where operationId=?";
+		
+		return this.getHibernateTemplate().find(hql, operationId);
+	}
+	
+	
+
+	@Override
+	public SmRemarkPoint getCollectItemsPointByOptId(String operationId,String itemCode,String hospitalCode,String roomCode,Date time) {
+		//String hql = "from SmRemarkPoint where operationId=? and itemCode=?  and hospitalCode=? and roomCode=? and time=?";
+		String hql = "from SmRemarkPoint where operationId=? and itemCode=?  order by time desc";
+		
+		List<?> list = this.getHibernateTemplate().find(hql, operationId,itemCode);
+		if (!list.isEmpty()) {
+			return (SmRemarkPoint) list.get(0);
+		} else {
+			return null;
+		}
+	}
+	
+	
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#getAnesEventList()
+	 */
+	@Override
+	public List<Map<String, Object>> getAnesEventList() {
+		String sql = "select code,name from SM_ANAES_EVENT_ITEMS order by id";
+		
+		Map m = new HashMap();
+		
+		List l = this.findBySql(sql, m);
+		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
+		for (Object obj:l) {
+			Object[] o = (Object[]) obj;
+			Map<String,Object> map = new HashMap<String,Object>();
+			map.put("code", o[0]);
+			map.put("name", o[1]);
+			result.add(map);
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#saveSmAnaesEvent(com.znyy.bean.SmAnaesEvent)
+	 */
+	@Override
+	public void saveSmAnaesEvent(SmAnaesEvent event) {
+		this.getHibernateTemplate().save(event);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#getSmAnesEventItemByCode(java.lang.String)
+	 */
+	@Override
+	public SmAnaesEventItems getSmAnesEventItemByCode(String itemCode) {
+		String hql = "from SmAnaesEventItems where code=?";
+		List<SmAnaesEventItems> l = this.getHibernateTemplate().find(hql,itemCode);
+		if(l.isEmpty()) {
+			return null;
+		} else {
+			return l.get(0);
+		}
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#getAnesEventByOperationId(java.lang.String)
+	 */
+	@Override
+	public List<Map<String, Object>> getAnesEventByOperationId(String ylwsid) {
+		
+		String sql = "select i.name,e.occurtime from SM_ANAES_EVENT e left join SM_ANAES_EVENT_ITEMS i on e.code=i.code where e.operation_id =:id and e.enable='0' order by e.occurtime";
+		
+		Map m = new HashMap();
+		m.put("id", ylwsid);
+		List l = this.findBySql(sql, m);
+		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
+		for (Object obj:l) {
+			Object[] o = (Object[]) obj;
+			Map<String,Object> map = new HashMap<String,Object>();
+			map.put("name", o[0]);
+			DateFormat f = new SimpleDateFormat("HH:mm");
+			map.put("occurtime", f.format(o[1]));
+			result.add(map);
+		}
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#saveSmOperationEvent(com.znyy.bean.SmOperationEvent)
+	 */
+	@Override
+	public void saveSmOperationEvent(SmOperationEvent event) {
+		this.getHibernateTemplate().save(event);
+	}
+
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#getOpEventByOperationId(java.lang.String)
+	 */
+	@Override
+	public List<SmOperationEvent> getOpEventByOperationId(String ylwsid) {
+		String hql = "from SmOperationEvent where operationId=? and enable='0' order by time";
+		List<SmOperationEvent> l = this.getHibernateTemplate().find(hql,ylwsid);
+		if(l.isEmpty()) {
+			return null;
+		} else {
+			return l;
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#getOpEventById(java.lang.String)
+	 */
+	@Override
+	public SmOperationEvent getOpEventById(String id) {
+		return this.getHibernateTemplate().get(SmOperationEvent.class, Integer.valueOf(id));
+	}
+
+	/* (non-Javadoc)
+	 * @see com.znyy.sm.dao.AnesthesiaRecordDao#saveSmBreathEvent(com.znyy.bean.SmBreathEvent)
+	 */
+	@Override
+	public void saveSmBreathEvent(SmBreathEvent event) {
+		this.getHibernateTemplate().save(event);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

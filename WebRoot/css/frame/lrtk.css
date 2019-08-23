@@ -1,0 +1,25 @@
+.zx{width:185px;height:47px;line-height:47px;padding-left:38px;font-size:14px;color:#525252;cursor:pointer;border:1px solid #dde8f2;position:relative;margin:0px;font-weight:bold;background:#f2f7fb url(../images/rubiao_44.png) no-repeat 20px center}
+.zx .current{background:#f1f1f1 url(../../images/pro_down.png) center right no-repeat;}
+.nr{width:223px;height:auto;overflow:hidden;line-height:38px;border-left:1px solid #e1e1e1;backguound:#fff;border-right:1px solid #e1e1e1; }
+.nr a{display:block;width:223px;height:38px;line-height:38px;padding-left:38px;color:#777777;background:#fff;text-decoration:none;border-bottom:1px solid #e1e1e1;}
+.nr a:hover{text-decoration:none;}
+
+
+
+#nav{ background:url(../../images/menu/yemian_02.jpg) repeat-y; width:219px; height:1100px; float:left}
+#nav ul li{ background:url(../../images/menu/3_02.jpg) no-repeat center top; width:205px; padding-left:15px; line-height:2.2;}
+#nav ul.nav_1j{ padding-top:15px; font-size:14px}
+#nav ul.nav_1j li a{ background:url(../../images/rubiao_44.png) no-repeat left center; width:150px; padding-left:15px}
+
+#nav ul.nav_2j li{width:190px;}
+#nav ul.nav_2j li a{ background:none; display:inline-block;}
+#nav ul.nav_2j li a:hover{ color:#4e8ed1}
+.nav_2j li a img{ display:inline-block; margin-right:4%}
+#nav ul.nav_2j li ul.nav_3j li{ background:none}
+
+
+
+.mbx{ background:url(../../images/bg_10.jpg) repeat-x 100% 100%; height:35px;}
+.mbx p{ margin-left:15%; line-height:35px;}
+.mbx p img{ line-height:35px; padding-top:0.15%; display:inline-block; margin-right:1%}
+.mbx p span{ font-size:12px; margin-left:1%;}
